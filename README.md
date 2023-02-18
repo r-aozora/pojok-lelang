@@ -4,11 +4,9 @@
 
 Pojok Lelang - Sistem Lelang Online Berbasis Web menggunakan Laravel
 
-## Instalasi (sedang di edit)
+## Instalasi
 
-- 
--
--
+Tutorial ada di [Web Programming UNPAS](https://youtu.be/BJu1Qcul7ig)
 
 ## Credit
 
