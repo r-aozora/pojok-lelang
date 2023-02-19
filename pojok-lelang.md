@@ -6,7 +6,7 @@ Pojok Lelang - Sistem Lelang Online Berbasis Web menggunakan Laravel
 
 ## Mulai Kerja
 
-Tutorial ada di [Web Programming UNPAS](https://youtu.be/BJu1Qcul7ig)
+Tutorial ada [di sini](https://youtu.be/BJu1Qcul7ig)
 
 ### Pemasangan
 - `git clone https://github.com/r-aozora/Pojok-Lelang.git`
@@ -23,6 +23,12 @@ Tutorial ada di [Web Programming UNPAS](https://youtu.be/BJu1Qcul7ig)
 - `git add .`
 - `git commit -m nama_commit`
 - `git push -u origin nama_branch`
+
+### Add File
+- `git fetch`
+- `git status`
+- `git pull`
+- Kembali ke Mulai Ngoding
 
 ## Credit
 
