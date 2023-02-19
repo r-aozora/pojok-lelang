@@ -12,7 +12,7 @@ Tutorial ada di [Web Programming UNPAS](https://youtu.be/BJu1Qcul7ig)
 - `git clone https://github.com/r-aozora/Pojok-Lelang.git`
 - `cd Pojok-Lelang`
 - `composer install`
-- `cp .env.example .env
+- `cp .env.example .env`
 - `php artisan key:generate`
 
 ### Mulai Ngoding
