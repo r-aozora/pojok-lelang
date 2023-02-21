@@ -1,6 +1,8 @@
 <?php
 
-use App\Http\Controllers\peopleController;
+use App\Http\Controllers\AdminController;
+use App\Http\Controllers\petugasController;
+use App\Http\Controllers\SiswaController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -15,5 +17,18 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('masyarakat.index');
 });
+
+Route::get('admin/petugas', function () {
+    $data = [
+        "level" => "Admin"
+    ];
+    return view('admin.data_petugas')->with($data);
+});
+Route::resource('admin', AdminController::class);
+
+
+Route::resource('petugas', petugasController::class);
+
+Route::resource('masyarakat', MasyarakatController::class);
