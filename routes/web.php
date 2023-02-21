@@ -26,8 +26,15 @@ Route::get('admin/petugas', function () {
     ];
     return view('admin.data_petugas')->with($data);
 });
-Route::resource('admin', AdminController::class);
 
+Route::get('/login', function () {
+    return view('pages.login');
+});
+Route::get('/register', function () {
+    return view('pages.register');
+});
+
+Route::resource('admin', AdminController::class);
 
 Route::resource('petugas', petugasController::class);
 
