@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -50,7 +49,7 @@
           </div>
         </div>
         <div class="input-group mb-3">
-          <input type="number" class="form-control" placeholder="Nomor Telepon">
+          <input type="text" class="form-control" placeholder="Nomor Telepon">
           <div class="input-group-append">
             <div class="input-group-text">
               <span class="fas fa-phone"></span>
