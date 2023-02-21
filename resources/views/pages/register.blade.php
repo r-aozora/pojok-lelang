@@ -22,7 +22,6 @@
     </div>
     <div class="card-body">
       <p class="login-box-msg">Daftar Keanggotaan Baru</p>
-
       <form action="" method="post">
         <div class="input-group mb-3">
           <input type="text" class="form-control" placeholder="Nama Lengkap">

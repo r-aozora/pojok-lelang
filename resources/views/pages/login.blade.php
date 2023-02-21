@@ -23,7 +23,6 @@
     </div>
     <div class="card-body">
       <p class="login-box-msg">Masuk ke akun Pojok Lelang</p>
-
       <form action="" method="post">
         <div class="input-group mb-3">
           <input type="email" class="form-control" placeholder="Email">
@@ -51,7 +50,7 @@
           <!-- /.col -->
         </div>
       </form>
-
+      
       <p class="mb-1">
         <a href="">Lupa password?</a>
       </p>

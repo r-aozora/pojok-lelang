@@ -35,7 +35,7 @@ Tutorial ada [di sini](https://youtu.be/BJu1Qcul7ig)
 Tim 6
 - [Citra](https://github.com/r-aozora)
 - [Lintang](https://github.com/codezeros18)
-- Amanda
+- [Amanda](https://github.com/cykmila)
 - Fiana
 
 2023
