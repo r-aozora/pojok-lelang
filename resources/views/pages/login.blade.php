@@ -1,10 +1,9 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>LOGIN</title>
+  <title>Pojok Lelang | Log In</title>
 
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
@@ -20,12 +19,11 @@
   <!-- /.login-logo -->
   <div class="card card-outline card-primary">
     <div class="card-header text-center">
-      <a href="../../index2.html" class="h1">LOGIN</a>
+      <a href="" class="h1"><b>Pojok Lelang</b></a>
     </div>
     <div class="card-body">
-      <p class="login-box-msg">Silakan masuk ke akun anda:D</p>
-
-      <form action="../../index3.html" method="post">
+      <p class="login-box-msg">Masuk ke akun Pojok Lelang</p>
+      <form action="" method="post">
         <div class="input-group mb-3">
           <input type="email" class="form-control" placeholder="Email">
           <div class="input-group-append">
@@ -43,20 +41,21 @@
           </div>
         </div>
         <div class="row">
+          <div class="col-8">
+          </div>
           <!-- /.col -->
           <div class="col-4">
-            <button type="submit" class="btn btn-outline-primary btn-block rounded" style="color:rgb(39, 31, 91)">Sign In</button>
+            <button type="submit" class="btn btn-primary btn-block">Masuk</button>
           </div>
           <!-- /.col -->
         </div>
       </form>
-
       
-      <!-- /.social-auth-links -->
-
-      
+      <p class="mb-1">
+        <a href="">Lupa password?</a>
+      </p>
       <p class="mb-0">
-        <a href="register.html" class="text-center">Register a new membership</a>
+        <a href="/register" class="text-center">Daftar keanggotaan baru.</a>
       </p>
     </div>
     <!-- /.card-body -->

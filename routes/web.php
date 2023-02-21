@@ -30,6 +30,7 @@ Route::get('admin/petugas', function () {
 Route::get('/login', function () {
     return view('pages.login');
 });
+
 Route::get('/register', function () {
     return view('pages.register');
 });
@@ -39,3 +40,4 @@ Route::resource('admin', AdminController::class);
 Route::resource('petugas', petugasController::class);
 
 Route::resource('masyarakat', MasyarakatController::class);
+
