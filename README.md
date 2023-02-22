@@ -21,7 +21,7 @@ Tutorial ada [di sini](https://youtu.be/BJu1Qcul7ig)
 
 ### Upload
 - `git add .`
-- `git commit -m nama_commit`
+- `git commit -m 'nama_commit'`
 - `git push -u origin nama_branch`
 
 ### Add File
