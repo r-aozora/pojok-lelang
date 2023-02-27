@@ -3,6 +3,7 @@
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\petugasController;
 use App\Http\Controllers\SiswaController;
+use App\Http\Controllers\SessionController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -31,9 +32,12 @@ Route::get('/login', function () {
     return view('pages.login');
 });
 
-Route::get('/register', function () {
+Route::get('/register ', function () {
     return view('pages.register');
 });
+
+Route::get('/login', SessionController::class, 'index');
+Route::get('/login', SessionController::class, 'index');
 
 Route::resource('admin', AdminController::class);
 

@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>AdminLTE 3 | Starter</title>
+    <title>Pojok Lelang | Home</title>
 
     <!-- Google Font: Source Sans Pro -->
     <link rel="stylesheet"
@@ -21,11 +21,11 @@
 
         @include('layout.navbar')
 
-        @if ($level == 'Admin')
+        @if ($level === 'Admin')
             @include('layout.sidebar_admin')
-        @elseif($level == 'Petugas')
+        @elseif ($level === 'Petugas')
             @include('layout.sidebar_petugas')
-        @elseif($level == 'Masyarakat')
+        @elseif ($level === 'Masyarakat')
             @include('layout.sidebar_masyarakat')
         @else
             @include('layout.sidebar_masyarakat')
@@ -38,9 +38,5 @@
         @include('partials.script')
 
     </div>
-
-
-
 </body>
-
 </html>
