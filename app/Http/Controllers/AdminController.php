@@ -28,7 +28,7 @@ class AdminController extends Controller
      */
     public function create()
     {
-        return "buat aku ni";
+
     }
 
     /**
@@ -87,3 +87,4 @@ class AdminController extends Controller
         //
     }
 }
+?>

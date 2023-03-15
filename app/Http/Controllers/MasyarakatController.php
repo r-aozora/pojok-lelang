@@ -85,3 +85,4 @@ class MasyarakatController extends Controller
         //
     }
 }
+?>
