@@ -18,7 +18,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('masyarakat.index');
+    return view('admin.index');
 });
 
 Route::get('admin/petugas', function () {
@@ -26,6 +26,13 @@ Route::get('admin/petugas', function () {
         "level" => "Admin"
     ];
     return view('admin.data_petugas')->with($data);
+});
+
+Route::get('/masyarakat', function () {
+    $data = [
+        "level" => "Masyarakat"
+    ];
+    return view('masyarakat.index')->with($data);
 });
 
 Route::get('/login', function () {
@@ -36,8 +43,20 @@ Route::get('/register ', function () {
     return view('pages.register');
 });
 
-Route::get('/login', SessionController::class, 'index');
-Route::get('/login', SessionController::class, 'index');
+Route::get('/log', function () {
+    return view('siglog.log');
+});
+
+Route::get('/sign', function () {
+    return view('siglog.sign');
+});
+
+Route::get('/home', function () {
+    return view('landing.home');
+});
+
+//Route::get('/login', [SessionController::class, 'index']);
+// Route::get('/login', SessionController::class, 'index');
 
 Route::resource('admin', AdminController::class);
 
@@ -45,3 +64,4 @@ Route::resource('petugas', petugasController::class);
 
 Route::resource('masyarakat', MasyarakatController::class);
 
+?>
