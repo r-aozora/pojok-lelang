@@ -15,10 +15,6 @@
         background-color: #B9D2D2;
         }
 
-
-
-
-
     @media (min-width: 769px) {
     .gradient-custom-2 {
     border-top-right-radius: .3rem;
@@ -27,10 +23,6 @@
     }
 
     }
-
-
-
-
 
     </style>
   </head>
@@ -67,35 +59,9 @@
         </div>
       </div>
     </nav>-->
-    <nav class="navbar navbar-expand-lg" style="background-color: #055E68">
-        <div class="container-fluid my-1 mx-3">
-            <a style="font-weight: 800; font-size: 25px;" class="nav-link active text-white" aria-current="page" href="#">POJOKLELANG</a>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+      
+      @include('layout/navbar')
 
-            </ul>
-            <div class="d-flex flex-wrap">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                  <li class="nav-item">
-                    <a class="nav-link active fw-medium text-white" aria-current="page" href="{{ url('home') }}">HOME</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link fw-medium text-white" href="#">ITEMS</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link fw-medium text-white" href="#">ABOUT</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link fw-medium text-white " href="{{ url('log') }}">LOGIN</a>
-                  </li>
-                </ul>
-              </div>
-          </div>
-        </div>
-      </nav>
       <div class="position-relative overflow-hidden p-3 p-md-5 text-center text-white bg-light bimage" style="background-image:url('https://media.istockphoto.com/id/1209088835/photo/back-view-of-buyers-raising-hands-to-auctioneer-during-auction.jpg?s=612x612&w=0&k=20&c=OKZMX3No-OcsyCIMB2ibwKVoIx3M-fyor4MvCq2de80='); background-repeat: no-repeat; position:relative;background-size:cover">
         <div class="col-md-5 p-lg-5 mx-auto my-5 judul" >
             <h1 class="display-4 fw-normal">Pojok Lelang</h1>
