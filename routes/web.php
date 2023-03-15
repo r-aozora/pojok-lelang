@@ -1,8 +1,8 @@
 <?php
 
 use App\Http\Controllers\AdminController;
-use App\Http\Controllers\petugasController;
-use App\Http\Controllers\SiswaController;
+use App\Http\Controllers\PetugasController;
+use App\Http\Controllers\MasyarakatController;
 use App\Http\Controllers\SessionController;
 use Illuminate\Support\Facades\Route;
 
@@ -18,14 +18,21 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('admin.index');
+    return view('pages.landing');
 });
 
-Route::get('admin/petugas', function () {
+Route::get('/admin', function () {
     $data = [
         "level" => "Admin"
     ];
-    return view('admin.data_petugas')->with($data);
+    return view('admin.index')->with($data);
+});
+
+Route::get('/petugas', function () {
+    $data = [
+        "level" => "Petugas"
+    ];
+    return view('petugas.index')->with($data);
 });
 
 Route::get('/masyarakat', function () {
@@ -35,33 +42,25 @@ Route::get('/masyarakat', function () {
     return view('masyarakat.index')->with($data);
 });
 
+/*Route::get('admin/petugas', function () {
+    $data = [
+        "level" => "Admin"
+    ];
+    return view('admin.data_petugas')->with($data);
+});*/
+
 Route::get('/login', function () {
     return view('pages.login');
 });
 
-Route::get('/register ', function () {
+Route::get('/register', function () {
     return view('pages.register');
 });
 
-Route::get('/log', function () {
-    return view('siglog.log');
-});
-
-Route::get('/sign', function () {
-    return view('siglog.sign');
-});
-
-Route::get('/home', function () {
-    return view('landing.home');
-});
 
 //Route::get('/login', [SessionController::class, 'index']);
 // Route::get('/login', SessionController::class, 'index');
 
 Route::resource('admin', AdminController::class);
-
 Route::resource('petugas', petugasController::class);
-
 Route::resource('masyarakat', MasyarakatController::class);
-
-?>
