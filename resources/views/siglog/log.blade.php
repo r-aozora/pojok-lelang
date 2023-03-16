@@ -32,23 +32,24 @@
 
     </style>
   </head>
-  <body style="background-color:#055E68">
+  <body style="background-image:url('https://media.istockphoto.com/id/1209088835/photo/back-view-of-buyers-raising-hands-to-auctioneer-during-auction.jpg?s=612x612&w=0&k=20&c=OKZMX3No-OcsyCIMB2ibwKVoIx3M-fyor4MvCq2de80='); background-repeat: no-repeat; position:relative;background-size:cover">
     <section class="h-100 gradient-form">
       <div class="container py-5 h-100">
         <div class="row d-flex justify-content-center align-items-center h-100">
           <div class="col-xl-9">
-            <div class="card text-black " style="border-radius:0%">
+            <div class="card text-black" style="border-radius: 20px">
               <div class="row g-0">
+                <div class="col-sm-6 px-0 d-none d-sm-block">
+                    <img src="../dist/img/apalu.jpeg"
+                      alt="Login image" class="w-100" style="height: 100%;background-size:cover;border-radius:20px ">
+                </div>
                 <div class="col-lg-6">
-                  <div class="card-body p-md-5 mx-md-4">
+                  <div class="card-body p-md-5 mx-md-4" style="border-radius: 20px">
 
                     <!--<div class="text-center">
                       <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/lotus.webp"
                         style="width: 185px;" alt="logo">
                     </div>-->
-                    <div class="d-flex pb-4">
-                        <a href="{{ url('home') }}">kembali</a>
-                    </div>
 
                     <div class="mb-5">
                       <h2>Log In</h2>
@@ -59,13 +60,13 @@
                       <div class="form-outline mb-4">
                         <label class="form-label" for="form2Example11">Username</label>
                         <input type="email" id="form2Example11" class="form-control"
-                          placeholder="enter a username" />
+                           />
 
                       </div>
 
                       <div class="form-outline mb-4">
                         <label class="form-label" for="form2Example22">Password</label>
-                        <input type="password" id="form2Example22" class="form-control" placeholder="enter a password" />
+                        <input type="password" id="form2Example22" class="form-control" />
 
                       </div>
 
@@ -82,10 +83,7 @@
 
                   </div>
                 </div>
-                <div class="col-sm-6 px-0 d-none d-sm-block">
-                  <img src="https://cdn2.shopify.com/s/files/1/2508/9760/files/bromberger-f-4L_grande.jpg?v=1563291198"
-                    alt="Login image" class="w-100" style="object-fit: cover;height: 100%; ">
-                </div>
+
               </div>
             </div>
           </div>
