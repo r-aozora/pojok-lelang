@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateUsersTable extends Migration
+class CreatePetugasTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,10 @@ class CreateUsersTable extends Migration
      */
     public function up()
     {
-        Schema::create('users', function (Blueprint $table) {
-            $table->integer('id', 11)->unique();
-            $table->string('nama', 25);
-            $table->string('username', 25);
-            $table->string('password');
-            $table->enum('level', ['masyarakat', 'admin', 'petugas']);
+        Schema::create('petugas', function (Blueprint $table) {
+            $table->integer('id_petugas')->primary();
+            
+            $table->foreign('id_petugas')->references('id')->on('users');
 
             $table->timestamps();
         });
@@ -31,6 +29,6 @@ class CreateUsersTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('users');
+        Schema::dropIfExists('petugas');
     }
 }

@@ -37,18 +37,19 @@
                 <div class="row d-flex justify-content-center">
                   <div class="col-lg-10">
                     <h2 class="mb-5 text-center">Daftar Akun</h2>
-                    <form>
+                    <form action="register/masyarakat" method="post">
+                      @csrf
                       <div class="row">
                         <div class="col-md-6 mb-1">
                           <div class="mb-3">
                             <label for="exampleFormControlInput1" class="form-label">Nama Lengkap</label>
-                            <input type="text" class="form-control" id="exampleFormControlInput1">
+                            <input type="text" class="form-control" id="exampleFormControlInput1" value="{{ Session::get('nama') }}">
                           </div>
                         </div>
                         <div class="col-md-6 mb-1">
                           <div class="mb-3">
                             <label for="exampleFormControlInput1" class="form-label">Username</label>
-                            <input type="text" class="form-control" id="exampleFormControlInput1">
+                            <input type="text" class="form-control" id="exampleFormControlInput1" value="{{ Session::get('username') }}">
                           </div>
                         </div>
                       </div>
@@ -60,12 +61,12 @@
                             <input type="password" class="form-control" id="exampleFormControlInput1">
                           </div>
                         </div>
-                        <div class="col-md-6 mb-4">
+                        <!-- <div class="col-md-6 mb-4">
                           <div class="mb-3">
                             <label for="exampleFormControlInput1" class="form-label">Telepon</label>
                             <input type="number" class="form-control" id="exampleFormControlInput1">
                           </div>
-                        </div>
+                        </div> -->
                       </div>
 
                       <div class="row">
