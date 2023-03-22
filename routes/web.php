@@ -21,9 +21,9 @@ Route::get('/', function () {
     return view('pages.landing');
 });
 
-Route::get('/login', function () {
+/* Route::get('/login', function () {
     return view('pages.login');
-});
+}); */
 
 Route::get('/register ', function () {
     return view('pages.register');
@@ -50,8 +50,11 @@ Route::get('/masyarakat', function () {
     return view('masyarakat.index')->with($data);
 });*/
 
-//Route::get('/login', [SessionController::class, 'index']);
-// Route::get('/login', SessionController::class, 'index');
+Route::get('/login', [SessionController::class, 'index']);
+Route::post('/login/masyarakat', [SessionController::class, 'login']);
+Route::get('/register', [SessionController::class, 'register']);
+Route::post('/register/masyarakat', [SessionController::class, 'create']);
+Route::get('/logout', [SessionController::class, 'logout']);
 
 Route::resource('admin', AdminController::class);
 
