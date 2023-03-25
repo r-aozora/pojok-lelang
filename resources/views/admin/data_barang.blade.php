@@ -15,6 +15,7 @@
             font-family: 'Montserrat', sans-serif;
             background-color: #ffffff;
             }
+
         </style>
     </head>
     <body class="d-flex flex-column min-vh-100">
@@ -54,7 +55,7 @@
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right m-auto">
                         <li class="breadcrumb-item fw-bold mt-1"><a style="text-decoration:none" class="text-secondary" href="#">Home</a></li>
-                        <li class="breadcrumb-item active fw-bold mt-1 text-white">Dashboard</li>
+                        <li class="breadcrumb-item active fw-bold mt-1 text-white">Petugas</li>
                         </ol>
                     </div>
                 </div>
@@ -76,6 +77,7 @@
                         </button>
                         <ul class="dropdown-menu">
                           <li><a class="dropdown-item" href="#">Log Out <i class="bi bi-box-arrow-right"></i></a></li>
+                          <li><a class="dropdown-item" href="#">Kembali <i class="bi bi-backspace"></i></a></li>
                         </ul>
                     </div>
                 </div>
@@ -83,65 +85,46 @@
             </div>
         </header>
         <div class="container">
-            <h2 class="mt-4">Dashboard</h2>
+            <h2 class="mt-4">Data Masyarakat</h2>
             <div class="row">
                 <div class="col">
                     <div class="card mt-4 mb-4">
                         <div class="card-body">
-                          <h5 class="card-title mt-2 mb-4 fw-bold" style="color:#055E68">Profile</h5>
-                          <div class="row">
-                            <div class="col-3">
-                                <img src="../dist/img/diaz.png" class="rounded mx-auto d-block img-fluid" alt="">
-                            </div>
-                            <div class="col-9">
-                                <div class="mb-3">
-                                    <label for="exampleFormControlInput1" class="form-label">Nama</label>
-                                    <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="lintang" disabled>
-                                </div>
-                                <div class="mb-3">
-                                    <label for="exampleFormControlInput1" class="form-label">Username</label>
-                                    <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="lintangkeren" disabled>
-                                </div>
-                                <div class="mb-3">
-                                    <label for="exampleFormControlInput1" class="form-label">Password</label>
-                                    <input type="password" class="form-control" id="exampleFormControlInput1" placeholder="akuganteng" disabled>
-                                </div>
-                                <div class="mb-3">
-                                    <label for="exampleFormControlInput1" class="form-label">Level</label>
-                                    <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="admin" disabled>
+                          <h5 class="card-title mt-2 fw-bold" style="color:#055E68">Data Masyarakat</h5>
+                          <div class=" d-flex flex-wrap justify-content-center mt-4">
+                            <div class="col-6 col-lg-6 mb-2 mb-lg-0 me-lg-auto" style="white-space:nowrap">
+                                <div class="col-sm-6">
+                                    <form class="col-12 col-lg-auto mb-2 mb-lg-0 me-lg-auto" role="search">
+                                        <input type="search" class="form-control" placeholder="Search..." aria-label="Search">
+                                      </form>
                                 </div>
                             </div>
-                          </div>
-                        </div>
 
-                      </div>
-                </div>
-            </div>
-        </div>
-        <div class="container mb-4">
-            <div class="row">
-                <div class="col">
-                    <div class="card mt-4 mb-4">
-                        <div class="card-body">
-                          <h5 class="card-title mt-2 fw-bold" style="color:#055E68">Menu Administrator</h5>
+                            <div class="text-end col-6 col-lg-6 me-lg-auto">
+
+                            </div>
                           <table class="table table-bordered mt-4" style="text-align: center">
                             <thead>
-                              <tr>
-                                <th><i class="bi bi-people px-1"></i>Data Masyarakat</th>
-                                <th><i class="bi bi-box px-1"></i>Data Petugas</th>
-                                <th><i class="bi bi-box2 px-1"></i>Data Barang</th>
-                              </tr>
+                                <tr>
+                                  <th>ID</th>
+                                  <th>Nama Barang</th>
+                                  <th>Tanggal</th>
+                                  <th>Harga Barang</th>
+                                  <th>Opsi</th>
+                                </tr>
                             </thead>
                             <tbody>
-                              <tr>
-                                <td><a class="btn text-white" style="background-color:#055E68" href="#" role="button">Buka<i class="bi bi-door-open px-1"></i></a></td>
-                                <td><a class="btn text-white" style="background-color:#055E68" href="#" role="button">Buka<i class="bi bi-door-open px-1"></i></a></td>
-                                <td><a class="btn text-white" style="background-color:#055E68" href="#" role="button">Buka<i class="bi bi-door-open px-1"></i></a></td>
-                              </tr>
+                                <tr>
+                                  <td>267111</td>
+                                  <td>Rumah</td>
+                                  <td>22/05/2002</td>
+                                  <td>100.000.000</td>
+                                  <td><a class="btn text-white" style="background-color:#055E68" href="#" role="button">Detail</i></a></td>
+                                </tr>
                             </tbody>
                           </table>
                         </div>
-                      </div>
+                    </div>
                 </div>
             </div>
         </div>
