@@ -5,7 +5,6 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
-use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 
 class lelang extends Model
@@ -29,9 +28,9 @@ class lelang extends Model
     {
         return $this->belongsTo(Petugas::class);
     }
-    public function barang() : HasOne
+    public function barang() : BelongsTo
     {
-        return $this->hasOne(Barang::class);
+        return $this->belongsTo(Barang::class);
     }
     public function history() : HasOne
     {

@@ -54,7 +54,7 @@
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right m-auto">
                         <li class="breadcrumb-item fw-bold mt-1"><a style="text-decoration:none" class="text-secondary" href="#">Home</a></li>
-                        <li class="breadcrumb-item active fw-bold mt-1 text-white">Dashboard</li>
+                        <li class="breadcrumb-item active fw-bold mt-1 text-white">Masyarakat</li>
                         </ol>
                     </div>
                 </div>
@@ -76,6 +76,7 @@
                         </button>
                         <ul class="dropdown-menu">
                           <li><a class="dropdown-item" href="#">Log Out <i class="bi bi-box-arrow-right"></i></a></li>
+                          <li><a class="dropdown-item" href="#">Kembali <i class="bi bi-backspace"></i></a></li>
                         </ul>
                     </div>
                 </div>
@@ -83,65 +84,81 @@
             </div>
         </header>
         <div class="container">
-            <h2 class="mt-4">Dashboard</h2>
+            <h2 class="mt-4">Data Masyarakat</h2>
             <div class="row">
                 <div class="col">
                     <div class="card mt-4 mb-4">
                         <div class="card-body">
-                          <h5 class="card-title mt-2 mb-4 fw-bold" style="color:#055E68">Profile</h5>
-                          <div class="row">
-                            <div class="col-3">
-                                <img src="../dist/img/diaz.png" class="rounded mx-auto d-block img-fluid" alt="">
-                            </div>
-                            <div class="col-9">
-                                <div class="mb-3">
-                                    <label for="exampleFormControlInput1" class="form-label">Nama</label>
-                                    <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="lintang" disabled>
-                                </div>
-                                <div class="mb-3">
-                                    <label for="exampleFormControlInput1" class="form-label">Username</label>
-                                    <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="lintangkeren" disabled>
-                                </div>
-                                <div class="mb-3">
-                                    <label for="exampleFormControlInput1" class="form-label">Password</label>
-                                    <input type="password" class="form-control" id="exampleFormControlInput1" placeholder="akuganteng" disabled>
-                                </div>
-                                <div class="mb-3">
-                                    <label for="exampleFormControlInput1" class="form-label">Level</label>
-                                    <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="admin" disabled>
+                          <h5 class="card-title mt-2 fw-bold" style="color:#055E68">Data Masyarakat</h5>
+                          <div class=" d-flex flex-wrap justify-content-center mt-4">
+                            <div class="col-6 col-lg-6 mb-2 mb-lg-0 me-lg-auto" style="white-space:nowrap">
+                                <div class="col-sm-6">
+                                    <form class="col-12 col-lg-auto mb-2 mb-lg-0 me-lg-auto" role="search">
+                                        <input type="search" class="form-control" placeholder="Search..." aria-label="Search">
+                                      </form>
                                 </div>
                             </div>
-                          </div>
-                        </div>
 
-                      </div>
-                </div>
-            </div>
-        </div>
-        <div class="container mb-4">
-            <div class="row">
-                <div class="col">
-                    <div class="card mt-4 mb-4">
-                        <div class="card-body">
-                          <h5 class="card-title mt-2 fw-bold" style="color:#055E68">Menu Administrator</h5>
+                            <div class="text-end col-6 col-lg-6 me-lg-auto">
+                                <button type="button" class="btn text-white" data-bs-toggle="modal" data-bs-target="#exampleModal" style="background-color: #055E68">
+                                    + Tambah
+                                  </button>
+
+                                  <!-- Modal -->
+                                  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog">
+                                      <div class="modal-content">
+                                        <div class="modal-header">
+                                          <h1 class="modal-title fs-5" id="exampleModalLabel">Tambah Data Masyarakat</h1>
+                                          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <div class="form-floating mb-3">
+                                                <input type="text" class="form-control" id="floatingInput" placeholder="name@example.com">
+                                                <label for="floatingInput">ID User</label>
+                                            </div>
+                                            <div class="form-floating mb-3">
+                                                <input type="text" class="form-control" id="floatingInput" placeholder="name@example.com">
+                                                <label for="floatingInput">Nama</label>
+                                            </div>
+                                            <div class="form-floating mb-3">
+                                                <input type="text" class="form-control" id="floatingInput" placeholder="name@example.com">
+                                                <label for="floatingInput">Username</label>
+                                            </div>
+                                            <div class="form-floating mb-3">
+                                                <input type="number" class="form-control" id="floatingInput" placeholder="name@example.com">
+                                                <label for="floatingInput">Telepon</label>
+                                            </div>
+                                        </div>
+                                        <div class="modal-footer">
+                                          <button type="button" class="btn" style="border: 1px solid black" data-bs-dismiss="modal">Tutup</button>
+                                          <button type="button" class="btn text-white" style="background-color: #055E68">Simpan</button>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                            </div>
+                        </div>
                           <table class="table table-bordered mt-4" style="text-align: center">
                             <thead>
-                              <tr>
-                                <th><i class="bi bi-people px-1"></i>Data Masyarakat</th>
-                                <th><i class="bi bi-box px-1"></i>Data Petugas</th>
-                                <th><i class="bi bi-box2 px-1"></i>Data Barang</th>
-                              </tr>
+                                <tr>
+                                  <th>ID</th>
+                                  <th>Nama Lengkap</th>
+                                  <th>Username</th>
+                                  <th>Opsi</th>
+                                </tr>
                             </thead>
                             <tbody>
-                              <tr>
-                                <td><a class="btn text-white" style="background-color:#055E68" href="#" role="button">Buka<i class="bi bi-door-open px-1"></i></a></td>
-                                <td><a class="btn text-white" style="background-color:#055E68" href="#" role="button">Buka<i class="bi bi-door-open px-1"></i></a></td>
-                                <td><a class="btn text-white" style="background-color:#055E68" href="#" role="button">Buka<i class="bi bi-door-open px-1"></i></a></td>
-                              </tr>
+                                <tr>
+                                  <td>251131</td>
+                                  <td>Lintang Balakosa</td>
+                                  <td>lintangkeren</td>
+                                  <td><a class="btn text-white" style="background-color:#055E68" href="#" role="button">Detail</i></a></td>
+                                </tr>
                             </tbody>
                           </table>
                         </div>
-                      </div>
+                    </div>
                 </div>
             </div>
         </div>

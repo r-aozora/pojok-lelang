@@ -19,6 +19,7 @@ class CreateBarangTable extends Migration
             $table->date('tanggal');
             $table->char('harga_awal', 20);
             $table->text('deskripsi_barang');
+            $table->char('foto', 225);
             $table->timestamps();
         });
     }

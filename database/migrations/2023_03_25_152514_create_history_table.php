@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateHistoryLelangTable extends Migration
+class CreateHistoryTable extends Migration
 {
     /**
      * Run the migrations.
@@ -34,6 +34,6 @@ class CreateHistoryLelangTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('history_lelang');
+        Schema::dropIfExists('history');
     }
 }

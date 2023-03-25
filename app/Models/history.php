@@ -5,7 +5,6 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
-use Illuminate\Database\Eloquent\Relations\HasOne;
 
 class history extends Model
 {
@@ -22,12 +21,12 @@ class history extends Model
     {
         return $this->belongsTo(Masyarakat::class);
     }
-    public function barang() : HasOne
+    public function barang() : BelongsTo
     {
-        return $this->hasOne(Barang::class);
+        return $this->belongsTo(Barang::class);
     }
-    public function lelang() : HasOne
+    public function lelang() : BelongsTo
     {
-        return $this->hasOne(Lelang::class);
+        return $this->belongsTo(Lelang::class);
     }
 }
