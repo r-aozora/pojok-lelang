@@ -16,8 +16,7 @@ Tutorial ada [di sini](https://youtu.be/BJu1Qcul7ig)
 - `php artisan key:generate`
 
 ### Mulai Ngoding
-- `git branch nama_branch`
-- `git checkout nama_branch`
+- `git checkout -b nama_branch`
 
 ### Upload
 - `git add .`
@@ -25,6 +24,7 @@ Tutorial ada [di sini](https://youtu.be/BJu1Qcul7ig)
 - `git push -u origin nama_branch`
 
 ### Add File
+- `git checkout main`
 - `git fetch`
 - `git status`
 - `git pull`
