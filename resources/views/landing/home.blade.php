@@ -43,37 +43,37 @@
                     <a href="/" class="d-flex align-items-center my-2 my-lg-0 me-lg-auto text-white text-decoration-none fw-bold" style="font-size: 25px">POJOKLELANG</a>
                 <ul class="nav col-12 col-lg-auto my-2 justify-content-center my-md-0 text-small">
                     <li>
-                    <a href="#" class="nav-link text-white">
-                        HOME
-                    </a>
+                        <a href="#" class="nav-link text-white">
+                            HOME
+                        </a>
                     </li>
                     <li>
-                    <a href="#" class="nav-link text-white">
-                        PRODUCT
-                    </a>
+                        <a href="#" class="nav-link text-white">
+                            PRODUCT
+                        </a>
                     </li>
                     <li>
-                    <a href="#" class="nav-link text-white">
-                        ABOUT
-                    </a>
+                        <a href="#" class="nav-link text-white">
+                            ABOUT
+                        </a>
                     </li>
                 </ul>
                 </div>
             </div>
             </div>
-            <div class="px-3 py-2 mb-1">
+            <div class="px-3 py-2 " style="background-color: #2E4F4F">
             <div class="container d-flex flex-wrap justify-content-center">
                 <div class="col-12 col-lg-auto mb-2 mb-lg-0 me-lg-auto" role="search">
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right m-auto">
-                        <li class="breadcrumb-item active fw-bold mt-1" style="text-align: center">Home</li>
+                        <li class="breadcrumb-item active fw-bold mt-1 text-white" style="text-align: center">Home</li>
                         </ol>
                     </div>
                 </div>
 
                 <div class="text-end">
-                <button type="button"class="btn text-white btn-sm me-2" style="background-color: #055E68;border-radius:10px">Login</button>
-                <button type="button" class="btn text-white btn-sm" style="background-color: #055E68; border-radius:10px">Sign-up</button>
+                <button type="button"class="btn text-white btn-sm me-2">Login</button>
+                <button type="button" class="btn btn-sm" style="background-color: #ffffff; border-radius:10px">Sign-up</button>
                 </div>
             </div>
             </div>
@@ -148,11 +148,11 @@
             </div>
         </div>
         </div>
-        <div class="text-center p-3" style="background-color:#055E68" >
-        <a class="text-white" style="text-decoration: none" href="https://mdbootstrap.com/"
-            >Copyright © 2023 Pojok Lelang. All rights reserved.</a
-            >
-        </div>
+        <footer class="mt-auto">
+                <div class="text-center p-3" style="background-color:#055E68" >
+                    <a class="text-white" style="text-decoration: none" href="https://mdbootstrap.com/">Copyright © 2023 Pojok Lelang. All rights reserved.</a>
+                </div>
+        </footer>
 
 
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>

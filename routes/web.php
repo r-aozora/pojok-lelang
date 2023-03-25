@@ -55,6 +55,37 @@ Route::get('/home', function () {
     return view('landing.home');
 });
 
+Route::get('/dashboard', function () {
+    return view('adminpojok.dashboard');
+});
+
+Route::get('/datamasyarakat', function () {
+    return view('adminpojok.datamasyarakat');
+});
+
+Route::get('/datapetugas', function () {
+    return view('adminpojok.datapetugas');
+});
+
+Route::get('/databarang', function () {
+    return view('adminpojok.databarang');
+});
+
+Route::get('/detailmasyarakat', function () {
+    return view('adminpojok.detailmasyarakat');
+});
+
+Route::get('/detailpetugas', function () {
+    return view('adminpojok.detailpetugas');
+});
+
+Route::get('/detailbarang', function () {
+    return view('adminpojok.detailbarang');
+});
+
+
+
+
 //Route::get('/login', [SessionController::class, 'index']);
 // Route::get('/login', SessionController::class, 'index');
 
