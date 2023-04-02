@@ -19,9 +19,9 @@ class DatabaseSeeder extends Seeder
         DB::table('users')->insert([
             'id'=>'1001',
             'nama'=>'Muhamad Citra Hidayat',
-            'username'=>'citra_hdy',
+            'username'=>'citrahdy',
             'password'=>Hash::make('87654321'),
-            'level'=>'admin',
+            'level'=>'Administrator',
             'created_at'=>date('Y-m-d H:i:s')
         ]);
         DB::table('users')->insert([
@@ -29,7 +29,7 @@ class DatabaseSeeder extends Seeder
             'nama'=>'Lintang Balakosa Ardhana',
             'username'=>'lintang',
             'password'=>Hash::make('87654321'),
-            'level'=>'petugas',
+            'level'=>'Petugas',
             'created_at'=>date('Y-m-d H:i:s')
         ]);
         DB::table('users')->insert([
@@ -37,16 +37,16 @@ class DatabaseSeeder extends Seeder
             'nama'=>'Amanda Cahya Kamila',
             'username'=>'cykmila',
             'password'=>Hash::make('87654321'),
-            'level'=>'petugas',
+            'level'=>'Petugas',
             'created_at'=>date('Y-m-d H:i:s')
         ]);
 
         DB::table('users')->insert([
             'id'=>'2001',
             'nama'=>'Surya Nata Ardhana',
-            'username'=>'nata_ardhana',
+            'username'=>'nataardhana',
             'password'=>Hash::make('12345678'),
-            'level'=>'masyarakat',
+            'level'=>'Masyarakat',
             'created_at'=>date('Y-m-d H:i:s')
         ]);
         DB::table('users')->insert([
@@ -54,7 +54,7 @@ class DatabaseSeeder extends Seeder
             'nama'=>'Yasser Aziz Alfalah',
             'username'=>'azizalfalahyasser',
             'password'=>Hash::make('12345678'),
-            'level'=>'masyarakat',
+            'level'=>'Masyarakat',
             'created_at'=>date('Y-m-d H:i:s')
         ]);
         DB::table('users')->insert([
@@ -62,7 +62,7 @@ class DatabaseSeeder extends Seeder
             'nama'=>'Syawal AlFath',
             'username'=>'fathwal',
             'password'=>Hash::make('12345678'),
-            'level'=>'masyarakat',
+            'level'=>'Masyarakat',
             'created_at'=>date('Y-m-d H:i:s')
         ]);
     }

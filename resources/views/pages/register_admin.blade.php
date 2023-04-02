@@ -37,7 +37,7 @@
                 <div class="row d-flex justify-content-center">
                 <div class="col-lg-10">
                     <h2 class="mb-5 text-center">Daftar Akun</h2>
-                    <form action="register/masyarakat" method="post">
+                    <form action="register/admin/auth" method="post">
                     @csrf
                         <div class="form-outline mb-4">
                             <label for="exampleFormControlInput1" class="form-label">Nama</label>
@@ -53,9 +53,9 @@
                         </div>
                         <div class="form-outline mb-4">
                             <label for="exampleDataList" class="form-label">Level</label>
-                            <input class="form-control" list="datalistOptions" id="exampleDataList" placeholder="Level">
+                            <input class="form-control" list="datalistOptions" id="exampleDataList" placeholder="Level" value="{{ Session::get('level') }}">
                             <datalist id="datalistOptions">
-                                <option value="Admin">
+                                <option value="Administrator">
                                 <option value="Petugas">
                             </datalist>
                         </div>

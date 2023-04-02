@@ -48,7 +48,7 @@
                     <div class="mb-5">
                       <h2>Masuk Ke Akun</h2>
                     </div>
-                    <form action="/login/masyarakat" method="post">
+                    <form action="/login/admin/auth" method="post">
                       @csrf
                       <div class="form-outline mb-4">
                         <label class="form-label" for="form2Example11">Username</label>
@@ -60,9 +60,9 @@
                       </div>
                       <div class="form-outline mb-4">
                         <label for="exampleDataList" class="form-label">Level</label>
-                        <input class="form-control" list="datalistOptions" id="exampleDataList" placeholder="Level">
+                        <input class="form-control" list="datalistOptions" id="exampleDataList" placeholder="Level" value="{{ Session::get('level') }}">
                         <datalist id="datalistOptions">
-                            <option value="Admin">
+                            <option value="Administrator">
                             <option value="Petugas">
                         </datalist>
                       </div>
