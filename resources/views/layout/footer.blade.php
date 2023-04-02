@@ -1,10 +1,7 @@
-<!-- Main Footer -->
-<footer class="main-footer">
-    <!-- To the right -->
-    <div class="float-right d-none d-sm-inline">
-        Anything you want
+<footer class="mt-auto">
+    <div class="text-center p-3" style="background-color:#055E68" >
+        <a class="text-white" style="text-decoration: none" href="https://mdbootstrap.com/">Copyright © 2023 Pojok Lelang. All rights reserved.</a>
     </div>
-    <!-- Default to the left -->
-    <strong>Copyright &copy; 2023 Tim 6.</strong> All rights reserved.
 </footer>
+
 
