@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Pojok Lelang | Home</title>
+    <title>{{ $title }}</title>
 
     <!-- Google Font: Source Sans Pro -->
     <link rel="stylesheet"
@@ -27,16 +27,12 @@
 <body class="hold-transition sidebar-mini">
     <div class="wrapper">
 
-        @include('layout.navbar')
-
-        @if ($level === 'Admin')
-            @include('layout.sidebar_admin')
-        @elseif ($level === 'Petugas')
-            @include('layout.sidebar_petugas')
-        @elseif ($level === 'Masyarakat')
-            @include('layout.sidebar_masyarakat')
+        @if ('level' === 'Administrator')
+            @include('layout.navbar_admin')
+        @elseif ('level' === 'Petugas')
+            @include('layout.navbar_petugas')
         @else
-            @include('layout.sidebar_masyarakat')
+            @include('layout.navbar_user')
         @endif
 
         @yield('content')

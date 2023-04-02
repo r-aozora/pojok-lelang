@@ -72,7 +72,7 @@
                 </form>
 
                 <div class="text-end">
-                    <a href="/logout" class="btn btn-light text-dark me-2">Log Out</a>
+                    <a href="{{ url('/logout') }}" class="btn btn-light text-dark me-2">Log Out</a>
                 </div>
             </div>
         </div>
