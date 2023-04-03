@@ -8,7 +8,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../css/style.css">
     <style>
       body{
         font-family: 'Montserrat', sans-serif;
@@ -34,7 +34,7 @@
             <div class="card text-black" style="border-radius: 20px">
               <div class="row g-0">
                 <div class="col-sm-6 px-0 d-none d-sm-block">
-                  <img src="../dist/img/brand-logo.png"
+                  <img src="../img/brand-logo.png"
                     alt="Login image" class="w-100" style="height: 100%;background-size:cover;border-radius:20px ">
                 </div>
                 <div class="col-lg-6">
