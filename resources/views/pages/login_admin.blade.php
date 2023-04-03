@@ -34,7 +34,7 @@
             <div class="card text-black" style="border-radius: 20px">
               <div class="row g-0">
                 <div class="col-sm-6 px-0 d-none d-sm-block">
-                  <img src="../dist/img/brand-logo.png"
+                  <img src="../img/brand-logo.png"
                     alt="Login image" class="w-100" style="height: 100%;background-size:cover;border-radius:20px ">
                 </div>
                 <div class="col-lg-6">
