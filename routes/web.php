@@ -1,9 +1,11 @@
 <?php
 
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\PetugasController;
 use App\Http\Controllers\MasyarakatController;
 use App\Http\Controllers\SessionController;
+use App\Http\Controllers\SignupadminController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -24,37 +26,16 @@ Route::get('/', function () {
     ]);
 });
 
-/*Route::get('admin/petugas', function () {
-    $data = [
-        "level" => "Admin"
-    ];
-    return view('admin.index')->with($data);
-});
-
-Route::get('/petugas', function () {
-    $data = [
-        "level" => "Petugas"
-    ];
-    return view('petugas.index')->with($data);
-});
-
-Route::get('/masyarakat', function () {
-    $data = [
-        "level" => "Masyarakat"
-    ];
-    return view('masyarakat.index')->with($data);
-});*/
-
 // Masyarakat
 Route::get('/masyarakat/dashboard', function () {
-    return view('masyarakat.index', [
+    return view('masyarakat.dashboard', [
         'title'=>'Masyarakat | Dashboard'
     ]);
 });
 
 // Admin
 Route::get('/admin/dashboard', function () {
-    return view('admin.index', [
+    return view('admin.dashboard', [
         'title'=>'Admin | Dashboard',
     ]);
 });
@@ -97,34 +78,24 @@ Route::get('/admin/barang/detail', function () {
 
 // Petugas
 Route::get('petugas/dashboard', function () {
-    return view('petugas.index', [
+    return view('petugas.dashboard', [
         'title'=>'Petugas | Dashboard'
     ]);
 });
 
-// Login Masyarakat
+Route::get('/dashboard', [DashboardController::class, 'index']);
+
+// Login
 Route::get('/login', [SessionController::class, 'index']);
-Route::post('/login/masyarakat', [SessionController::class, 'login']);
+Route::post('/login/auth', [SessionController::class, 'login']);
 
 // Register Masyarakat
 Route::get('/register', [SessionController::class, 'register']);
-Route::post('/register/masyarakat', [SessionController::class, 'create']);
-
-// Login Admin
-// Route::get('/login/admin', function () {
-//     return view('pages.login_admin');
-// });
-
-// Route::get('/register/admin', function () {
-//     return view('pages.register_admin');
-// });
-
-Route::get('/login/admin', [SessionController::class, 'index_admin']);
-Route::post('/login/admin/auth', [SessionController::class, 'login_admin']);
+Route::post('/register/auth', [SessionController::class, 'create']);
 
 // Register Admin
-Route::get('/register/admin', [SessionController::class, 'register_admin']);
-Route::post('/register/admin/auth', [SessionController::class, 'create_admin']);
+Route::get('/register/admin', [SignupadminController::class, 'register']);
+Route::post('/register/admin/auth', [SignupadminController::class, 'create']);
 
 // Logout
 Route::get('/logout', [SessionController::class, 'logout']);

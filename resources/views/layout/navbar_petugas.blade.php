@@ -33,22 +33,29 @@
         <div class="col-6 col-lg-6 mb-2 mb-lg-0 me-lg-auto" style="white-space:nowrap">
             <div class="col-sm-6">
                 <ol class="breadcrumb float-sm-right m-auto">
-                <li class="breadcrumb-item mt-1"><a class="text-light" style="text-decoration:none" href="#">Home</a></li>
-                <li class="breadcrumb-item active fw-medium mt-1 text-white">Dashboard</li>
+                <li class="breadcrumb-item fw-bold mt-1"><a style="text-decoration:none" class="text-secondary" href="#">Home</a></li>
+                <li class="breadcrumb-item active fw-bold mt-1 text-white">Dashboard</li>
                 </ol>
             </div>
         </div>
 
         <div class="text-end col-6 col-lg-6 me-lg-auto">
-            <a href="" class="btn text-white" style="border:none" type="button" aria-expanded="false">
-                <i class="bi bi-coin">Lelang</i>
-            </a>
+            <div class="dropdown d-inline">
+                <button class="btn dropdown-toggle text-white" style="border:none" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    <i class="bi bi-coin">Lelang</i>
+                </button>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="#"><i class="bi bi-people px-1"></i>Data Masyarakat</a></li>
+                  <li><a class="dropdown-item" href="#"><i class="bi bi-box px-1"></i>Data Barang</a></li>
+                  <li><a class="dropdown-item" href="#"><i class="bi bi-box2 px-1"></i>Data Lelang</a></li>
+                </ul>
+            </div>
             <div class="dropdown d-inline">
                 <button class="btn dropdown-toggle text-white" style="border:none" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                     <i class="bi bi-person-circle">{{ Auth::user()->nama }}</i>
                 </button>
                 <ul class="dropdown-menu">
-                    <li><a class="dropdown-item" href="{{ url('/logout') }}">Log Out<i class="bi bi-box-arrow-right"></i></a></li>
+                  <li><a class="dropdown-item" href="{{ url('/logout') }}">Log Out<i class="bi bi-box-arrow-right"></i></a></li>
                 </ul>
             </div>
         </div>

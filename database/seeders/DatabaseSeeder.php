@@ -36,31 +36,6 @@ class DatabaseSeeder extends Seeder
             'id'=>'1003',
             'nama'=>'Amanda Cahya Kamila',
             'username'=>'cykmila',
-            'password'=>Hash::make('87654321'),
-            'level'=>'Petugas',
-            'created_at'=>date('Y-m-d H:i:s')
-        ]);
-
-        DB::table('users')->insert([
-            'id'=>'2001',
-            'nama'=>'Surya Nata Ardhana',
-            'username'=>'nataardhana',
-            'password'=>Hash::make('12345678'),
-            'level'=>'Masyarakat',
-            'created_at'=>date('Y-m-d H:i:s')
-        ]);
-        DB::table('users')->insert([
-            'id'=>'2002',
-            'nama'=>'Yasser Aziz Alfalah',
-            'username'=>'azizalfalahyasser',
-            'password'=>Hash::make('12345678'),
-            'level'=>'Masyarakat',
-            'created_at'=>date('Y-m-d H:i:s')
-        ]);
-        DB::table('users')->insert([
-            'id'=>'2003',
-            'nama'=>'Syawal AlFath',
-            'username'=>'fathwal',
             'password'=>Hash::make('12345678'),
             'level'=>'Masyarakat',
             'created_at'=>date('Y-m-d H:i:s')

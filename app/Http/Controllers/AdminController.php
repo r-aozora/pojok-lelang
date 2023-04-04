@@ -14,11 +14,10 @@ class AdminController extends Controller
     public function index()
     {
         $data = [
-            "title" => "Dashboard",
-            "level" => "Admin"
+            'level' => 'Administrator',
+            'title' => 'Pojok Lelang | Dashboard'
         ];
-
-        return view('admin.index')->with($data);
+        return view('pages.dashboard')->with($data);
     }
 
     /**
@@ -28,7 +27,7 @@ class AdminController extends Controller
      */
     public function create()
     {
-
+        //
     }
 
     /**
@@ -87,4 +86,3 @@ class AdminController extends Controller
         //
     }
 }
-?>

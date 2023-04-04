@@ -37,7 +37,7 @@
                 <div class="row d-flex justify-content-center">
                   <div class="col-lg-10">
                     <h2 class="mb-5 text-center">Daftar Akun</h2>
-                    <form action="register/masyarakat" method="post">
+                    <form action="register/auth" method="post">
                       @csrf
                       <div class="row">
                         <div class="col-md-6 mb-1">

@@ -12,6 +12,8 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../css/sytle.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+        
     <style>
         body{
             font-family: 'Montserrat', sans-serif;
@@ -22,11 +24,11 @@
 <body class="hold-transition sidebar-mini">
     <div class="wrapper">
 
-        @if ('level' === 'Administrator')
+        @if (auth()->user()->level === 'Administrator')
             @include('layout.navbar_admin')
-        @elseif ('level' === 'Petugas')
+        @elseif (auth()->user()->level === 'Petugas')
             @include('layout.navbar_petugas')
-        @else
+        @elseif (auth()->user()->level === 'Masyarakat')
             @include('layout.navbar_user')
         @endif
 

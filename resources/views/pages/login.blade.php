@@ -48,7 +48,7 @@
                     <div class="mb-5">
                       <h2>Masuk Ke Akun</h2>
                     </div>
-                    <form action="/login/masyarakat" method="post">
+                    <form action="/login/auth" method="post">
                       @csrf
                       <div class="form-outline mb-4">
                         <label class="form-label" for="form2Example11">Username</label>

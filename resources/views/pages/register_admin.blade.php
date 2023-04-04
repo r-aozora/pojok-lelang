@@ -52,12 +52,12 @@
                             <input type="password" class="form-control" id="exampleFormControlInput1">
                         </div>
                         <div class="form-outline mb-4">
-                            <label for="exampleDataList" class="form-label">Level</label>
-                            <input class="form-control" list="datalistOptions" id="exampleDataList" placeholder="Level" value="{{ Session::get('level') }}">
-                            <datalist id="datalistOptions">
-                                <option value="Administrator">
-                                <option value="Petugas">
-                            </datalist>
+                            <label for="level" class="form-label">Level</label>
+                            <select class="form-select" id="level">
+                                <option selected>Level</option>
+                                <option value="Administrator">Administrator</option>
+                                <option value="Petugas">Petugas</option>
+                              </select>
                         </div>
                         <!-- <div class="col-md-6 mb-4">
                         <div class="mb-3">
