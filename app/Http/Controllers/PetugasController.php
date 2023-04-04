@@ -17,11 +17,10 @@ class petugasController extends Controller
     public function index()
     {
         $data = [
-            "level" => "Petugas"
+            'level' => 'Petugas',
+            'title' => 'Pojok Lelang | Dashboard'
         ];
-
-        return view('petugas.index')->with($data);
-    }
+        return view('pages.dashboard')->with($data);    }
 
     /**
      * Show the form for creating a new resource.

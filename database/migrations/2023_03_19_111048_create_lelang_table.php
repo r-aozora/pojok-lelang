@@ -16,7 +16,7 @@ class CreateLelangTable extends Migration
         Schema::create('lelang', function (Blueprint $table) {
             $table->integer('id_lelang', 11)->unique();
             $table->integer('id_barang');
-            $table->date('tanggal_lelang');
+            // $table->date('tanggal_lelang');
             $table->char('harga_akhir', 20);
             $table->integer('id_user');
             $table->integer('id_petugas');
