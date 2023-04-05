@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class AdminController extends Controller
+class BarangController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,10 +14,9 @@ class AdminController extends Controller
     public function index()
     {
         $data = [
-            'level' => 'Administrator',
-            'title' => 'Pojok Lelang | Dashboard'
+            'title' => 'Pojok Lelang | Data Barang'
         ];
-        return view('pages.dashboard')->with($data);
+        return view('admin.data_barang')->with($data);
     }
 
     /**

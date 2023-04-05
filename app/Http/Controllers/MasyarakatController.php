@@ -14,10 +14,9 @@ class MasyarakatController extends Controller
     public function index()
     {
         $data = [
-            'level' => 'Masyarakat',
-            'title' => 'Pojok Lelang | Dashboard'
+            'title' => 'Pojok Lelang | Data Masyarakat'
         ];
-        return view('pages.dashboard')->with($data);
+        return view('admin.data_masyarakat')->with($data);
     }
 
     /**

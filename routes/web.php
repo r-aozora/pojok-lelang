@@ -1,9 +1,9 @@
 <?php
 
-use App\Http\Controllers\AdminController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\PetugasController;
 use App\Http\Controllers\MasyarakatController;
+use App\Http\Controllers\BarangController;
 use App\Http\Controllers\SessionController;
 use App\Http\Controllers\SignupadminController;
 use Illuminate\Support\Facades\Route;
@@ -26,38 +26,6 @@ Route::get('/', function () {
     ]);
 });
 
-// Masyarakat
-Route::get('/masyarakat/dashboard', function () {
-    return view('masyarakat.dashboard', [
-        'title'=>'Masyarakat | Dashboard'
-    ]);
-});
-
-// Admin
-Route::get('/admin/dashboard', function () {
-    return view('admin.dashboard', [
-        'title'=>'Admin | Dashboard',
-    ]);
-});
-
-Route::get('/admin/masyarakat', function () {
-    return view('admin.data_masyarakat', [
-        'title'=>'Admin | Data Masyarakat'
-    ]);
-});
-
-Route::get('/admin/petugas', function () {
-    return view('admin.data_petugas', [
-        'title'=>'Admin | Data Petugas'
-    ]);
-});
-
-Route::get('/admin/barang', function () {
-    return view('admin.data_barang', [
-        'title'=>'Admin | Data Barang'
-    ]);
-});
-
 Route::get('/admin/masyarakat/detail', function () {
     return view('admin.detail_masyarakat', [
         'title'=>'Admin | Detail Masyarakat'
@@ -73,13 +41,6 @@ Route::get('/admin/petugas/detail', function () {
 Route::get('/admin/barang/detail', function () {
     return view('admin.detail_barang', [
         'title'=>'Admin | Detail Barang'
-    ]);
-});
-
-// Petugas
-Route::get('petugas/dashboard', function () {
-    return view('petugas.dashboard', [
-        'title'=>'Petugas | Dashboard'
     ]);
 });
 
@@ -101,6 +62,6 @@ Route::post('/register/admin/auth', [SignupadminController::class, 'create']);
 Route::get('/logout', [SessionController::class, 'logout']);
 
 // Controller
-Route::resource('admin', AdminController::class);
 Route::resource('petugas', PetugasController::class);
 Route::resource('masyarakat', MasyarakatController::class);
+Route::resource('barang', BarangController::class);

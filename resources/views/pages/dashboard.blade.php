@@ -48,25 +48,27 @@
             <div class="col">
                 <div class="card mt-4 mb-4">
                     <div class="card-body">
-                        <h5 class="card-title mt-2 fw-bold" style="color:#055E68">Menu Administrator</h5>
+                        <div class="card-header" style="background-color:#055E68; max-height:60px">
+                            <h5 class="card-title mt-2 fw-bold text-light">Menu Administrator</h5>
+                        </div>
                         <table class="table table-bordered mt-4" style="text-align: center">
-                        <thead>
-                            <tr>
-                            <th><i class="bi bi-people px-1"></i>Data Masyarakat</th>
-                            <th><i class="bi bi-box px-1"></i>Data Petugas</th>
-                            <th><i class="bi bi-box2 px-1"></i>Data Barang</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                            <td><a class="btn text-white" style="background-color:#055E68" href="#" role="button">Buka<i class="bi bi-door-open px-1"></i></a></td>
-                            <td><a class="btn text-white" style="background-color:#055E68" href="#" role="button">Buka<i class="bi bi-door-open px-1"></i></a></td>
-                            <td><a class="btn text-white" style="background-color:#055E68" href="#" role="button">Buka<i class="bi bi-door-open px-1"></i></a></td>
-                            </tr>
-                        </tbody>
+                            <thead>
+                                <tr>
+                                    <th class="bi bi-people px-1"> Data Masyarakat</th>
+                                    <th class="bi bi-person-vcard px-1"> Data Petugas</th>
+                                    <th class="bi bi-box2 px-1"> Data Barang</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><a class="btn text-white" style="background-color:#055E68" href="{{ url('/masyarakat') }}" role="button">Buka<i class="bi bi-door-open"></i></a></td>
+                                    <td><a class="btn text-white" style="background-color:#055E68" href="{{ url('/petugas') }}" role="button">Buka<i class="bi bi-door-open"></i></a></td>
+                                    <td><a class="btn text-white" style="background-color:#055E68" href="{{ url('/barang') }}" role="button">Buka<i class="bi bi-door-open"></i></a></td>
+                                </tr>
+                            </tbody>
                         </table>
                     </div>
-                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -82,16 +84,16 @@
                         <table class="table table-bordered mt-4" style="text-align: center">
                             <thead>
                                 <tr>
-                                <th><i class="bi bi-people px-1"></i>Data Masyarakat</th>
-                                <th><i class="bi bi-box px-1"></i>Data Barang</th>
-                                <th><i class="bi bi-box2 px-1"></i>Data Lelang</th>
+                                    <th class="bi bi-people px-1"> Data Masyarakat</th>
+                                    <th class="bi bi-box2 px-1"> Data Barang</th>
+                                    <th class="bi bi-list-ul px-1"> Aktivasi Lelang</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr>
-                                <td><a class="btn text-white" style="background-color:#055E68" href="#" role="button">Buka<i class="bi bi-door-open px-1"></i></a></td>
-                                <td><a class="btn text-white" style="background-color:#055E68" href="#" role="button">Buka<i class="bi bi-door-open px-1"></i></a></td>
-                                <td><a class="btn text-white" style="background-color:#055E68" href="#" role="button">Buka<i class="bi bi-door-open px-1"></i></a></td>
+                                    <td><a class="btn text-white" style="background-color:#055E68" href="{{ url('/data-masyarakat') }}" role="button">Buka</i><i class="bi bi-door-open px-1"></i></a></td>
+                                    <td><a class="btn text-white" style="background-color:#055E68" href="{{ url('/data-barang') }}" role="button">Buka</i><i class="bi bi-door-open px-1"></i></a></td>
+                                    <td><a class="btn text-white" style="background-color:#055E68" href="{{ url('/data-lelang') }}" role="button">Buka</i><i class="bi bi-door-open px-1"></i></a></td>
                                 </tr>
                             </tbody>
                         </table>
@@ -108,7 +110,8 @@
                     <div class="card-body">
                         <div class="card-header" style="background-color:#055E68; max-height:60px">
                             <h5 class="card-title mt-2 fw-bold text-light">History Lelang</h5>
-                        </div>                        <table class="table table-bordered mt-4" style="text-align: center">
+                        </div>                        
+                        <table class="table table-bordered mt-4" style="text-align: center">
                             <thead>
                                 <tr>
                                     <th>#</th>
