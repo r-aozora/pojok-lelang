@@ -32,24 +32,24 @@ Route::get('/about', function () {
     ]);
 });
 
-Route::get('/dashboard', [DashboardController::class, 'index']);
+Route::get('/dashboard', [DashboardController::class, 'index'])->middleware('User');
 
 // Login
-Route::get('/login', [SessionController::class, 'index']);
-Route::post('/login/auth', [SessionController::class, 'login']);
+Route::get('/login', [SessionController::class, 'index'])->middleware('Tamu');
+Route::post('/login/auth', [SessionController::class, 'login'])->middleware('Tamu');
 
 // Register Masyarakat
-Route::get('/register', [SessionController::class, 'register']);
-Route::post('/register/auth', [SessionController::class, 'create']);
+Route::get('/register', [SessionController::class, 'register'])->middleware('Tamu');
+Route::post('/register/auth', [SessionController::class, 'create'])->middleware('Tamu');
 
 // Register Admin
-Route::get('/register/admin', [SignupadminController::class, 'register']);
-Route::post('/register/admin/auth', [SignupadminController::class, 'create']);
+Route::get('/register/admin', [SignupadminController::class, 'register'])->middleware('Tamu');
+Route::post('/register/admin/auth', [SignupadminController::class, 'create'])->middleware('Tamu');
 
 // Logout
 Route::get('/logout', [SessionController::class, 'logout']);
 
 // Controller
-Route::resource('/petugas', PetugasController::class);
-Route::resource('/masyarakat', MasyarakatController::class);
-Route::resource('/barang', BarangController::class);
+Route::resource('/petugas', PetugasController::class)->middleware('User');
+Route::resource('/masyarakat', MasyarakatController::class)->middleware('User');
+Route::resource('/barang', BarangController::class)->middleware('User');
