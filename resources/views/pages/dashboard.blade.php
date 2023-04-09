@@ -4,35 +4,47 @@
     <h2 class="mt-4">Dashboard</h2>
     <div class="row">
         <div class="col">
-            <div class="card mt-4 mb-4">
+            <div class="card mt-4 mb-4 shadow-lg">
                 <div class="card-body">
                     <div class="card-header mb-4" style="background-color:#055E68; max-height:60px">
                         <h5 class="card-title mt-2 fw-bold text-light">Profile {{ auth()->user()->nama }}</h5>
                     </div>
                     <div class="row">
                         <div class="col-3">
-                            <img src="../img/person-circle.svg" class="rounded mx-auto d-block img-fluid" alt="" style="weight:200px; height:200px;">
+                            @if (auth()->user()->level === 'Administrator')
+                                <img src="../img/avatar-admin.png" class="mx-auto d-block img-fluid" alt="" style="weight:200px; height:200px; border-radius:100px">    
+                            @elseif (auth()->user()->level === 'Petugas')
+                                <img src="../img/avatar-petugas.png" class="mx-auto d-block img-fluid" alt="" style="weight:200px; height:200px; border-radius:100px">
+                            @elseif (auth()->user()->level === 'Masyarakat')
+                                <img src="../img/avatar-masyarakat.png" class="mx-auto d-block img-fluid" alt="" style="weight:200px; height:200px; border-radius:100px">
+                            @endif
                         </div>
                         <div class="col-9">
-                            <div class="mb-3">
+                            <div class="form-floating mb-3">
+                                <input type="number" class="form-control" id="id" placeholder="ID User" value="{{ auth()->user()->id }}" readonly>
                                 <label for="id" class="form-label">ID</label>
-                                <input type="number" class="form-control" id="id" placeholder="{{ auth()->user()->id }}" readonly>
                             </div>
-                            <div class="mb-3">
+                            <div class="form-floating mb-3">
+                                <input type="text" class="form-control" id="nama" placeholder="Nama User" value="{{ auth()->user()->nama }}" readonly>
                                 <label for="nama" class="form-label">Nama</label>
-                                <input type="text" class="form-control" id="nama" placeholder="{{ auth()->user()->nama }}" readonly>
                             </div>
-                            <div class="mb-3">
+                            <div class="form-floating mb-3">
+                                <input type="text" class="form-control" id="username" placeholder="Username" value="{{ auth()->user()->username }}" readonly>
                                 <label for="username" class="form-label">Username</label>
-                                <input type="text" class="form-control" id="username" placeholder="{{ auth()->user()->username }}" readonly>
                             </div>
-                            <div class="mb-3">
+                            <div class="form-floating mb-3">
+                                <input type="password" class="form-control" id="password" placeholder="Password" value="{{ auth()->user()->password }}" readonly>
                                 <label for="password" class="form-label">Password</label>
-                                <input type="password" class="form-control" id="password" placeholder="{{ auth()->user()->password }}" readonly>
                             </div>
-                            <div class="mb-3">
+                            @if (auth()->user()->level === 'Masyarakat')
+                                <div class="form-floating mb-3">
+                                    <input type="number" class="form-control" id="telepon" placeholder="Telepon" readonly>
+                                    <label for="telepon" class="form-label">No Telepon</label>
+                                </div>
+                            @endif
+                            <div class="form-floating mb-3">
+                                <input type="text" class="form-control" id="level" placeholder="Level" value="{{ auth()->user()->level }}" readonly>
                                 <label for="level" class="form-label">Level</label>
-                                <input type="text" class="form-control" id="level" placeholder="{{ auth()->user()->level }}" readonly>
                             </div>
                         </div>
                     </div>
@@ -46,7 +58,7 @@
     <div class="container mb-4">
         <div class="row">
             <div class="col">
-                <div class="card mt-4 mb-4">
+                <div class="card mt-4 mb-4 shadow-lg">
                     <div class="card-body">
                         <div class="card-header" style="background-color:#055E68; max-height:60px">
                             <h5 class="card-title mt-2 fw-bold text-light">Menu Administrator</h5>
@@ -76,7 +88,7 @@
     <div class="container mb-4">
         <div class="row">
             <div class="col">
-                <div class="card mt-4 mb-4">
+                <div class="card mt-4 mb-4 shadow-lg">
                     <div class="card-body">
                         <div class="card-header" style="background-color:#055E68; max-height:60px">
                             <h5 class="card-title mt-2 fw-bold text-light">Menu Petugas</h5>
@@ -106,7 +118,7 @@
     <div class="container mb-4">
         <div class="row">
             <div class="col">
-                <div class="card mt-4 mb-4">
+                <div class="card mt-4 mb-4 shadow-lg">
                     <div class="card-body">
                         <div class="card-header" style="background-color:#055E68; max-height:60px">
                             <h5 class="card-title mt-2 fw-bold text-light">History Lelang</h5>

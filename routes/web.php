@@ -26,21 +26,9 @@ Route::get('/', function () {
     ]);
 });
 
-Route::get('/admin/masyarakat/detail', function () {
-    return view('admin.detail_masyarakat', [
-        'title'=>'Admin | Detail Masyarakat'
-    ]);
-});
-
-Route::get('/admin/petugas/detail', function () {
-    return view('admin.detail_petugas', [
-        'title'=>'Admin | Detail Petugas'
-    ]);
-});
-
-Route::get('/admin/barang/detail', function () {
-    return view('admin.detail_barang', [
-        'title'=>'Admin | Detail Barang'
+Route::get('/about', function () {
+    return view('pages.about', [
+        'title'=>'Pojok lelang | About'
     ]);
 });
 
@@ -62,6 +50,6 @@ Route::post('/register/admin/auth', [SignupadminController::class, 'create']);
 Route::get('/logout', [SessionController::class, 'logout']);
 
 // Controller
-Route::resource('petugas', PetugasController::class);
-Route::resource('masyarakat', MasyarakatController::class);
-Route::resource('barang', BarangController::class);
+Route::resource('/petugas', PetugasController::class);
+Route::resource('/masyarakat', MasyarakatController::class);
+Route::resource('/barang', BarangController::class);

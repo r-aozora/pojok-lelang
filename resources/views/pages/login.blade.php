@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Pojok Lelang - Masuk</title>
+    <title>Pojok Lelang | Log In</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -33,33 +33,26 @@
           <div class="col-xl-9">
             <div class="card text-black" style="border-radius: 20px">
               <div class="row g-0">
-                <div class="col-sm-6 px-0 d-none d-sm-block">
-                  <img src="../img/brand-logo.png"
-                    alt="Login image" class="w-100" style="height: 100%;background-size:cover;border-radius:20px ">
+                <div class="col-sm-5 px-0 d-none d-sm-block">
+                  <img src="../img/brand-logo.png" alt="Pojok Lelang Logo" class="w-100" style="height: 100%;background-size:cover;border-radius:20px ">
                 </div>
-                <div class="col-lg-6">
+                <div class="col-lg-7">
                   <div class="card-body p-md-5 mx-md-4" style="border-radius: 20px">
-
-                    <!--<div class="text-center">
-                      <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/lotus.webp"
-                        style="width: 185px;" alt="logo">
-                    </div>-->
-
                     <div class="mb-5">
-                      <h2>Masuk Ke Akun</h2>
+                      <h3 class="fw-medium">Log In ke Pojok Lelang</h3>
                     </div>
                     <form action="/login/auth" method="post">
                       @csrf
-                      <div class="form-outline mb-4">
-                        <label class="form-label" for="form2Example11">Username</label>
-                        <input name="username" type="text" id="form2Example11" class="form-control" value="{{ Session::get('username') }}"/>
+                      <div class="form-floating mb-3">
+                        <input name="username" type="text" id="username" class="form-control" value="{{ Session::get('username') }}" placeholder="Username" style="border-radius:15px"/>
+                        <label class="form-label" for="username">Username</label>
                       </div>
-                      <div class="form-outline mb-4">
-                        <label class="form-label" for="form2Example22">Password</label>
-                        <input name="password" type="password" id="form2Example22" class="form-control"/>
+                      <div class="form-floating mb-3">
+                        <input name="password" type="password" id="password" class="form-control" placeholder="Password" style="border-radius:15px"/>
+                        <label class="form-label" for="password">Password</label>
                       </div>
-                      <div class=" pt-1 mb-5 pb-1">
-                        <button name="submit" class="btn btn-block fa-lg text-white" style="background-color: #00ADB5" type="submit">Masuk</button>
+                      <div class="d-grid gap-2 mb-5 ">
+                        <button name="submit" class="btn btn-block fa-lg text-white" style="background-color: #055E68; border-radius:15px" type="submit">Log In</button>
                       </div>
                       <div class="d-flex align-items-center justify-content-center pb-4">
                         <p>Belum punya akun? <a href="{{ url('register') }}">Daftar</a></p>
