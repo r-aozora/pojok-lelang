@@ -4,18 +4,10 @@
             <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
                 <a href="/" class="d-flex align-items-center my-2 my-lg-0 me-lg-auto text-white text-decoration-none fw-bold" style="font-size: 25px">POJOKLELANG</a>
                 <ul class="nav col-12 col-lg-auto my-2 justify-content-center my-md-0 text-small">
-                    <li>
-                        <a href="#" class="nav-link text-white">HOME</a>
-                    </li>
-                    <li>
-                        <a href="/dashboard" class="nav-link text-white">DASHBOARD</a>
-                    </li>
-                    <li>
-                        <a href="#" class="nav-link text-white">PRODUCT</a>
-                    </li>
-                    <li>
-                        <a href="#" class="nav-link text-white">ABOUT</a>
-                    </li>
+                    <li><a href="{{ url('/') }}" class="nav-link text-white">HOME</a></li>
+                    <li><a href="{{ url('/dashboard') }}" class="nav-link text-white">DASHBOARD</a></li>
+                    <li><a href="{{ url('/product') }}" class="nav-link text-white">PRODUCT</a></li>
+                    <li><a href="{{ url('/about') }}" class="nav-link text-white">ABOUT</a></li>
                 </ul>
             </div>
         </div>
