@@ -17,7 +17,7 @@ class DatabaseSeeder extends Seeder
     {
         // \App\Models\User::factory(10)->create();
         DB::table('users')->insert([
-            'id'=>'1001',
+            'id'=>'1',
             'nama'=>'Muhamad Citra Hidayat',
             'username'=>'citrahdy',
             'password'=>Hash::make('87654321'),
@@ -25,7 +25,7 @@ class DatabaseSeeder extends Seeder
             'created_at'=>date('Y-m-d H:i:s')
         ]);
         DB::table('users')->insert([
-            'id'=>'1002',
+            'id'=>'2',
             'nama'=>'Lintang Balakosa Ardhana',
             'username'=>'lintang',
             'password'=>Hash::make('87654321'),
@@ -33,7 +33,7 @@ class DatabaseSeeder extends Seeder
             'created_at'=>date('Y-m-d H:i:s')
         ]);
         DB::table('users')->insert([
-            'id'=>'1003',
+            'id'=>'3',
             'nama'=>'Amanda Cahya Kamila',
             'username'=>'cykmila',
             'password'=>Hash::make('12345678'),

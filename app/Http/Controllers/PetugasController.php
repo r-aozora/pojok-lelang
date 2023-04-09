@@ -2,10 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\petugas;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
-
 
 class petugasController extends Controller
 {
@@ -14,13 +13,25 @@ class petugasController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $data = [
-            'title' => 'Pojok Lelang | Data Petugas'
-        ];
-        return view('admin.data_petugas')->with($data);    }
+        $katakunci = $request->katakunci;
+        $level = ['Administrator', 'Petugas']; 
+        if (strlen($katakunci)) {
+            $petugas = User::where('id', 'like', "%$katakunci%")
+                ->orWhere('nama', 'like', "%$katakunci%")
+                ->orWhere('username', 'like', "%$katakunci%")
+                ->orWhere('level', 'like', "%$katakunci%")
+                ->paginate(10);
+        } else {
+            $petugas = User::where('level', $level[0])->orWhere('level', $level[1])->orderBy('id', 'desc')->paginate(10);
+        }
 
+        return view('petugas.index')->with([
+            'petugas' => $petugas,
+            'title' => 'Pojok Lelang | Data Petugas',
+        ]);
+    }
     /**
      * Show the form for creating a new resource.
      *
@@ -28,6 +39,9 @@ class petugasController extends Controller
      */
     public function create()
     {
+        return view('petugas.create')->with([
+            'title' => 'Pojok Lelang | Tambah Data Petugas',
+        ]);
     }
 
     /**
@@ -38,11 +52,40 @@ class petugasController extends Controller
      */
     public function store(Request $request)
     {
+        Session::flash('id', $request->id);
+        Session::flash('nama', $request->nama);
+        Session::flash('username', $request->username);
+        Session::flash('level', $request->level);
+
+        $request->validate([
+            'id' => 'required|numeric|unique:users,id',
+            'nama' => 'required',
+            'username' => 'required|unique:users,username',
+            'password' => 'required|min:8',
+            'level' => 'required',
+        ]
+        , [
+            'id.required' => 'ID harus diisi',
+            'id.numeric' => 'ID harus dalam angka',
+            'id.unique' => 'ID sudah ada',
+            'nama.required' => 'Nama harus diisi',
+            'username.required' => 'Username harus diisi',
+            'username.unique' => 'Username sudah ada',
+            'password.required' => 'Password harus diisi',
+            'password.min' => 'Password minimal 8 karakter',
+            'level.required' => 'Level harus diisi',
+        ]
+        );
+        $petugas = [
+            'id' => $request->id,
+            'nama' => $request->nama,
+            'username' => $request->username,
+            'password' => $request->password,
+            'level' => $request->level,
+        ];
+        User::create($petugas);
+        return redirect('petugas')->with('success', 'Data Ditambahkan');
     }
-
-
-
-
 
     /**
      * Display the specified resource.
@@ -52,7 +95,11 @@ class petugasController extends Controller
      */
     public function show($id)
     {
-        //
+        $petugas = User::where('id', $id)->first();
+        return view('petugas.detail')->with([
+            'petugas' => $petugas,
+            'title' => 'Pojok Lelang | Detail Petugas',
+        ]);
     }
 
     /**
@@ -63,7 +110,12 @@ class petugasController extends Controller
      */
     public function edit($id)
     {
-        //
+        $petugas = User::where('id', $id)->first();
+
+        return view('petugas.edit')->with([
+            'petugas' => $petugas,
+            'title' => 'Pojok Lelang | Edit Data Petugas'
+        ]);
     }
 
     /**
@@ -75,7 +127,27 @@ class petugasController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $request->validate([
+            'nama' => 'required',
+            'username' => 'required',
+            'password' => 'required',
+            'level' => 'required',
+        ], [
+            'nama.required' => 'Nama wajib diisi',
+            'username.required' => 'Username wajib diisi',
+            'password.required' => 'Password wajib diisi',
+            'level.required' => 'level wajib diisi',
+        ]);
+
+        $petugas = [
+            'nama' => $request->nama,
+            'username' => $request->username,
+            'password' => $request->password,
+            'level' => $request->level,
+        ];
+
+        User::where('id', $id)->update($petugas);
+        return redirect('petugas')->with('success', 'Data Diperbarui');
     }
 
     /**
@@ -86,7 +158,8 @@ class petugasController extends Controller
      */
     public function destroy($id)
     {
-        //
+        User::where('id', $id)->delete();
+        return redirect('petugas')->with('success', 'Data Dihapus');
     }
 }
 ?>
