@@ -24,17 +24,7 @@
 <body class="hold-transition sidebar-mini">
     <div class="wrapper">
 
-        @if (Auth::check())
-            @if (auth()->user()->level === 'Administrator')
-                @include('layout.navbar_admin')
-            @elseif (auth()->user()->level === 'Petugas')
-                @include('layout.navbar_petugas')
-            @elseif (auth()->user()->level === 'Masyarakat')
-                @include('layout.navbar_user')
-            @endif
-        @else
-            @include('layout.navbar')
-        @endif
+       @include('layout.navbar')
 
         @yield('content')
 

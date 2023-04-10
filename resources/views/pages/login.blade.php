@@ -33,15 +33,15 @@
           <div class="col-xl-9">
             <div class="card text-black" style="border-radius: 20px">
               <div class="row g-0">
-                <div class="col-sm-5 px-0 d-none d-sm-block">
-                  <img src="../img/brand-logo.png" alt="Pojok Lelang Logo" class="w-100" style="height: 100%;background-size:cover;border-radius:20px ">
+                <div class="col-sm-6 px-0 d-none d-sm-block">
+                  <img src="../img/brand-logo-new.png" alt="Pojok Lelang Logo" class="w-100" style="height:100%;background-size:cover;border-radius:20px ">
                 </div>
-                <div class="col-lg-7">
-                  <div class="card-body p-md-5 mx-md-4" style="border-radius: 20px">
+                <div class="col-lg-6">
+                  <div class="card-body p-md-5" style="border-radius: 20px">
                     <div class="mb-5">
-                      <h3 class="fw-medium">Log In ke Pojok Lelang</h3>
+                      <h3 class="fw-medium">Log In</h3>
                     </div>
-                    <form action="/login/auth" method="post">
+                    <form action="{{ url('/login/auth') }}" method="post">
                       @csrf
                       <div class="form-floating mb-3">
                         <input name="username" type="text" id="username" class="form-control" value="{{ Session::get('username') }}" placeholder="Username" style="border-radius:15px"/>
@@ -51,10 +51,10 @@
                         <input name="password" type="password" id="password" class="form-control" placeholder="Password" style="border-radius:15px"/>
                         <label class="form-label" for="password">Password</label>
                       </div>
-                      <div class="d-grid gap-2 mb-5 ">
+                      <div class="d-grid gap-2 mb-4">
                         <button name="submit" class="btn btn-block fa-lg text-white" style="background-color: #055E68; border-radius:15px" type="submit">Log In</button>
                       </div>
-                      <div class="d-flex align-items-center justify-content-center pb-4">
+                      <div class="d-flex align-items-center justify-content-center">
                         <p>Belum punya akun? <a href="{{ url('register') }}">Daftar</a></p>
                       </div>
                     </form>

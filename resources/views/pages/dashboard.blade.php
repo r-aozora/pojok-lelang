@@ -1,50 +1,52 @@
 @extends('layout.main')
+
 @section('content')
-<div class="container">
-    <h2 class="mt-4">Dashboard</h2>
-    <div class="row">
-        <div class="col">
-            <div class="card mt-4 mb-4 shadow-lg">
-                <div class="card-body">
-                    <div class="card-header mb-4" style="background-color:#055E68; max-height:60px">
-                        <h5 class="card-title mt-2 fw-bold text-light">Profile {{ auth()->user()->nama }}</h5>
-                    </div>
-                    <div class="row">
-                        <div class="col-3">
-                            @if (auth()->user()->level === 'Administrator')
-                                <img src="../img/avatar-admin.png" class="mx-auto d-block img-fluid" alt="" style="weight:200px; height:200px; border-radius:100px">    
-                            @elseif (auth()->user()->level === 'Petugas')
-                                <img src="../img/avatar-petugas.png" class="mx-auto d-block img-fluid" alt="" style="weight:200px; height:200px; border-radius:100px">
-                            @elseif (auth()->user()->level === 'Masyarakat')
-                                <img src="../img/avatar-masyarakat.png" class="mx-auto d-block img-fluid" alt="" style="weight:200px; height:200px; border-radius:100px">
-                            @endif
+    <div class="container">
+        <h2 class="mt-4">Dashboard</h2>
+        <div class="row">
+            <div class="col">
+                <div class="card mt-4 mb-4 shadow-lg">
+                    <div class="card-body">
+                        <div class="card-header mb-4" style="background-color:#055E68; max-height:60px">
+                            <h5 class="card-title mt-2 fw-bold text-light">Profile {{ auth()->user()->nama }}</h5>
                         </div>
-                        <div class="col-9">
-                            <div class="form-floating mb-3">
-                                <input type="number" class="form-control" id="id" placeholder="ID User" value="{{ auth()->user()->id }}" readonly>
-                                <label for="id" class="form-label">ID</label>
+                        <div class="row">
+                            <div class="col-3">
+                                @if (auth()->user()->level === 'Administrator')
+                                    <img src="../img/avatar-admin.png" class="mx-auto d-block img-fluid" alt="" style="weight:200px; height:200px; border-radius:100px">    
+                                @elseif (auth()->user()->level === 'Petugas')
+                                    <img src="../img/avatar-petugas.png" class="mx-auto d-block img-fluid" alt="" style="weight:200px; height:200px; border-radius:100px">
+                                @elseif (auth()->user()->level === 'Masyarakat')
+                                    <img src="../img/avatar-masyarakat.png" class="mx-auto d-block img-fluid" alt="" style="weight:200px; height:200px; border-radius:100px">
+                                @endif
                             </div>
-                            <div class="form-floating mb-3">
-                                <input type="text" class="form-control" id="nama" placeholder="Nama User" value="{{ auth()->user()->nama }}" readonly>
-                                <label for="nama" class="form-label">Nama</label>
-                            </div>
-                            <div class="form-floating mb-3">
-                                <input type="text" class="form-control" id="username" placeholder="Username" value="{{ auth()->user()->username }}" readonly>
-                                <label for="username" class="form-label">Username</label>
-                            </div>
-                            <div class="form-floating mb-3">
-                                <input type="password" class="form-control" id="password" placeholder="Password" value="{{ auth()->user()->password }}" readonly>
-                                <label for="password" class="form-label">Password</label>
-                            </div>
-                            @if (auth()->user()->level === 'Masyarakat')
+                            <div class="col-9">
                                 <div class="form-floating mb-3">
-                                    <input type="number" class="form-control" id="telepon" placeholder="Telepon" readonly>
-                                    <label for="telepon" class="form-label">No Telepon</label>
+                                    <input type="number" class="form-control" id="id" placeholder="ID User" value="{{ auth()->user()->id }}" readonly>
+                                    <label for="id" class="form-label">ID</label>
                                 </div>
-                            @endif
-                            <div class="form-floating mb-3">
-                                <input type="text" class="form-control" id="level" placeholder="Level" value="{{ auth()->user()->level }}" readonly>
-                                <label for="level" class="form-label">Level</label>
+                                <div class="form-floating mb-3">
+                                    <input type="text" class="form-control" id="nama" placeholder="Nama User" value="{{ auth()->user()->nama }}" readonly>
+                                    <label for="nama" class="form-label">Nama</label>
+                                </div>
+                                <div class="form-floating mb-3">
+                                    <input type="text" class="form-control" id="username" placeholder="Username" value="{{ auth()->user()->username }}" readonly>
+                                    <label for="username" class="form-label">Username</label>
+                                </div>
+                                <div class="form-floating mb-3">
+                                    <input type="password" class="form-control" id="password" placeholder="Password" value="{{ auth()->user()->password }}" readonly>
+                                    <label for="password" class="form-label">Password</label>
+                                </div>
+                                @if (auth()->user()->level === 'Masyarakat')
+                                    <div class="form-floating mb-3">
+                                        <input type="number" class="form-control" id="telepon" placeholder="Telepon" readonly>
+                                        <label for="telepon" class="form-label">No Telepon</label>
+                                    </div>
+                                @endif
+                                <div class="form-floating mb-3">
+                                    <input type="text" class="form-control" id="level" placeholder="Level" value="{{ auth()->user()->level }}" readonly>
+                                    <label for="level" class="form-label">Level</label>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -52,7 +54,6 @@
             </div>
         </div>
     </div>
-</div>
 
 @if (auth()->user()->level === 'Administrator')
     <div class="container mb-4">
@@ -103,9 +104,9 @@
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td><a class="btn text-white" style="background-color:#055E68" href="{{ url('/data-masyarakat') }}" role="button">Buka</i><i class="bi bi-door-open px-1"></i></a></td>
-                                    <td><a class="btn text-white" style="background-color:#055E68" href="{{ url('/data-barang') }}" role="button">Buka</i><i class="bi bi-door-open px-1"></i></a></td>
-                                    <td><a class="btn text-white" style="background-color:#055E68" href="{{ url('/data-lelang') }}" role="button">Buka</i><i class="bi bi-door-open px-1"></i></a></td>
+                                    <td><a class="btn text-white" style="background-color:#055E68" href="{{ url('/masyarakat') }}" role="button">Buka</i><i class="bi bi-door-open px-1"></i></a></td>
+                                    <td><a class="btn text-white" style="background-color:#055E68" href="{{ url('/barang') }}" role="button">Buka</i><i class="bi bi-door-open px-1"></i></a></td>
+                                    <td><a class="btn text-white" style="background-color:#055E68" href="{{ url('/lelang') }}" role="button">Buka</i><i class="bi bi-door-open px-1"></i></a></td>
                                 </tr>
                             </tbody>
                         </table>
