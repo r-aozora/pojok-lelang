@@ -1,6 +1,7 @@
 <?php
 
-use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\AlurController;
+use App\Http\Controllers\LelangController;
 use App\Http\Controllers\PetugasController;
 use App\Http\Controllers\MasyarakatController;
 use App\Http\Controllers\BarangController;
@@ -19,20 +20,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-// Landing Page
-Route::get('/', function () {
-    return view('pages.landing', [
-        'title'=>'Pojok Lelang | Home'
-    ]);
-});
-
-Route::get('/about', function () {
-    return view('pages.about', [
-        'title'=>'Pojok lelang | About'
-    ]);
-});
-
-Route::get('/dashboard', [DashboardController::class, 'index'])->middleware('User');
+// Depan
+Route::get('/', [AlurController::class, 'landing']);
+Route::get('/dashboard', [AlurController::class, 'dashboard'])->middleware('User');
+Route::get('/about', [AlurController::class, 'about']);
 
 // Login
 Route::get('/login', [SessionController::class, 'index'])->middleware('Tamu');
@@ -53,3 +44,4 @@ Route::get('/logout', [SessionController::class, 'logout']);
 Route::resource('/petugas', PetugasController::class)->middleware('User');
 Route::resource('/masyarakat', MasyarakatController::class)->middleware('User');
 Route::resource('/barang', BarangController::class)->middleware('User');
+Route::resource('/lelang', LelangController::class)->middleware('User');

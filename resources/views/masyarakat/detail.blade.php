@@ -44,13 +44,17 @@
                                         <label for="level">Level</label>
                                     </div>
                                     <div>
-                                        <a href="{{ url('masyarakat') }}"  class="btn btn-outline"><i class="bi bi-arrow-left"></i> Kembali</a>
-                                        <a href="{{ url('masyarakat/'.$masyarakat->id.'/edit') }}" class="btn text-white" style="background-color: #055E68"><i class="bi bi-pencil-square"></i> Edit</a>
-                                        <form onsubmit="return confirm('Data Akan Dihapus')" action="{{ url('masyarakat/'.$masyarakat->id) }}" method="post">
-                                            @csrf
-                                            @method('DELETE')
-                                            <button type="submit" class="btn text-white" style="background-color: #055E68" role="button"><i class="bi bi-trash"></i> Hapus</button>
-                                        </form>
+                                        @if (auth()->user()->level === 'Administrator' || auth()->user()->level == 'Petugas')
+                                            <a href="{{ url('masyarakat') }}"  class="btn btn-outline"><i class="bi bi-arrow-left"></i> Kembali</a>
+                                            @if (auth()->user()->level === 'Administrator')
+                                                <a href="{{ url('masyarakat/'.$masyarakat->id.'/edit') }}" class="btn text-white" style="background-color: #055E68"><i class="bi bi-pencil-square"></i> Edit</a>
+                                                <form onsubmit="return confirm('Data Akan Dihapus')" action="{{ url('masyarakat/'.$masyarakat->id) }}" method="post">
+                                                    @csrf
+                                                    @method('DELETE')
+                                                    <button type="submit" class="btn text-white" style="background-color: #055E68" role="button"><i class="bi bi-trash"></i> Hapus</button>
+                                                </form>
+                                            @endif
+                                        @endif
                                     </div>
                                 </form>
                             </div>

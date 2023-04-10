@@ -45,19 +45,23 @@
                                             <i class="bi bi-gear"></i> Aksi
                                         </button>
                                         <ul class="dropdown-menu">
-                                            <li>
-                                                <a href="{{ url('masyarakat/'.$item->id) }}" class="btn btn-sm dropdown-item " role="button"><i class="bi bi-clipboard"></i> Detail</a>
-                                            </li>
-                                            <li>
-                                                <a href="{{ url('masyarakat/'.$item->id.'/edit') }}" class="btn btn-sm dropdown-item"><i class="bi bi-pencil-square"></i> Edit</a>
-                                            </li>
-                                            <li>
-                                                <form onsubmit="return confirm('Data Akan Dihapus')" action="{{ url('masyarakat/'.$item->id) }}" method="post">
-                                                    @csrf
-                                                    @method('DELETE')
-                                                    <button type="submit" class="btn btn-sm dropdown-item" role="button"><i class="bi bi-trash"></i> Hapus</button>
-                                                </form>
-                                            </li>
+                                            @if (auth()->user()->level === 'Administrator' || auth()->user()->level == 'Petugas')
+                                                <li>
+                                                    <a href="{{ url('masyarakat/'.$item->id) }}" class="btn btn-sm dropdown-item " role="button"><i class="bi bi-clipboard"></i> Detail</a>
+                                                </li>
+                                                @if (auth()->user()->level === 'Administrator')
+                                                    <li>
+                                                        <a href="{{ url('masyarakat/'.$item->id.'/edit') }}" class="btn btn-sm dropdown-item"><i class="bi bi-pencil-square"></i> Edit</a>
+                                                    </li>
+                                                    <li>
+                                                        <form onsubmit="return confirm('Data Akan Dihapus')" action="{{ url('masyarakat/'.$item->id) }}" method="post">
+                                                            @csrf
+                                                            @method('DELETE')
+                                                            <button type="submit" class="btn btn-sm dropdown-item" role="button"><i class="bi bi-trash"></i> Hapus</button>
+                                                        </form>
+                                                    </li>
+                                                @endif
+                                            @endif
                                         </ul>
                                     </td>
                                 </tr>
