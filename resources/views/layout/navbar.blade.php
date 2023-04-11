@@ -33,12 +33,6 @@
                         <button class="btn dropdown-toggle text-white" style="border:none" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                             <i class="bi bi-person-circle"></i> {{ Auth::user()->nama }}
                         </button>
-                        <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="{{ url('/logout') }}"><i class="bi bi-box-arrow-right"></i> Log Out</a></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
         @elseif (auth()->user()->level === 'Petugas')
             <div class="px-3 py-2 mb-1" style="background-color: #2E4F4F">
                 <div class="container d-flex flex-wrap justify-content-center">
@@ -56,12 +50,6 @@
                         <button class="btn dropdown-toggle text-white" style="border:none" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                             <i class="bi bi-person-circle"></i> {{ Auth::user()->nama }}
                         </button>
-                        <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="{{ url('/logout') }}"><i class="bi bi-box-arrow-right"></i> Log Out</a></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
         @elseif (auth()->user()->level === 'Masyarakat')
             <div class="px-3 py-2 mb-1" style="background-color: #2E4F4F">
                 <div class="container d-flex flex-wrap justify-content-center">
@@ -72,13 +60,18 @@
                         <button class="btn dropdown-toggle text-white" style="border:none" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                             <i class="bi bi-person-circle"></i> {{ Auth::user()->nama }}
                         </button>
+        @endif
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="{{ url('/logout') }}"><i class="bi bi-box-arrow-right"></i> Log Out</a></li>
+                            <li>
+                                <form onsubmit="return confirm('Anda Akan Log Out')" action="{{ url('/logout') }}" method="get">
+                                    @csrf
+                                    <button type="submit" class="dropdown-item"><i class="bi bi-box-arrow-right"></i> Log Out</button>
+                                </form>
+                            </li>
                         </ul>
                     </div>
                 </div>
             </div>
-        @endif
     @else
         <div class="px-3 py-2 mb-1" style="background-color: #2E4F4F">
             <div class="container d-flex flex-wrap justify-content-center">

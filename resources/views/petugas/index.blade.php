@@ -10,7 +10,7 @@
                         <div class="card-header" style="background-color:#055E68; max-height:60px">
                             <h5 class="card-title mt-2 fw-medium text-light">Data Petugas</h5>
                         </div>
-                        <div class=" d-flex flex-wrap justify-content-center mt-4">
+                        <div class=" d-flex flex-wrap justify-content-center mt-3">
                             <div class="col-6 col-lg-6 mb-2 mb-lg-0 me-lg-auto" style="white-space:nowrap">
                                 <div class="col-sm-6">
                                     <form action="{{ url('petugas') }}" method="get" class="col-12 col-lg-auto mb-2 mb-lg-0 me-lg-auto" role="search">
@@ -24,7 +24,7 @@
                                 <i class="bi bi-plus"></i> Tambah Data
                             </a>
                         </div>
-                        <table class="table table-bordered mt-3" style="text-align: center">
+                        <table class="table table-bordered" style="text-align: center">
                             <thead>
                                 <tr>
                                     <th>ID</th>

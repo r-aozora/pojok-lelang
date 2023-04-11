@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\lelang;
 use Illuminate\Http\Request;
 
 class LelangController extends Controller
@@ -11,14 +12,27 @@ class LelangController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
+        $katakunci = $request->katakunci;
+
+        if (strlen($katakunci)) {
+            $lelang = lelang::where('id_lelang', 'like', "%$katakunci%")
+                ->orWhere('created_at', 'like', "%$katakunci%")
+                ->orWhere('status', 'like', "%$katakunci%")
+                ->paginate(10);
+        } else {
+            $lelang = lelang::orderBy('id_lelang', 'desc')->paginate(10);
+        }
+
         if(auth()->user()->level === 'Petugas' || auth()->user()->level === 'Administrator'){
             return view('lelang.index')->with([
+                'lelang' => $lelang,
                 'title' => 'Pojok Lelang | Aktivasi Lelang',
             ]);
         } elseif(auth()->user()->level === 'Masyarakat'){
             return view('lelang.masyarakat.galeri')->with([
+                'lelang' => $lelang,
                 'title' => 'Pojok Lelang | Galeri Lelang',
             ]);
         }
