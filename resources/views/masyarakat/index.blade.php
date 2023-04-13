@@ -19,9 +19,11 @@
                                 </div>
                             </div>
                         <div class="text-end col-6 col-lg-6 me-lg-auto">
-                            <a href="{{ url('masyarakat/create') }}" type="button" class="btn btn-sm text-white" style="background-color: #055E68">
-                                <i class="bi bi-plus"></i> Tambah Data
-                            </a>
+                            @if (auth()->user()->level === 'Administrator')
+                                <a href="{{ url('masyarakat/create') }}" type="button" class="btn btn-sm text-white" style="background-color: #055E68">
+                                    <i class="bi bi-plus"></i> Tambah Data
+                                </a>
+                            @endif
                         </div>
                         <table class="table table-bordered" style="text-align: center">
                             <thead>

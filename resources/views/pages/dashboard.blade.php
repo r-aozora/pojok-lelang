@@ -70,6 +70,7 @@
                                     <th class="bi bi-people px-1"> Data Masyarakat</th>
                                     <th class="bi bi-person-vcard px-1"> Data Petugas</th>
                                     <th class="bi bi-box2 px-1"> Data Barang</th>
+                                    <th class="bi bi-clipboard-data px-1"> Laporan Lelang</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -77,6 +78,7 @@
                                     <td><a class="btn text-white" style="background-color:#055E68" href="{{ url('/masyarakat') }}" role="button">Buka<i class="bi bi-door-open"></i></a></td>
                                     <td><a class="btn text-white" style="background-color:#055E68" href="{{ url('/petugas') }}" role="button">Buka<i class="bi bi-door-open"></i></a></td>
                                     <td><a class="btn text-white" style="background-color:#055E68" href="{{ url('/barang') }}" role="button">Buka<i class="bi bi-door-open"></i></a></td>
+                                    <td><a class="btn text-white" style="background-color:#055E68" href="{{ url('/lelang') }}" role="button">Buka<i class="bi bi-door-open"></i></a></td>
                                 </tr>
                             </tbody>
                         </table>

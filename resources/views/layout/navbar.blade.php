@@ -27,6 +27,7 @@
                             <li><a class="dropdown-item" href="{{ url('/masyarakat') }}"><i class="bi bi-people px-1"></i> Data Masyarakat</a></li>
                             <li><a class="dropdown-item" href="{{ url('/petugas') }}"><i class="bi bi-person-vcard px-1"></i> Data Petugas</a></li>
                             <li><a class="dropdown-item" href="{{ url('/barang') }}"><i class="bi bi-box2 px-1"></i> Data Barang</a></li>
+                            <li><a class="dropdown-item" href="{{ url('/lelang') }}"><i class="bi bi-clipboard-data px-1"></i> Laporan Lelang</a></li>
                         </ul>
                     </div>
                     <div class="dropdown d-inline">
@@ -43,7 +44,7 @@
                         <ul class="dropdown-menu">
                             <li><a class="dropdown-item" href="{{ url('/masyarakat') }}"><i class="bi bi-people px-1"></i> Data Masyarakat</a></li>
                             <li><a class="dropdown-item" href="{{ url('/barang') }}"><i class="bi bi-box px-1"></i> Data Barang</a></li>
-                            <li><a class="dropdown-item" href="{{ url('/lelang') }}"><i class="bi bi-box2 px-1"></i> Data Lelang</a></li>
+                            <li><a class="dropdown-item" href="{{ url('/lelang') }}"><i class="bi bi-box2 px-1"></i> Aktivasi Lelang</a></li>
                         </ul>
                     </div>
                     <div class="dropdown d-inline">

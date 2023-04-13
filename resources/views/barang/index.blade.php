@@ -31,7 +31,7 @@
                                     <th>Nama Barang</th>
                                     <th>Tanggal</th>
                                     <th>Harga Awal</th>
-                                    <th>Aksi</th>
+                                    <th>Lainnya</th>
                                 </tr>
                             </thead>
                             <tbody>
