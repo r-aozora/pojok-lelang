@@ -38,18 +38,18 @@
                 </div>
                 <div class="col-lg-6">
                   <div class="card-body p-md-5" style="border-radius: 20px">
-                    <div class="mb-5">
+                    <div class="mb-3">
                       <h3 class="fw-medium">Log In</h3>
                     </div>
                     <form action="{{ url('/login/auth') }}" method="post">
                       @csrf
-                      <div class="form-floating mb-3">
-                        <input name="username" type="text" id="username" class="form-control" value="{{ Session::get('username') }}" placeholder="Username" style="border-radius:15px"/>
+                      <div class="form-outline mb-3">
                         <label class="form-label" for="username">Username</label>
+                        <input name="username" type="text" id="username" class="form-control" value="{{ Session::get('username') }}" style="border-radius:15px"/>
                       </div>
-                      <div class="form-floating mb-3">
-                        <input name="password" type="password" id="password" class="form-control" placeholder="Password" style="border-radius:15px"/>
+                      <div class="form-outline mb-3">
                         <label class="form-label" for="password">Password</label>
+                        <input name="password" type="password" id="password" class="form-control" style="border-radius:15px"/>
                       </div>
                       <div class="d-grid gap-2 mb-4">
                         <button name="submit" class="btn btn-block fa-lg text-white" style="background-color: #055E68; border-radius:15px" type="submit">Log In</button>

@@ -31,7 +31,7 @@
     <section class="h-100 gradient-form">
     <div class="container py-5 h-100">
         <div class="row d-flex justify-content-center align-items-center h-100">
-            <div class="col-xl-10">
+            <div class="col-xl-11">
                 <div class="card text-black" style="border-radius: 20px">
                     <div class="row g-0">
                         <div class="col-sm-6 px-0 d-none d-sm-block">
@@ -44,23 +44,23 @@
                                 </div>
                                 <form action="{{ url('/register/admin/auth') }}" method="post">
                                     @csrf
-                                    <div class="form-floating mb-3">
-                                        <input type="text" id="nama" class="form-control" placeholder="Nama Admin" value="{{ Session::get('nama') }}" style="border-radius:15px">
+                                    <div class="form-outline mb-2">
                                         <label class="form-label" for="nama">Nama Admin</label>
+                                        <input type="text" id="nama" class="form-control" value="{{ Session::get('nama') }}" style="border-radius:15px">
                                     </div>
-                                    <div class="form-floating mb-3">
-                                        <input name="username" type="text" id="username" class="form-control" value="{{ Session::get('username') }}" placeholder="Username" style="border-radius:15px"/>
+                                    <div class="form-outline mb-2">
                                         <label class="form-label" for="username">Username</label>
+                                        <input name="username" type="text" id="username" class="form-control" value="{{ Session::get('username') }}" style="border-radius:15px"/>
                                     </div>
-                                    <div class="form-floating mb-3">
-                                        <input name="password" type="password" id="password" class="form-control" placeholder="Password" style="border-radius:15px"/>
+                                    <div class="form-outline mb-2">
                                         <label class="form-label" for="password">Password</label>
+                                        <input name="password" type="password" id="password" class="form-control" style="border-radius:15px"/>
                                     </div>
-                                    <div class="form-floating mb-3">
-                                        <select class="form-select" id="level" style="border-radius: 15px">
+                                    <div class="form-outline mb-3">
+                                        <label for="level" class="form-label">Level</label>
+                                        <select class="form-select" id="level" style="border-radius:15px">
                                             <option selected value="Administrator">Administrator</option>
                                         </select>
-                                        <label for="level" class="form-label">Level</label>
                                     </div>
                                     <div class="d-grid gap-2 mb-3">
                                         <button name="submit" class="btn btn-block fa-lg text-white" style="background-color: #055E68; border-radius:15px" type="submit">Daftar</button>

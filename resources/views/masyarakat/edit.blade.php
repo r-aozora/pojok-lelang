@@ -24,25 +24,25 @@
                                 <form action="{{ '/masyarakat/'.$masyarakat->id }}" method="post">
                                     @csrf
                                     @method('PUT')
-                                    <div class="form-floating mb-3">
-                                        <input type="text" class="form-control" id="id" placeholder="ID masyarakat" value="{{ $masyarakat->id }}" readonly>
+                                    <div class="form-outline mb-3">
                                         <label for="id">ID masyarakat</label>
+                                        <input type="text" class="form-control" id="id" value="{{ $masyarakat->id }}" readonly>
                                     </div>
-                                    <div class="form-floating mb-3">
-                                        <input type="text" class="form-control" id="nama" placeholder="Nama masyarakat" value="{{ $masyarakat->nama }}">
+                                    <div class="form-outline mb-3">
                                         <label for="nama">Nama masyarakat</label>
+                                        <input type="text" class="form-control" id="nama" value="{{ $masyarakat->nama }}">
                                     </div>
-                                    <div class="form-floating mb-3">
-                                        <input type="text" class="form-control" id="username" placeholder="Username" value="{{ $masyarakat->username }}">
+                                    <div class="form-outline mb-3">
                                         <label for="username">Username</label>
+                                        <input type="text" class="form-control" id="username" value="{{ $masyarakat->username }}">
                                     </div>
-                                    <div class="form-floating mb-3">
-                                        <input type="password" class="form-control" id="password" placeholder="Password">
+                                    <div class="form-outline mb-3">
                                         <label for="password">Password</label>
+                                        <input type="password" class="form-control" id="password">
                                     </div>
-                                    <div class="form-floating mb-3">
-                                        <input type="text" class="form-control" id="level" placeholder="Level" value="{{ $masyarakat->level }}">
+                                    <div class="form-outline mb-3">
                                         <label for="level">Level</label>
+                                        <input type="text" class="form-control" id="level" value="{{ $masyarakat->level }}">
                                     </div>
                                     <div>
                                         <a href="{{ url('masyarakat') }}" type="button" class="btn btn-outline"><i class="bi bi-arrow-left"></i> Kembali</a>

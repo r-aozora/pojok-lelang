@@ -17,24 +17,24 @@
                             <div class="col-9">
                                 <form>
                                     @csrf
-                                    <div class="form-floating mb-3">
-                                        <input type="text" class="form-control" id="id" placeholder="ID Barang" value="{{ $barang->id_barang }}" readonly>
+                                    <div class="form-outline mb-3">
+                                        <input type="text" class="form-control" id="id" value="{{ $barang->id_barang }}" readonly>
                                         <label for="id" class="form-label">ID Barang</label>
                                     </div>
-                                    <div class="form-floating mb-3">
-                                        <input type="text" class="form-control" id="nama" placeholder="Nama Barang" value="{{ $barang->nama_barang }}" readonly>
+                                    <div class="form-outline mb-3">
+                                        <input type="text" class="form-control" id="nama" value="{{ $barang->nama_barang }}" readonly>
                                         <label for="nama" class="form-label">Nama Barang</label>
                                     </div>
-                                    <div class="form-floating mb-3">
-                                        <input type="date" class="form-control" id="tanggal" placeholder="Tanggal" value="{{ $barang->created_at }}" readonly>
+                                    <div class="form-outline mb-3">
+                                        <input type="date" class="form-control" id="tanggal" value="{{ $barang->created_at }}" readonly>
                                         <label for="tanggal" class="form-label">Tanggal</label>
                                     </div>
-                                    <div class="form-floating mb-3">
-                                        <input type="number" class="form-control" id="harga" placeholder="Harga Awal" value="{{ $barang->harga_awal }}" readonly>
+                                    <div class="form-outline mb-3">
+                                        <input type="number" class="form-control" id="harga" value="{{ $barang->harga_awal }}" readonly>
                                         <label for="harga" class="form-label">Harga Awal</label>
                                     </div>
-                                    <div class="form-floating mb-3">
-                                        <textarea class="form-control" id="deskripsi" rows="3" readonly>{{ $barang->deskripsi }}</textarea>
+                                    <div class="form-outline mb-3">
+                                        <textarea class="form-control" id="deskripsi" rows="5" readonly>{{ $barang->deskripsi }}</textarea>
                                         <label for="deskripsi" class="form-label">Deskripsi Barang</label>
                                     </div>
                                     <div>

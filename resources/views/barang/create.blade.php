@@ -17,23 +17,23 @@
                             <div class="col-9">
                                 <form action="{{ url('barang') }}" method="post">
                                     @csrf
-                                    <div class="form-floating mb-3">
-                                        <input type="text" class="form-control" id="id" placeholder="ID Barang" value="{{ Session::get('id_barang') }}">
+                                    <div class="form-outline mb-3">
                                         <label for="id">ID Barang</label>
+                                        <input type="text" class="form-control" id="id"value="{{ Session::get('id_barang') }}">
                                     </div>
-                                    <div class="form-floating mb-3">
-                                        <input type="text" class="form-control" id="nama" placeholder="Nama Barang" value="{{ Session::get('nama_barang') }}">
+                                    <div class="form-outline mb-3">
                                         <label for="nama">Nama Barang</label>
+                                        <input type="text" class="form-control" id="nama" value="{{ Session::get('nama_barang') }}">
                                     </div>
-                                    <div class="form-floating mb-3">
-                                        <input type="text" class="form-control" id="username" placeholder="Harga Awal" value="{{ Session::get('harga_awal') }}">
+                                    <div class="form-outline mb-3">
                                         <label for="username">Harga Awal</label>
+                                        <input type="text" class="form-control" id="username" value="{{ Session::get('harga_awal') }}">
                                     </div>
-                                    <div class="form-floating mb-3">
-                                        <textarea class="form-control" placeholder="Deskripsi Barang" id="deskripsi" rows="3"></textarea>
+                                    <div class="form-outline mb-3">
                                         <label for="Deskripsi">Deskripsi Barang</label>
+                                        <textarea class="form-control" id="deskripsi" rows="5"></textarea>
                                     </div>
-                                    <div class="mb-3">
+                                    <div class="form-outline mb-3">
                                         <label for="foto" class="form-label">Foto Barang</label>
                                         <input class="form-control" type="file" id="foto">
                                     </div>
