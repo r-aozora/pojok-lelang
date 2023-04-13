@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateLelangTable extends Migration
+class CreateLelangsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -20,7 +20,8 @@ class CreateLelangTable extends Migration
             $table->char('harga_akhir', 20);
             $table->integer('id_user');
             $table->integer('id_petugas');
-            $table->enum('status', ['dibuka', 'ditutup']);
+            $table->enum('status', ['Dibuka', 'Ditutup']);
+
             $table->timestamps();
             
             $table->foreign('id_barang')->references('id_barang')->on('barang');

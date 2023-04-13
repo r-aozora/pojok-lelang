@@ -7,10 +7,12 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 
-class lelang extends Model
+class Lelang extends Model
 {
     use HasFactory;
+
     protected $table = 'lelang';
+
     protected $fillable = [
         'id_lelang',
         'id_barang',
@@ -20,18 +22,22 @@ class lelang extends Model
         'id_barang',
         'status',
     ];
+
     public function masyarakat() : BelongsTo
     {
         return $this->belongsTo(Masyarakat::class);
     }
+
     public function petugas() : BelongsTo
     {
         return $this->belongsTo(Petugas::class);
     }
+
     public function barang() : BelongsTo
     {
         return $this->belongsTo(Barang::class);
     }
+    
     public function history() : HasOne
     {
         return $this->hasOne(History::class);

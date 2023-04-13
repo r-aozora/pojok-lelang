@@ -2,7 +2,6 @@
 
 namespace App\Models;
 
-use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -18,19 +17,9 @@ class User extends Authenticatable
      *
      * @var array<int, string>
      */
+    protected $fillable = ['id', 'nama', 'username', 'password', 'level'];
+
     protected $table = 'users';
-
-    protected $fillable = [
-        'id',
-        'nama',
-        'username',
-        'password',
-        'level',
-    ];
-
-    protected $primaryKey = 'id';
-
-    protected $hidden = 'password';
 
     /**
      * The attributes that should be hidden for serialization.
@@ -52,7 +41,6 @@ class User extends Authenticatable
     /* protected $casts = [
         'email_verified_at' => 'datetime',
     ]; */
-
 
     public function masyarakat() : HasMany
     {

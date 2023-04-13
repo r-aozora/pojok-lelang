@@ -4,8 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Session;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class MasyarakatController extends Controller
 {
@@ -24,10 +26,12 @@ class MasyarakatController extends Controller
                 ->orWhere('username', 'like', "%$katakunci%")
                 ->paginate(10);
         } else {
+            $data = DB::table('users')->rightJoin('masyarakat', 'users.id', '=', 'masyarakat.telepon')->get();
             $masyarakat = User::where('level', 'Masyarakat')->orderBy('id', 'desc')->paginate(10);
         }
 
         return view('masyarakat.index')->with([
+            'data' => $data,
             'masyarakat' => $masyarakat,
             'title' => 'Pojok Lelang | Data Masyarakat',
         ]);

@@ -12,7 +12,7 @@ class SessionController extends Controller
 {
     function index()
     {
-        return view('pages/login');
+        return view('pages.login');
     }
 
     function login(Request $request)
