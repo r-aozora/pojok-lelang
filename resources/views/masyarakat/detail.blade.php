@@ -23,25 +23,25 @@
                             <div class="col-9">
                                 <form action="" method="">
                                     @csrf
-                                    <div class="form-floating mb-3">
-                                        <input type="text" class="form-control" id="id" placeholder="ID masyarakat" value="{{ $masyarakat->id }}" readonly>
+                                    <div class="form-outline mb-3">
                                         <label for="id">ID Masyarakat</label>
+                                        <input type="text" class="form-control" id="id" value="{{ $masyarakat->id }}" readonly>
                                     </div>
-                                    <div class="form-floating mb-3">
-                                        <input type="text" class="form-control" id="nama" placeholder="Nama masyarakat" value="{{ $masyarakat->nama }}" readonly>
+                                    <div class="form-outline mb-3">
                                         <label for="nama">Nama Lengkap</label>
+                                        <input type="text" class="form-control" id="nama" value="{{ $masyarakat->nama }}" readonly>
                                     </div>
-                                    <div class="form-floating mb-3">
-                                        <input type="text" class="form-control" id="username" placeholder="Username" value="{{ $masyarakat->username }}" readonly>
+                                    <div class="form-outline mb-3">
                                         <label for="username">Username</label>
+                                        <input type="text" class="form-control" id="username" value="{{ $masyarakat->username }}" readonly>
                                     </div>
-                                    <div class="form-floating mb-3">
-                                        <input type="password" class="form-control" id="password" placeholder="Password" value="{{ $masyarakat->password }}" readonly>
+                                    <div class="form-outline mb-3">
                                         <label for="password">Password</label>
+                                        <input type="password" class="form-control" id="password" value="{{ $masyarakat->password }}" readonly>
                                     </div>
-                                    <div class="form-floating mb-3">
-                                        <input class="form-control" id="level" placeholder="Level" value="{{ $masyarakat->level }}" readonly>
+                                    <div class="form-outline mb-3">
                                         <label for="level">Level</label>
+                                        <input class="form-control" id="level" value="{{ $masyarakat->level }}" readonly>
                                     </div>
                                     <div>
                                         @if (auth()->user()->level === 'Administrator' || auth()->user()->level == 'Petugas')

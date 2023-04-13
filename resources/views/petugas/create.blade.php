@@ -14,33 +14,34 @@
                             <div class="col-3">
                                 <img src="../../img/avatar-petugas.png" class="mx-auto d-block img-fluid" alt="" style="weight:200px; height:200px; border-radius:100px">
                             </div>
-                            <div class="col-9">
+                            <div class="col-8">
                                 <form action="{{ url('petugas') }}" method="post">
                                     @csrf
-                                    <div class="form-floating mb-3">
-                                        <input type="text" class="form-control" id="id" placeholder="ID Petugas" value="{{ Session::get('id') }}">
+                                    <div class="form-outline mb-3">
                                         <label for="id">ID Petugas</label>
+                                        <input type="text" class="form-control" id="id" value="{{ Session::get('id') }}">
                                     </div>
-                                    <div class="form-floating mb-3">
-                                        <input type="text" class="form-control" id="nama" placeholder="Nama Petugas" value="{{ Session::get('nama') }}">
+                                    <div class="form-outline mb-3">
                                         <label for="nama">Nama Petugas</label>
+                                        <input type="text" class="form-control" id="nama" value="{{ Session::get('nama') }}">
                                     </div>
-                                    <div class="form-floating mb-3">
-                                        <input type="text" class="form-control" id="username" placeholder="Username" value="{{ Session::get('username') }}">
+                                    <div class="form-outline mb-3">
                                         <label for="username">Username</label>
+                                        <input type="text" class="form-control" id="username" value="{{ Session::get('username') }}">
                                     </div>
-                                    <div class="form-floating mb-3">
-                                        <input type="password" class="form-control" id="password" placeholder="Password">
+                                    <div class="form-outline mb-3">
                                         <label for="password">Password</label>
+                                        <input type="password" class="form-control" id="password">
                                     </div>
-                                    <div class="form-floating mb-3">
-                                        <select class="form-select" id="level" aria-placeholder="Level">
+                                    <div class="form-outline mb-3">
+                                        <label for="level">Level</label>
+                                        <select class="form-select" id="level">
                                             <option selected></option>
                                             <option value="Administrator">Administrator</option>
                                             <option value="Petugas">Petugas</option>
                                         </select>
-                                        <label for="level">Level</label>
                                     </div>
+                                    <div>
                                         <a href="{{ url('petugas') }}" type="button" class="btn btn-outline"><i class="bi bi-arrow-left"></i> Kembali</a>
                                         <button type="submit" class="btn text-white" style="background-color:#055E68"><i class="bi bi-box-arrow-in-down"></i> Simpan</button>
                                     </div>

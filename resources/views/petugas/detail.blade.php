@@ -23,25 +23,25 @@
                             <div class="col-9">
                                 <form>
                                     @csrf
-                                    <div class="form-floating mb-3">
-                                        <input type="text" class="form-control" id="id" placeholder="ID Petugas" value="{{ $petugas->id }}" readonly>
+                                    <div class="form-outline mb-3">
                                         <label for="id">ID Petugas</label>
+                                        <input type="text" class="form-control" id="id" value="{{ $petugas->id }}" readonly>
                                     </div>
-                                    <div class="form-floating mb-3">
-                                        <input type="text" class="form-control" id="nama" placeholder="Nama Petugas" value="{{ $petugas->nama }}" readonly>
+                                    <div class="form-outline mb-3">
                                         <label for="nama">Nama Petugas</label>
+                                        <input type="text" class="form-control" id="nama" value="{{ $petugas->nama }}" readonly>
                                     </div>
-                                    <div class="form-floating mb-3">
-                                        <input type="text" class="form-control" id="username" placeholder="Username" value="{{ $petugas->username }}" readonly>
+                                    <div class="form-outline mb-3">
                                         <label for="username">Username</label>
+                                        <input type="text" class="form-control" id="username" value="{{ $petugas->username }}" readonly>
                                     </div>
-                                    <div class="form-floating mb-3">
-                                        <input type="password" class="form-control" id="password" placeholder="Password" value="{{ $petugas->password }}" readonly>
+                                    <div class="form-outline mb-3">
                                         <label for="password">Password</label>
+                                        <input type="password" class="form-control" id="password" value="{{ $petugas->password }}" readonly>
                                     </div>
-                                    <div class="form-floating mb-3">
-                                        <input class="form-control" id="level" placeholder="Level" value="{{ $petugas->level }}" readonly>
+                                    <div class="form-outline mb-3">
                                         <label for="level">Level</label>
+                                        <input class="form-control" id="level" value="{{ $petugas->level }}" readonly>
                                     </div>
                                     <div>
                                         <a href="{{ url('petugas') }}"  class="btn btn-outline"><i class="bi bi-arrow-left"></i> Kembali</a>

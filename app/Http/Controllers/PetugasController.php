@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Session;
 
 class petugasController extends Controller
@@ -80,7 +81,7 @@ class petugasController extends Controller
             'id' => $request->id,
             'nama' => $request->nama,
             'username' => $request->username,
-            'password' => $request->password,
+            'password' => Hash::make($request->password),
             'level' => $request->level,
         ];
         User::create($petugas);

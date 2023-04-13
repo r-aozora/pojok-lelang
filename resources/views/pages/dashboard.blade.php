@@ -21,31 +21,31 @@
                                 @endif
                             </div>
                             <div class="col-9">
-                                <div class="form-floating mb-3">
-                                    <input type="number" class="form-control" id="id" placeholder="ID User" value="{{ auth()->user()->id }}" readonly>
+                                <div class="form-outline mb-3">
                                     <label for="id" class="form-label">ID</label>
+                                    <input type="number" class="form-control" id="id" value="{{ auth()->user()->id }}" readonly>
                                 </div>
-                                <div class="form-floating mb-3">
-                                    <input type="text" class="form-control" id="nama" placeholder="Nama User" value="{{ auth()->user()->nama }}" readonly>
+                                <div class="form-outline mb-3">
                                     <label for="nama" class="form-label">Nama</label>
+                                    <input type="text" class="form-control" id="nama" value="{{ auth()->user()->nama }}" readonly>
                                 </div>
-                                <div class="form-floating mb-3">
-                                    <input type="text" class="form-control" id="username" placeholder="Username" value="{{ auth()->user()->username }}" readonly>
+                                <div class="form-outline mb-3">
                                     <label for="username" class="form-label">Username</label>
+                                    <input type="text" class="form-control" id="username" value="{{ auth()->user()->username }}" readonly>
                                 </div>
-                                <div class="form-floating mb-3">
-                                    <input type="password" class="form-control" id="password" placeholder="Password" value="{{ auth()->user()->password }}" readonly>
+                                <div class="form-outline mb-3">
                                     <label for="password" class="form-label">Password</label>
+                                    <input type="password" class="form-control" id="password" value="{{ auth()->user()->password }}" readonly>
                                 </div>
                                 @if (auth()->user()->level === 'Masyarakat')
-                                    <div class="form-floating mb-3">
-                                        <input type="number" class="form-control" id="telepon" placeholder="Telepon" readonly>
+                                    <div class="form-outline mb-3">
                                         <label for="telepon" class="form-label">No Telepon</label>
+                                        <input type="number" class="form-control" id="telepon" readonly>
                                     </div>
                                 @endif
-                                <div class="form-floating mb-3">
-                                    <input type="text" class="form-control" id="level" placeholder="Level" value="{{ auth()->user()->level }}" readonly>
+                                <div class="form-outline mb-3">
                                     <label for="level" class="form-label">Level</label>
+                                    <input type="text" class="form-control" id="level" value="{{ auth()->user()->level }}" readonly>
                                 </div>
                             </div>
                         </div>
