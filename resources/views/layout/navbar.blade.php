@@ -9,7 +9,7 @@
                 <ul class="nav col-12 col-lg-auto my-2 justify-content-center my-md-0 text-small">
                     <li><a href="{{ url('/') }}" class="nav-link text-white">Home</a></li>
                     <li><a href="{{ url('/dashboard') }}" class="nav-link text-white">Dashboard</a></li>
-                    <li><a href="{{ url('/lelang') }}" class="nav-link text-white">Galery</a></li>
+                    <li><a href="{{ url('/galery') }}" class="nav-link text-white">Galery</a></li>
                     <li><a href="{{ url('/about') }}" class="nav-link text-white">About</a></li>
                 </ul>
             </div>
@@ -21,12 +21,12 @@
                 <div class="container d-flex flex-wrap justify-content-center">        
                     <div class="dropdown d-inline">
                         <button class="btn dropdown-toggle text-white" style="border:none" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            <i class="bi bi-coin"></i> Lelang
+                            <i class="bi bi-currency-exchange"></i> Lelang
                         </button>
                         <ul class="dropdown-menu">
                             <li><a class="dropdown-item" href="{{ url('/masyarakat') }}"><i class="bi bi-people px-1"></i> Data Masyarakat</a></li>
                             <li><a class="dropdown-item" href="{{ url('/petugas') }}"><i class="bi bi-person-vcard px-1"></i> Data Petugas</a></li>
-                            <li><a class="dropdown-item" href="{{ url('/barang') }}"><i class="bi bi-box2 px-1"></i> Data Barang</a></li>
+                            <li><a class="dropdown-item" href="{{ url('/barang') }}"><i class="bi bi-boxes px-1"></i> Data Barang</a></li>
                             <li><a class="dropdown-item" href="{{ url('/lelang') }}"><i class="bi bi-clipboard-data px-1"></i> Laporan Lelang</a></li>
                         </ul>
                     </div>
@@ -39,12 +39,12 @@
                 <div class="container d-flex flex-wrap justify-content-center">
                     <div class="dropdown d-inline">
                         <button class="btn dropdown-toggle text-white" style="border:none" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            <i class="bi bi-coin"></i> Lelang
+                            <i class="bi bi-currency-exchange"></i> Lelang
                         </button>
                         <ul class="dropdown-menu">
                             <li><a class="dropdown-item" href="{{ url('/masyarakat') }}"><i class="bi bi-people px-1"></i> Data Masyarakat</a></li>
-                            <li><a class="dropdown-item" href="{{ url('/barang') }}"><i class="bi bi-box px-1"></i> Data Barang</a></li>
-                            <li><a class="dropdown-item" href="{{ url('/lelang') }}"><i class="bi bi-box2 px-1"></i> Aktivasi Lelang</a></li>
+                            <li><a class="dropdown-item" href="{{ url('/barang') }}"><i class="bi bi-boxes px-1"></i> Data Barang</a></li>
+                            <li><a class="dropdown-item" href="{{ url('/lelang') }}"><i class="bi bi-clipboard-data px-1"></i> Aktivasi Lelang</a></li>
                         </ul>
                     </div>
                     <div class="dropdown d-inline">
@@ -54,8 +54,8 @@
         @elseif (auth()->user()->level === 'Masyarakat')
             <div class="px-3 py-2 mb-1" style="background-color: #2E4F4F">
                 <div class="container d-flex flex-wrap justify-content-center">
-                    <a href="{{ url('/lelang') }}" class="btn text-white" style="border:none" type="button" aria-expanded="false">
-                        <i class="bi bi-coin"></i> Lelang
+                    <a href="{{ url('/galery') }}" class="btn text-white" style="border:none" type="button" aria-expanded="false">
+                        <i class="bi bi-currency-exchange"></i> Lelang
                     </a>
                     <div class="dropdown d-inline">
                         <button class="btn dropdown-toggle text-white" style="border:none" type="button" data-bs-toggle="dropdown" aria-expanded="false">
