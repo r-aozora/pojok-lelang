@@ -44,11 +44,11 @@ class User extends Authenticatable
 
     public function masyarakat() : HasMany
     {
-        return $this->hasMany(Masyarakat::class);
+        return $this->hasMany(masyarakat::class);
     }
 
     public function petugas() : HasMany
     {
-        return $this->hasMany(Petugas::class);
+        return $this->hasMany(petugas::class);
     }
 }
