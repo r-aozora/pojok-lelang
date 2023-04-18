@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AlurController;
+use App\Http\Controllers\GaleryController;
 use App\Http\Controllers\LelangController;
 use App\Http\Controllers\PetugasController;
 use App\Http\Controllers\MasyarakatController;
@@ -45,3 +46,4 @@ Route::resource('/petugas', PetugasController::class)->middleware('User');
 Route::resource('/masyarakat', MasyarakatController::class)->middleware('User');
 Route::resource('/barang', BarangController::class)->middleware('User');
 Route::resource('/lelang', LelangController::class)->middleware('User');
+Route::resource('/galery', GaleryController::class);

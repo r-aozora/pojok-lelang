@@ -2,32 +2,19 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\lelang;
 use Illuminate\Http\Request;
 
-class LelangController extends Controller
+class GaleryController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(Request $request)
+    public function index()
     {
-        $katakunci = $request->katakunci;
-
-        if (strlen($katakunci)) {
-            $lelang = lelang::where('id_lelang', 'like', "%$katakunci%")
-                ->orWhere('created_at', 'like', "%$katakunci%")
-                ->orWhere('status', 'like', "%$katakunci%")
-                ->paginate(10);
-        } else {
-            $lelang = lelang::orderBy('id_lelang', 'desc')->paginate(10);
-        }
-
-        return view('lelang.index')->with([
-            'lelang' => $lelang,
-            'title' => 'Pojok Lelang | Aktivasi Lelang',
+        return view('lelang.masyarakat.galeri')->with([
+            'title' => 'Pojok Lelang | Galeri Lelang',
         ]);
     }
 

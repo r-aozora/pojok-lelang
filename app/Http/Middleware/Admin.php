@@ -4,9 +4,8 @@ namespace App\Http\Middleware;
 
 use Closure;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 
-class Tamu
+class Admin
 {
     /**
      * Handle an incoming request.
@@ -17,9 +16,8 @@ class Tamu
      */
     public function handle(Request $request, Closure $next)
     {
-        if(Auth::check()){
-            return back()->with('success', 'Anda Sudah Log In');
+        if(auth()->user()->level === 'Administrator'){
+            return $next($request);
         }
-        return $next($request);
-    }
+        return back()->withErrors('Anda Bukan Admin');    }
 }

@@ -20,7 +20,7 @@
                             </div>
                         <div class="text-end col-6 col-lg-6 me-lg-auto">
                             @if (auth()->user()->level === 'Administrator')
-                                <a href="{{ url('masyarakat/create') }}" type="button" class="btn btn-sm text-white" style="background-color: #055E68">
+                                <a href="{{ url('/masyarakat/create') }}" type="button" class="btn btn-sm text-white" style="background-color: #055E68">
                                     <i class="bi bi-plus"></i> Tambah Data
                                 </a>
                             @endif
@@ -49,7 +49,7 @@
                                         <ul class="dropdown-menu">
                                             @if (auth()->user()->level === 'Administrator' || auth()->user()->level == 'Petugas')
                                                 <li>
-                                                    <a href="{{ url('masyarakat/'.$item->id) }}" class="btn btn-sm dropdown-item " role="button"><i class="bi bi-clipboard"></i> Detail</a>
+                                                    <a href="{{ url('masyarakat/'.$item->id) }}" class="btn btn-sm dropdown-item" role="button"><i class="bi bi-clipboard"></i> Detail</a>
                                                 </li>
                                                 @if (auth()->user()->level === 'Administrator')
                                                     <li>
