@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\AlurController;
+use App\Http\Controllers\PagesController;
 use App\Http\Controllers\GaleryController;
 use App\Http\Controllers\LelangController;
 use App\Http\Controllers\PetugasController;
@@ -22,9 +22,9 @@ use Illuminate\Support\Facades\Route;
 */
 
 // Depan
-Route::get('/', [AlurController::class, 'landing']);
-Route::get('/dashboard', [AlurController::class, 'dashboard'])->middleware('User');
-Route::get('/about', [AlurController::class, 'about']);
+Route::get('/', [PagesController::class, 'landing']);
+Route::get('/profile', [PagesController::class, 'profile'])->middleware('User');
+Route::get('/about', [PagesController::class, 'about']);
 
 // Login
 Route::get('/login', [SessionController::class, 'index'])->middleware('Tamu');
