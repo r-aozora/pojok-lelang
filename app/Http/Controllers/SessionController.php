@@ -12,7 +12,9 @@ class SessionController extends Controller
 {
     function index()
     {
-        return view('pages.login');
+        return view('pages.login-new', [
+            'title' => 'Pojok Lelang | Log In'
+        ]);
     }
 
     function login(Request $request)
@@ -41,7 +43,9 @@ class SessionController extends Controller
 
     function register()
     {
-        return view('pages.register');
+        return view('pages.register-new',[
+            'title' => 'Pojok Lelang | Register'
+        ]);
     }
 
     function create(Request $request)
