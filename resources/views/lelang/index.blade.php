@@ -86,7 +86,7 @@
                         </table>
                         {{ $lelang->withQueryString()->links() }}
                         <div class="pt-3">
-                            <a href="{{ url('dashboard') }}" class="btn" style="color:#055E68">
+                            <a href="{{ url('profile') }}" class="btn" style="color:#055E68">
                                 <i class="bi bi-arrow-left"></i> Kembali
                             </a>
                         </div>

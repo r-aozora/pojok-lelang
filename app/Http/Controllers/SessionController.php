@@ -33,7 +33,7 @@ class SessionController extends Controller
         ];
 
         if(Auth::attempt($infologin)){
-            return redirect('/dashboard')->with('success', Auth::user()->nama.'Berhasil Log In');
+            return redirect('/profile')->with('success', Auth::user()->nama.'Berhasil Log In');
         } else {
             return redirect('/login')->withErrors('Log In Gagal');
         }
@@ -76,7 +76,7 @@ class SessionController extends Controller
 
         if(Auth::attempt($infologin)){
             // return 'sukses';
-            return redirect('dashboard')->with('success', Auth::user()->nama.'Berhasil Register');
+            return redirect('profile')->with('success', Auth::user()->nama.'Berhasil Register');
         } else {
             // return 'gagal';
             return redirect('register')->withErrors('Register Gagal');

@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class AlurController extends Controller
+class PagesController extends Controller
 {
     public function landing()
     {
@@ -13,10 +13,10 @@ class AlurController extends Controller
         ]);
     }
 
-    public function dashboard()
+    public function profile()
     {
-        return view('pages.dashboard')->with([
-            'title'=>'Pojok Lelang | Dashboard'
+        return view('pages.profile')->with([
+            'title'=>'Pojok Lelang | Your Profile'
         ]);
     }
 
