@@ -12,7 +12,9 @@ class SignupadminController extends Controller
 {
     function register()
     {
-        return view('pages.register_admin');
+        return view('pages.register-admin-new', [
+            'title' => 'Pojok Lelang | Register Admin'
+        ]);
     }
 
     function create(Request $request)
