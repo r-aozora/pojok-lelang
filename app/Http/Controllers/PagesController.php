@@ -15,14 +15,14 @@ class PagesController extends Controller
 
     public function profile()
     {
-        return view('pages.profile')->with([
+        return view('pages.profile-new')->with([
             'title'=>'Pojok Lelang | Your Profile'
         ]);
     }
 
     public function about()
     {
-        return view('pages.about', [
+        return view('pages.about-new', [
             'title'=>'Pojok lelang | About'
         ]);
     }
