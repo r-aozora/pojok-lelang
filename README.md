@@ -28,7 +28,6 @@ Tutorial ada [di sini](https://youtu.be/BJu1Qcul7ig)
 - `git fetch`
 - `git status`
 - `git pull`
-- Kembali ke Mulai Ngoding
 
 ## Credit
 
