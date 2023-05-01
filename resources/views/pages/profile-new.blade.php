@@ -87,19 +87,23 @@
                                             <div class="col-xl-12">
                                                 <div class="row">
                                                     @if (Auth::user()->level === 'Administrator' || Auth::user()->level === 'Petugas')
-                                                        <div class="col-lg-3">
-                                                            <div class="info-box card">
+                                                        @if (Auth::user()->level === 'Administrator')
+                                                            <div class="col-lg-3">    
+                                                        @elseif (Auth::user()->level === 'Petugas')
+                                                            <div class="col-lg-4">
+                                                        @endif
                                                                 <a href="{{ url('/masyarakat') }}">
-                                                                    <i class="bi bi-people"></i>
-                                                                    <h3>Data Masyarakat</h3>
-                                                                    @if (Auth::user()->level === 'Administrator')
-                                                                        <p>Kelola data masyarakat.</p>
-                                                                    @elseif (Auth::user()->level === 'Petugas')
-                                                                        <p>Lihat data masyarakat.</p>
-                                                                    @endif
+                                                                    <div class="info-box card">
+                                                                        <i class="bi bi-people"></i>
+                                                                        <h3>Data Masyarakat</h3>
+                                                                        @if (Auth::user()->level === 'Administrator')
+                                                                            <p>Kelola data masyarakat.</p>
+                                                                        @elseif (Auth::user()->level === 'Petugas')
+                                                                            <p>Lihat data masyarakat.</p>
+                                                                        @endif
+                                                                    </div>
                                                                 </a>
                                                             </div>
-                                                        </div>
                                                         @if (Auth::user()->level === 'Administrator')
                                                             <div class="col-lg-3">
                                                                 <a href="{{ url('/petugas') }}">
@@ -111,29 +115,37 @@
                                                                 </a>
                                                             </div>
                                                         @endif
-                                                        <div class="col-lg-3">
-                                                            <a href="{{ url('/barang') }}">
-                                                                <div class="info-box card">
-                                                                    <i class="bi bi-boxes"></i>
-                                                                    <h3>Data Barang</h3>
-                                                                    <p>Kelola data barang.</p>
-                                                                </div>
-                                                            </a>
-                                                        </div>
-                                                        <div class="col-lg-3">
-                                                            <a href="{{ url('/lelang') }}">
-                                                                <div class="info-box card">
-                                                                    <i class="bi bi-clipboard-data"></i>
-                                                                    @if (Auth::user()->level === 'Administrator')
-                                                                        <h3>Laporan lelang</h3>
-                                                                        <p>Lihat & print laporan lelang.</p>
-                                                                    @elseif (Auth::user()->level === 'Petugas')
-                                                                        <h3>Aktivasi Lelang</h3>
-                                                                        <p>Kelola data & aktivasi lelang.</p>
-                                                                    @endif
-                                                                </div>
-                                                            </a>
-                                                        </div>
+                                                        @if (Auth::user()->level === 'Administrator')
+                                                            <div class="col-lg-3">    
+                                                        @elseif (Auth::user()->level === 'Petugas')
+                                                            <div class="col-lg-4">
+                                                        @endif
+                                                                <a href="{{ url('/barang') }}">
+                                                                    <div class="info-box card">
+                                                                        <i class="bi bi-boxes"></i>
+                                                                        <h3>Data Barang</h3>
+                                                                        <p>Kelola data barang.</p>
+                                                                    </div>
+                                                                </a>
+                                                            </div>
+                                                        @if (Auth::user()->level === 'Administrator')
+                                                            <div class="col-lg-3">    
+                                                        @elseif (Auth::user()->level === 'Petugas')
+                                                            <div class="col-lg-4">
+                                                        @endif
+                                                                <a href="{{ url('/lelang') }}">
+                                                                    <div class="info-box card">
+                                                                        <i class="bi bi-clipboard-data"></i>
+                                                                        @if (Auth::user()->level === 'Administrator')
+                                                                            <h3>Laporan lelang</h3>
+                                                                            <p>Lihat & print laporan lelang.</p>
+                                                                        @elseif (Auth::user()->level === 'Petugas')
+                                                                            <h3>Aktivasi Lelang</h3>
+                                                                            <p>Kelola data & aktivasi lelang.</p>
+                                                                        @endif
+                                                                    </div>
+                                                                </a>
+                                                            </div>
                                                     @endif
                                                 </div>
                                             </div>

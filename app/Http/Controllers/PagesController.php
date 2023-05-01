@@ -26,4 +26,18 @@ class PagesController extends Controller
             'title'=>'Pojok lelang | About'
         ]);
     }
+
+    public function error()
+    {
+        return view('pages.error-page', [
+            'title' => 'Error'
+        ]);
+    }
+
+    public function error_login()
+    {
+        return view('pages.error-login', [
+            'title' => 'Error'
+        ]);
+    }
 }

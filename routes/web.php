@@ -25,6 +25,8 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [PagesController::class, 'landing']);
 Route::get('/profile', [PagesController::class, 'profile'])->middleware('User');
 Route::get('/about', [PagesController::class, 'about']);
+Route::get('/error' , [PagesController::class, 'error']);
+Route::get('/error-login' , [PagesController::class, 'error_login']);
 
 // Login
 Route::get('/login', [SessionController::class, 'index'])->middleware('Tamu');
@@ -35,8 +37,8 @@ Route::get('/register', [SessionController::class, 'register'])->middleware('Tam
 Route::post('/register/auth', [SessionController::class, 'create'])->middleware('Tamu');
 
 // Register Admin
-Route::get('/register/admin', [SignupadminController::class, 'register'])->middleware('Tamu');
-Route::post('/register/admin/auth', [SignupadminController::class, 'create'])->middleware('Tamu');
+Route::get('/register-admin', [SignupadminController::class, 'register'])->middleware('Tamu');
+Route::post('/register-admin/auth', [SignupadminController::class, 'create'])->middleware('Tamu');
 
 // Logout
 Route::get('/logout', [SessionController::class, 'logout']);
