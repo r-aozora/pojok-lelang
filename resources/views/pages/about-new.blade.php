@@ -17,7 +17,7 @@
                     <div class="card mb-3">
                         <div class="row g-0 mx-3 my-3">
                             <div class="col-md-4"> 
-                                <img src="/img/brand-logo-new-2.png" style="weight:300px; height:300px;" class="img-fluid rounded-start mxauto" alt="Pojok lelang Logo">
+                                <img src="/img/brand-logo-new.png" style="height:300px;" class="img-fluid rounded-start mx-auto" alt="Pojok lelang Logo">
                             </div>
                             <div class="col-md-8">
                                 <div class="card-body">

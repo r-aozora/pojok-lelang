@@ -47,8 +47,8 @@
             <div class="d-flex align-items-center">
                 <div class="px-3 py-2 mb-1">
                     <div class="container d-flex flex-wrap justify-content-center">
-                        <a href="{{ url('/login') }}" class="btn text-white btn-sm mt-1 me-2" style="background-color: #055E68; border-radius:10px">Log In</a>
-                        <a href="{{ url('/register') }}" class="btn text-white btn-sm mt-1" style="background-color: #055E68; border-radius:10px">Sign Up</a>
+                        <a href="{{ url('/login') }}" class="btn text-white btn-sm mt-1 me-2" style="background-color: #055E68; border-radius:15px">Log In</a>
+                        <a href="{{ url('/register') }}" class="btn text-white btn-sm mt-1" style="background-color: #055E68; border-radius:15px">Sign Up</a>
                     </div>
                 </div>
             </div>
