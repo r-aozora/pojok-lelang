@@ -1,67 +1,121 @@
 @extends('layout.main')
 
 @section('content')
-    <div class="container mb-3">
-        <h2 class="mt-3">Detail Masyarakat</h2>
-        <div class="row">
-            <div class="col">
-                <div class="card mt-3 mb-3">
-                    <div class="card-body">
-                        <div class="card-header mb-3" style="background-color:#055E68; max-height:60px">
-                            <h5 class="card-title mt-2 fw-medium text-light">{{ $masyarakat->nama }}</h5>
+    <main id="main" class="main">
+        <div class="pagetitle">
+            <h1>Detail Masyarakat</h1>
+            <nav>
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="{{ url('/') }}">Home</a></li>
+                    <li class="breadcrumb-item">Data Lelang</li>
+                    <li class="breadcrumb-item"><a href="{{ url('/masyarakat') }}">Data Masyarakat</a></li>
+                    <li class="breadcrumb-item active">Detail Masyarakat</li>
+                </ol>
+            </nav>
+        </div>
+        <section class="section profile">
+            <div class="row">
+                <div class="col-xl-4">
+                    <div class="card">
+                        <div class="card-body profile-card pt-4 d-flex flex-column align-items-center">
+                            <img src="{{ asset('img/avatar-masyarakat.png') }}" alt="" class="rounded-circle">
+                            <h2>{{ $masyarakat->nama }}</h2>
+                            <h3>{{ $masyarakat->level }}</h3>
                         </div>
-                        <div class="row">
-                            <div class="col-3">
-                                @if ($masyarakat->level === 'Administrator')
-                                    <img src="../img/avatar-admin.png" class="mx-auto d-block img-fluid" alt="" style="weight:200px; height:200px; border-radius:100px">    
-                                @elseif ($masyarakat->level === 'Petugas')
-                                    <img src="../img/avatar-petugas.png" class="mx-auto d-block img-fluid" alt="" style="weight:200px; height:200px; border-radius:100px">
-                                @elseif ($masyarakat->level === 'Masyarakat')
-                                    <img src="../img/avatar-masyarakat.png" class="mx-auto d-block img-fluid" alt="" style="weight:200px; height:200px; border-radius:100px">
-                                @endif
+                    </div>
+                </div>
+                <div class="col-xl-8">
+                    <div class="card">
+                        <div class="card-body pt-3">
+                            <ul class="nav nav-tabs nav-tabs-bordered">
+                                <li class="nav-item"> <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#profile-overview">Detail</button></li>
+                                <li class="nav-item"> <button class="nav-link" data-bs-toggle="tab" data-bs-target="#profile-edit">Edit</button></li>
+                                <li class="nav-item"> <button class="nav-link" data-bs-toggle="tab" data-bs-target="#profile-hapus">Hapus</button></li>
+                            </ul>
+                        <div class="tab-content pt-2">
+                            <div class="tab-pane fade show active profile-overview" id="profile-overview">
+                                <h5 class="card-title">Detail Masyarakat</h5>
+                                <div class="row">
+                                    <div class="col-lg-3 col-md-4 label">ID Masyarakat</div>
+                                    <div class="col-lg-9 col-md-8">{{ $masyarakat->id }}</div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-lg-3 col-md-4 label">Nama Lengkap</div>
+                                    <div class="col-lg-9 col-md-8">{{ $masyarakat->nama }}</div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-lg-3 col-md-4 label">Username</div>
+                                    <div class="col-lg-9 col-md-8">{{ $masyarakat->username }}</div>
+                                </div>
+                                {{-- <div class="row">
+                                    <div class="col-lg-3 col-md-4 label">Password</div>
+                                    <div class="col-lg-9 col-md-8">{{ $masyarakat->password }}</div>
+                                </div> --}}
+                                <div class="row">
+                                    <div class="col-lg-3 col-md-4 label">Level</div>
+                                    <div class="col-lg-9 col-md-8">{{ $masyarakat->level }}</div>
+                                </div>
                             </div>
-                            <div class="col-9">
-                                <form action="" method="">
+                            <div class="tab-pane fade profile-edit" id="profile-edit">
+                                <h5 class="card-title">Edit Data</h5>
+                                <form action="{{ url('masyarakat/'.$masyarakat->id) }}" method="get">
                                     @csrf
-                                    <div class="form-outline mb-3">
-                                        <label for="id">ID Masyarakat</label>
-                                        <input type="text" class="form-control" id="id" value="{{ $masyarakat->id }}" readonly>
+                                    <div class="row mb-3">
+                                        <label for="id" class="col-md-4 col-lg-3 col-form-label">ID Masyarakat</label>
+                                        <div class="col-md-8 col-lg-9"> 
+                                            <input name="id" type="text" class="form-control" id="id" value="{{ $masyarakat->id }}" readonly>
+                                        </div>
                                     </div>
-                                    <div class="form-outline mb-3">
-                                        <label for="nama">Nama Lengkap</label>
-                                        <input type="text" class="form-control" id="nama" value="{{ $masyarakat->nama }}" readonly>
+                                    <div class="row mb-3">
+                                        <label for="nama" class="col-md-4 col-lg-3 col-form-label">Nama Lengkap</label>
+                                        <div class="col-md-8 col-lg-9">
+                                            <input name="nama" type="text" class="form-control" id="nama" value="{{ $masyarakat->nama }}">
+                                            <div class="invalid-feedback"> Masukkan nama yang valid</div>
+                                        </div>
                                     </div>
-                                    <div class="form-outline mb-3">
-                                        <label for="username">Username</label>
-                                        <input type="text" class="form-control" id="username" value="{{ $masyarakat->username }}" readonly>
+                                    <div class="row mb-3">
+                                        <label for="username" class="col-md-4 col-lg-3 col-form-label">Username</label>
+                                        <div class="col-md-8 col-lg-9"> 
+                                            <input name="username" type="text" class="form-control" id="username" value="{{ $masyarakat->username }}">
+                                            <div class="invalid-feedback"> Masukkan username yang valid</div>
+                                        </div>
                                     </div>
-                                    <div class="form-outline mb-3">
-                                        <label for="password">Password</label>
-                                        <input type="password" class="form-control" id="password" value="{{ $masyarakat->password }}" readonly>
+                                    {{-- <div class="row mb-3">
+                                        <label for="password" class="col-md-4 col-lg-3 col-form-label">Password</label>
+                                        <div class="col-md-8 col-lg-9"> 
+                                            <input name="password" type="password" class="form-control" id="password" value="{{ $masyarakat->password }}">
+                                        </div>
+                                    </div> --}}
+                                    <div class="row mb-3">
+                                        <label for="level" class="col-md-4 col-lg-3 col-form-label">Level</label>
+                                        <div class="col-md-8 col-lg-9">
+                                            <select class="form-select" id="level" required>
+                                                <option selected value="Masyarakat">Masyarakat</option>
+                                            </select>
+                                            <div class="invalid-feedback"> Masukkan level yang valid</div>
+                                        </div>
                                     </div>
-                                    <div class="form-outline mb-3">
-                                        <label for="level">Level</label>
-                                        <input class="form-control" id="level" value="{{ $masyarakat->level }}" readonly>
+                                    <div class="text-center"> 
+                                        <button type="submit" class="btn btn-sm text-white" style="background-color:#055E68; border-radius:20px"><i class="bi bi-box-arrow-in-down"></i> Simpan</button>
                                     </div>
-                                    <div>
-                                        @if (auth()->user()->level === 'Administrator' || auth()->user()->level == 'Petugas')
-                                            <a href="{{ url('masyarakat') }}"  class="btn btn-outline"><i class="bi bi-arrow-left"></i> Kembali</a>
-                                            @if (auth()->user()->level === 'Administrator')
-                                                <a href="{{ url('masyarakat/'.$masyarakat->id.'/edit') }}" class="btn text-white" style="background-color: #055E68"><i class="bi bi-pencil-square"></i> Edit</a>
-                                                <form onsubmit="return confirm('Data Akan Dihapus')" action="{{ url('masyarakat/'.$masyarakat->id) }}" method="post">
-                                                    @csrf
-                                                    @method('DELETE')
-                                                    <button type="submit" class="btn text-white" style="background-color: #055E68" role="button"><i class="bi bi-trash"></i> Hapus</button>
-                                                </form>
-                                            @endif
-                                        @endif
+                                </form>
+                            </div>
+                            <div class="tab-pane fade" id="profile-hapus">
+                                <h5 class="card-title">Hapus Data</h5>
+                                <p>Disini Anda akan melakukan hapus data. Apa Anda yakin ingin menghapus data?</p>
+                                <form onsubmit="return confirm('Data Akan Dihapus')" action="{{ url('masyarakat/'.$masyarakat->id) }}" method="post">
+                                    @csrf
+                                    @method('DELETE')
+                                    <div class="text-center">
+                                        <button type="submit" class="btn btn-sm text-white" style="background-color:#055E68; border-radius:20px" role="button"><i class="bi bi-trash"></i> Hapus</button>
                                     </div>
                                 </form>
                             </div>
                         </div>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </div>
+        </section>
+    </main>
 @endsection

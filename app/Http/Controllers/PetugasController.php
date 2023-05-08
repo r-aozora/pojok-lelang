@@ -41,7 +41,7 @@ class petugasController extends Controller
     public function create()
     {
         return view('petugas.create')->with([
-            'title' => 'Pojok Lelang | Tambah Data Petugas',
+            'title' => 'Pojok Lelang | Tambah Data',
         ]);
     }
 
@@ -113,9 +113,9 @@ class petugasController extends Controller
     {
         $petugas = User::where('id', $id)->first();
 
-        return view('petugas.edit')->with([
+        return view('petugas.detail')->with([
             'petugas' => $petugas,
-            'title' => 'Pojok Lelang | Edit Data Petugas'
+            'title' => 'Pojok Lelang | Edit Data'
         ]);
     }
 
@@ -160,7 +160,7 @@ class petugasController extends Controller
     public function destroy($id)
     {
         User::where('id', $id)->delete();
-        return redirect('petugas')->with('success', 'Data Dihapus');
+        return redirect()->back()->with('success', 'Data Dihapus');
     }
 }
 ?>

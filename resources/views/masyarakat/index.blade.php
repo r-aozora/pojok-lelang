@@ -1,86 +1,82 @@
 @extends('layout.main')
+
 @section('content')
-    <div class="container">
-        <h3 class="mt-3">Data Masyarakat</h3>
-        <div class="row">
-            <div class="col">
-                <div class="card mt-3 mb-3">
-                    <div class="card-body">
-                        <div class="card-header" style="background-color:#055E68; max-height:60px">
-                            <h5 class="card-title mt-2 fw-medium text-light">Data Masyarakat</h5>
-                        </div>
-                        <div class=" d-flex flex-wrap justify-content-center mt-3">
-                            <div class="col-6 col-lg-6 mb-2 mb-lg-0 me-lg-auto" style="white-space:nowrap">
-                                <div class="col-sm-6">
-                                    <form action="{{ url('masyarakat') }}" method="get" class="col-12 col-lg-auto mb-2 mb-lg-0 me-lg-auto" role="search">
-                                        <input type="search" class="form-control form-control-sm me-1" name="katakunci" value="{{ Request::get('katakunci') }}" placeholder="Search..." aria-label="Search">
-                                        <button class="btn" type="submit" style="color:#055E68"><i class="bi bi-magnifying-glass"></i></button>
-                                    </form>
-                                </div>
-                            </div>
-                        <div class="text-end col-6 col-lg-6 me-lg-auto">
-                            @if (auth()->user()->level === 'Administrator')
-                                <a href="{{ url('/masyarakat/create') }}" type="button" class="btn btn-sm text-white" style="background-color: #055E68">
-                                    <i class="bi bi-plus"></i> Tambah Data
-                                </a>
+    <main id="main" class="main">
+        <div class="pagetitle">
+            <h1>Data Masyarakat</h1>
+            <nav>
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="{{ url('/') }}">Home</a></li>
+                    <li class="breadcrumb-item">Data Lelang</li>
+                    <li class="breadcrumb-item active">Data Masyarakat</li>
+                </ol>
+            </nav>
+            </div>
+            <section class="section">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Data Masyarakat</h5>
+                            @if (Auth::user()->level === 'Administrator')
+                                <p>Di sini Anda dapat mengelola data masyarakat. Mulai dari tambah data, lihat data, edit data, sampai hapus data.</p>
+                            @else
+                                <p>Di sini Anda hanya dapat melihat data masyarakat.</p>
                             @endif
-                        </div>
-                        <table class="table table-bordered" style="text-align: center">
-                            <thead>
-                                <tr>
-                                    <th>ID</th>
-                                    <th>Nama Masyarakat</th>
-                                    <th>Username</th>
-                                    <th>Telepon</th>
-                                    <th>Lainnya</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                @foreach ($masyarakat as $item)
-                                <tr>
-                                    <td>{{ $item->id }}</td>
-                                    <td>{{ $item->nama }}</td>
-                                    <td>{{ $item->username }}</td>
-                                    <td>{{ $item->telepon }}</td>
-                                    <td>
-                                        <button type="button" class="btn btn-sm text-white dropdown-toggle" style="background-color:#055E68" data-bs-toggle="dropdown" aria-expanded="false" role="button">
-                                            <i class="bi bi-gear"></i> Aksi
-                                        </button>
-                                        <ul class="dropdown-menu">
-                                            @if (auth()->user()->level === 'Administrator' || auth()->user()->level == 'Petugas')
-                                                <li>
-                                                    <a href="{{ url('masyarakat/'.$item->id) }}" class="btn btn-sm dropdown-item" role="button"><i class="bi bi-clipboard"></i> Detail</a>
-                                                </li>
-                                                @if (auth()->user()->level === 'Administrator')
-                                                    <li>
-                                                        <a href="{{ url('masyarakat/'.$item->id.'/edit') }}" class="btn btn-sm dropdown-item"><i class="bi bi-pencil-square"></i> Edit</a>
-                                                    </li>
-                                                    <li>
-                                                        <form onsubmit="return confirm('Data Akan Dihapus')" action="{{ url('masyarakat/'.$item->id) }}" method="post">
-                                                            @csrf
-                                                            @method('DELETE')
-                                                            <button type="submit" class="btn btn-sm dropdown-item" role="button"><i class="bi bi-trash"></i> Hapus</button>
-                                                        </form>
-                                                    </li>
-                                                @endif
+                                <div class=" d-flex flex-wrap justify-content-center mt-3">
+                                    <div class="col-6 mb-4">
+                                        <div class="col-sm-6">
+                                            <form action="{{ url('masyarakat') }}" method="get" class="col-12" role="search" style="border-radius: 20px">
+                                                <input type="search" class="form-control form-control-sm me-1" name="katakunci" value="{{ Request::get('katakunci') }}" placeholder="Search..." aria-label="Search">
+                                                {{-- <button class="btn" type="submit" style="color:#055E68"><i class="bi bi-magnifying-glass"></i></button> --}}
+                                            </form>
+                                        </div>
+                                    </div>
+                                <div class="text-end col-6">
+                                    @if (Auth::user()->level === 'Administrator')
+                                        <a href="{{ url('masyarakat/create') }}" type="button" class="btn btn-sm text-white" style="background-color: #055E68; border-radius:20px">
+                                            <i class="bi bi-plus"></i> Tambah Data
+                                        </a>
+                                    @endif
+                                </div>
+                            <table class="table table-bordered">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">ID</th>
+                                        <th scope="col">Nama Lengkap</th>
+                                        <th scope="col">Username</th>
+                                        <th scope="col">Telepon</th>
+                                        @if (Auth::user()->level === 'Administrator')
+                                            <th scope="col">Lainnya</th>
+                                        @endif
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach ($masyarakat as $item)
+                                        <tr>
+                                            <td><a href="{{ url('masyarakat/'.$item->id) }}">{{ $item->id }}</a></td>
+                                            <td><a href="{{ url('masyarakat/'.$item->id) }}">{{ $item->nama }}</a></td>
+                                            <td><a href="{{ url('masyarakat/'.$item->id) }}">{{ $item->username }}</a></td>
+                                            <td></td>
+                                            @if (Auth::user()->level === 'Administrator')
+                                                <td>
+                                                    <a href="{{ url('masyarakat/'.$item->id.'/edit') }}" class="btn btn-sm text-white" style="background-color: #055E68; border-radius: 20px"><i class="bi bi-pencil-square"></i></a>
+                                                    <form onsubmit="return confirm('Data Akan Dihapus')" action="{{ url('masyarakat/'.$item->id) }}" method="post" class="d-inline">
+                                                        @csrf
+                                                        @method('DELETE')
+                                                        <button type="submit" class="btn btn-sm text-white" style="background-color: #055E68; border-radius: 20px" role="button"><i class="bi bi-trash"></i></button>
+                                                    </form>
+                                                </td>
                                             @endif
-                                        </ul>
-                                    </td>
-                                </tr>
-                                @endforeach
-                            </tbody>
-                        </table>
-                        {{ $masyarakat->withQueryString()->links() }}
-                        <div class="pt-3">
-                            <a href="{{ url('profile') }}" class="btn" style="color:#055E68">
-                                <i class="bi bi-arrow-left"></i> Kembali
-                            </a>
+                                        </tr>
+                                    @endforeach
+                                </tbody>
+                            </table>
+                            {{ $masyarakat->withQueryString()->links() }}
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </div>
-    </div>
-    </div>
+        </section>
+    </main>
 @endsection
