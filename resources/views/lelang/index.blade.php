@@ -1,100 +1,93 @@
 @extends('layout.main')
 
 @section('content')
-    <div class="container">
-        <h3 class="mt-3">Aktivasi Lelang</h3>
-        <div class="row">
-            <div class="col">
-                <div class="card mt-3 mb-3">
-                    <div class="card-body">
-                        <div class="card-header" style="background-color:#055E68; max-height:60px">
-                            <h5 class="card-title mt-2 fw-medium text-light">Data Aktivasi Lelang</h5>
-                        </div>
-                        <div class=" d-flex flex-wrap justify-content-center mt-3">
-                            <div class="col-6 col-lg-6 mb-2 mb-lg-0 me-lg-auto" style="white-space:nowrap">
-                                <div class="col-sm-6">
-                                    <form action="{{ url('lelang') }}" method="get" class="col-12 col-lg-auto mb-2 mb-lg-0 me-lg-auto" role="search">
-                                        <input type="search" class="form-control form-control-sm me-1" name="katakunci" value="{{ Request::get('katakunci') }}" placeholder="Search..." aria-label="Search">
-                                        <button class="btn" type="submit" style="color:#055E68"><i class="bi bi-magnifying-glass"></i></button>
-                                    </form>
+    <main id="main" class="main">
+        <div class="pagetitle">
+            <h1>Aktivasi Lelang</h1>
+            <nav>
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="{{ url('/') }}">Home</a></li>
+                    <li class="breadcrumb-item">Data Lelang</li>
+                    <li class="breadcrumb-item active">Aktivasi Lelang</li>
+                </ol>
+            </nav>
+            </div>
+            <section class="section">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Aktivasi Lelang</h5>
+                            <p>Di sini Anda dapat mengelola data lelang. Mulai dari tambah data, lihat data, edit data, sampai hapus data.</p>
+                                <div class=" d-flex flex-wrap justify-content-center mt-3">
+                                    <div class="col-6 mb-4">
+                                        <div class="col-sm-6">
+                                            <form action="{{ url('lelang') }}" method="get" class="col-12" role="search" style="border-radius: 20px">
+                                                <input type="search" class="form-control form-control-sm me-1" name="katakunci" value="{{ Request::get('katakunci') }}" placeholder="Search..." aria-label="Search">
+                                                {{-- <button class="btn" type="submit" style="color:#055E68"><i class="bi bi-magnifying-glass"></i></button> --}}
+                                            </form>
+                                        </div>
+                                    </div>
+                                <div class="text-end col-6">
+                                    @if (auth()->user()->level === 'Petugas')
+                                        <a href="{{ url('lelang/create') }}" type="button" class="btn btn-sm text-white" style="background-color: #055E68; border-radius:20px">
+                                            <i class="bi bi-plus"></i> Tambah Data
+                                        </a>
+                                    @endif
+                                    @if (auth()->user()->level === 'Petugas' || auth()->user()->level === 'Administrator')
+                                        <a href="" type="button" class="btn btn-sm text-white" style="background-color: #055E68; border-radius:20px">
+                                            <i class="bi bi-printer"></i> Print Laporan
+                                        </a>
+                                    @endif
                                 </div>
-                            </div>
-                        <div class="text-end col-6 col-lg-6 me-lg-auto">
-                            @if (auth()->user()->level === 'Petugas')
-                                <a href="{{ url('lelang/create') }}" type="button" class="btn btn-sm text-white" style="background-color: #055E68">
-                                    <i class="bi bi-plus"></i> Tambah Data
-                                </a>
-                            @endif
-                            @if (auth()->user()->level === 'Petugas' || auth()->user()->level === 'Administrator')
-                                <a href="" type="button" class="btn btn-sm text-white" style="background-color: #055E68">
-                                    <i class="bi bi-printer"></i> Print Laporan
-                                </a>
-                            @endif
-                        </div>
-                        <table class="table table-bordered" style="text-align: center">
-                            <thead>
-                                <tr>
-                                    <th>ID</th>
-                                    <th>Nama Barang</th>
-                                    <th>Tanggal</th>
-                                    <th>Pemenang</th>
-                                    <th>Harga Tertinggi</th>
-                                    <th>Status</th>
-                                    <th>Lainnya</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                @foreach ($lelang as $item)
-                                <tr>
-                                    <td>{{ $item->id_lelang }}</td>
-                                    <td>{{ $item->nama_barang }}</td>
-                                    <td>{{ $item->created_at }}</td>
-                                    <td>{{ $item->harga_awal }}</td>
-                                    <td>
-                                        @if ($item->status === '')
-                                            Lelang Belum Dibuka
-                                        @elseif ($item->status === 'Dibuka')
-                                            Lelang Dibuka
-                                        @elseif ($item->status === 'Ditutup')
-                                            Lelang Ditutup
+                            <table class="table table-bordered">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">ID Lelang</th>
+                                        <th scope="col">Nama Barang</th>
+                                        <th scope="col">Tanggal</th>
+                                        <th scope="col">Pemenang</th>
+                                        <th scope="col">Harga Tertinggi</th>
+                                        <th scope="col">Status</th>
+                                        @if (Auth::user()->level === 'Petugas')
+                                            <th scope="col">Lainnya</th>  
                                         @endif
-                                    </td>
-                                    <td>
-                                        <button type="button" class="btn btn-sm text-white dropdown-toggle" style="background-color:#055E68" data-bs-toggle="dropdown" aria-expanded="false" role="button">
-                                            <i class="bi bi-gear"></i> Aksi
-                                        </button>
-                                        <ul class="dropdown-menu">
-                                            <li>
-                                                <a href="{{ url('lelang/'.$item->id) }}" class="btn btn-sm dropdown-item " role="button"><i class="bi bi-clipboard"></i> Detail Lelang</a>
-                                            </li>
-                                            <li>
-                                                <a href="{{ url('lelang/'.$item->id.'/edit') }}" class="btn btn-sm dropdown-item"><i class="bi bi-pencil-square"></i> Buka Lelang</a>
-                                                <a href="{{ url('lelang/'.$item->id.'/edit') }}" class="btn btn-sm dropdown-item"><i class="bi bi-pencil-square"></i> Tutup Lelang</a>
-                                            </li>
-                                            {{-- <li>
-                                                <form onsubmit="return confirm('Data Akan Dihapus')" action="{{ url('lelang/'.$item->id) }}" method="post">
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach ($lelang as $item)
+                                        <tr>
+                                            <td><a href="{{ url('lelang/'.$item->id) }}">{{ $item->id_lelang }}</a></td>
+                                            <td><a href="{{ url('lelang/'.$item->id) }}">{{ $item->nama_barang }}</a></td>
+                                            <td><a href="{{ url('lelang/'.$item->id) }}">{{ $item->create_at }}</a></td>
+                                            <td><a href="{{ url('lelang/'.$item->id) }}">{{ $item->id_masyarakat }}</a></td>
+                                            <td><a href="{{ url('lelang/'.$item->id) }}">{{ $item->harga_awal }}</a></td>
+                                            <td>
+                                                @if ($item->status === '')
+                                                    Lelang Belum Dibuka
+                                                @elseif ($item->status === 'Dibuka')
+                                                    Lelang Dibuka
+                                                @elseif ($item->status === 'Ditutup')
+                                                    Lelang Ditutup
+                                                @endif
+                                            </td>
+                                            <td>
+                                                <a href="{{ url('lelang/'.$item->id.'/edit') }}" class="btn btn-sm text-white" style="background-color: #055E68; border-radius: 20px"><i class="bi bi-pencil-square"></i></a>
+                                                <form onsubmit="return confirm('Data Akan Dihapus')" action="{{ url('lelang/'.$item->id) }}" method="post" class="d-inline">
                                                     @csrf
                                                     @method('DELETE')
-                                                    <button type="submit" class="btn btn-sm dropdown-item" role="button"><i class="bi bi-trash"></i> Hapus</button>
+                                                    <button type="submit" class="btn btn-sm text-white" style="background-color: #055E68; border-radius: 20px" role="button"><i class="bi bi-trash"></i></button>
                                                 </form>
-                                            </li> --}}
-                                        </ul>
-                                    </td>
-                                </tr>
-                                @endforeach
-                            </tbody>
-                        </table>
-                        {{ $lelang->withQueryString()->links() }}
-                        <div class="pt-3">
-                            <a href="{{ url('profile') }}" class="btn" style="color:#055E68">
-                                <i class="bi bi-arrow-left"></i> Kembali
-                            </a>
+                                            </td>
+                                        </tr>
+                                    @endforeach
+                                </tbody>
+                            </table>
+                            {{ $lelang->withQueryString()->links() }}
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </div>
-    </div>
-    </div>
+        </section>
+    </main>
 @endsection

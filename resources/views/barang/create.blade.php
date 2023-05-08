@@ -1,53 +1,76 @@
 @extends('layout.main')
 
 @section('content')
-    <div class="container mb-4">
-        <h2 class="mt-3">Tambah Data Barang</h2>
-        <div class="row">
-            <div class="col">
-                <div class="card mt-3 mb-3">
-                    <div class="card-body">
-                        {{-- <div class="card-header mb-3" style="background-color:#055E68; max-height:60px">
-                            <h5 class="card-title mt-2 fw-medium text-light">{{ $petugas->nama }}</h5>
-                        </div> --}}
-                        <div class="row">
-                            <div class="col-3">
-                                <img src="../../img/avatar-petugas.png" class="mx-auto d-block img-fluid" alt="" style="weight:200px; height:200px; border-radius:100px">
-                            </div>
-                            <div class="col-9">
-                                <form action="{{ url('barang') }}" method="post">
-                                    @csrf
-                                    <div class="form-outline mb-3">
-                                        <label for="id">ID Barang</label>
-                                        <input type="text" class="form-control" id="id"value="{{ Session::get('id_barang') }}">
+    <main id="main" class="main">
+        <div class="pagetitle">
+            <h1>Tambah Data Barang</h1>
+            <nav>
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="{{ url('/') }}">Home</a></li>
+                    <li class="breadcrumb-item">Data Lelang</li>
+                    <li class="breadcrumb-item"><a href="{{ url('/barang') }}">Data Barang</a></li>
+                    <li class="breadcrumb-item active">Tambah Data</li>
+                </ol>
+            </nav>
+        </div>
+        <section class="section profile">
+            <div class="row">
+                <div class="col-xl-4">
+                    <div class="card">
+                        <div class="card-body profile-card pt-4 d-flex flex-column align-items-center">
+                            <img src="{{ asset('img/avatar-petugas.png') }}" alt="" class="rounded-circle">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-8">
+                    <div class="card">
+                        <div class="card-body pt-3">
+                            <h5 class="card-title">Tambah Data</h5>
+                            <form action="{{ url('barang') }}" method="post">
+                                @csrf
+                                <div class="row mb-3">
+                                    <label for="id" class="col-md-4 col-lg-3 col-form-label">ID Barang</label>
+                                    <div class="col-md-8 col-lg-9"> 
+                                        <input name="id" type="number" class="form-control" id="id">
+                                        <div class="invalid-feedback"> Masukkan ID yang valid</div>
                                     </div>
-                                    <div class="form-outline mb-3">
-                                        <label for="nama">Nama Barang</label>
-                                        <input type="text" class="form-control" id="nama" value="{{ Session::get('nama_barang') }}">
+                                </div>
+                                <div class="row mb-3">
+                                    <label for="nama" class="col-md-4 col-lg-3 col-form-label">Nama Narang</label>
+                                    <div class="col-md-8 col-lg-9">
+                                        <input name="nama" type="text" class="form-control" id="nama">
+                                        <div class="invalid-feedback"> Masukkan nama barang yang valid</div>
                                     </div>
-                                    <div class="form-outline mb-3">
-                                        <label for="username">Harga Awal</label>
-                                        <input type="text" class="form-control" id="username" value="{{ Session::get('harga_awal') }}">
+                                </div>
+                                <div class="row mb-3">
+                                    <label for="username" class="col-md-4 col-lg-3 col-form-label">Harga Awal</label>
+                                    <div class="col-md-8 col-lg-9"> 
+                                        <input name="username" type="text" class="form-control" id="username">
+                                        <div class="invalid-feedback"> Masukkan username yang valid</div>
                                     </div>
-                                    <div class="form-outline mb-3">
-                                        <label for="Deskripsi">Deskripsi Barang</label>
-                                        <textarea class="form-control" id="deskripsi" rows="5"></textarea>
+                                </div>
+                                <div class="row mb-3">
+                                    <label for="deskripsi" class="col-md-4 col-lg-3 col-form-label">Deskripsi Barang</label>
+                                    <div class="col-md-8 col-lg-9"> 
+                                        <textarea name="deskripsi" class="form-control" style="height: 100px"></textarea>
+                                        <div class="invalid-feedback"> Masukkan deskripsi yang valid</div>
                                     </div>
-                                    <div class="form-outline mb-3">
-                                        <label for="foto" class="form-label">Foto Barang</label>
-                                        <input class="form-control" type="file" id="foto">
+                                </div>
+                                <div class="row mb-3">
+                                    <label for="foto" class="col-md-4 col-lg-3 col-form-label">Foto Barang</label>
+                                    <div class="col-md-8 col-lg-9">
+                                        <input name="foto" class="form-control" type="file" id="foto">
+                                        <div class="invalid-feedback"> Masukkan foto yang valid</div>
                                     </div>
-                                    <div>
-                                        <a href="{{ url('barang') }}" type="button" class="btn btn-outline"><i class="bi bi-arrow-left"></i> Kembali</a>
-                                        <button type="submit" class="btn text-white" style="background-color:#055E68"><i class="bi bi-box-arrow-in-down"></i> Simpan</button>
-                                    </div>
-                                </form>
-                            </div>
+                                </div>
+                                <div class="text-center"> 
+                                    <button type="submit" class="btn btn-sm text-white" style="background-color:#055E68; border-radius:20px"><i class="bi bi-box-arrow-in-down"></i> Simpan</button>
+                                </div>
+                            </form>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </div>
-
+        </section>
+    </main>
 @endsection

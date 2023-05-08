@@ -45,7 +45,7 @@ class MasyarakatController extends Controller
     public function create()
     {
         return view('masyarakat.create')->with([
-            'title' => 'Pojok Lelang | Tambah Data Masyarakat',
+            'title' => 'Pojok Lelang | Tambah Data',
         ]);
     }
 
@@ -117,9 +117,9 @@ class MasyarakatController extends Controller
     {
         $masyarakat = User::where('id', $id)->first();
 
-        return view('masyarakat.edit')->with([
+        return view('masyarakat.detail')->with([
             'masyarakat' => $masyarakat,
-            'title' => 'Pojok Lelang | Edit Data Masyarakat'
+            'title' => 'Pojok Lelang | Edit Data'
         ]);
     }
 

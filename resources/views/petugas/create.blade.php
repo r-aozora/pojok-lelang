@@ -3,53 +3,74 @@
 @section('content')
     <main id="main" class="main">
         <div class="pagetitle">
-            <h1>Form Validation</h1>
+            <h1>Tambah Data Petugas</h1>
             <nav>
                 <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-                    <li class="breadcrumb-item">Forms</li>
-                    <li class="breadcrumb-item active">Validation</li>
+                    <li class="breadcrumb-item"><a href="{{ url('/') }}">Home</a></li>
+                    <li class="breadcrumb-item">Data Lelang</li>
+                    <li class="breadcrumb-item"><a href="{{ url('/petugas') }}">Data Petugas</a></li>
+                    <li class="breadcrumb-item active">Tambah Data</li>
                 </ol>
             </nav>
         </div>
-        <section class="section">
+        <section class="section profile">
             <div class="row">
-                <div class="col-lg-6">
+                <div class="col-xl-4">
                     <div class="card">
-                        <div class="card-body">
-                            <h5 class="card-title">Custom Styled Validation</h5>
-                            <p>For custom Bootstrap form validation messages, you’ll need to add the <code>novalidate</code> boolean attribute to your <code>&lt;form&gt;</code>. This disables the browser default feedback tooltips, but still provides access to the form validation APIs in JavaScript.</p>
-                            <form class="row g-3 needs-validation" novalidate>
-                                <div class="form-outline">
-                                    <label for="id" class="form-label">ID Petugas</label> 
-                                    <input type="text" class="form-control" id="id" value="" required>
-                                    <div class="valid-feedback"> Looks good!</div>
+                        <div class="card-body profile-card pt-4 d-flex flex-column align-items-center">
+                            <img src="{{ asset('img/avatar-petugas.png') }}" alt="" class="rounded-circle">
+                            <h2>Nama Petugas</h2>
+                            <h3>Level</h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-8">
+                    <div class="card">
+                        <div class="card-body pt-3">
+                            <h5 class="card-title">Tambah Data</h5>
+                            <form action="{{ url('petugas') }}" method="post">
+                                @csrf
+                                <div class="row mb-3">
+                                    <label for="id" class="col-md-4 col-lg-3 col-form-label">ID Petugas</label>
+                                    <div class="col-md-8 col-lg-9"> 
+                                        <input name="id" type="number" class="form-control" id="id">
+                                        <div class="invalid-feedback"> Masukkan ID yang valid</div>
+                                    </div>
                                 </div>
-                                <div class="form-outline">
-                                    <label for="nama" class="form-label">Nama Petugas</label> 
-                                    <input type="text" class="form-control" id="nama" value="" required>
-                                    <div class="valid-feedback"> Looks good!</div>
+                                <div class="row mb-3">
+                                    <label for="nama" class="col-md-4 col-lg-3 col-form-label">Nama Petugas</label>
+                                    <div class="col-md-8 col-lg-9">
+                                        <input name="nama" type="text" class="form-control" id="nama">
+                                        <div class="invalid-feedback"> Masukkan nama petugas yang valid</div>
+                                    </div>
                                 </div>
-                                <div class="form-outline">
-                                    <label for="username" class="form-label">Username</label>
-                                    <input type="text" class="form-control" id="username" aria-describedby="inputGroupPrepend" required>
-                                    <div class="invalid-feedback"> Please choose a username.</div>
+                                <div class="row mb-3">
+                                    <label for="username" class="col-md-4 col-lg-3 col-form-label">Username</label>
+                                    <div class="col-md-8 col-lg-9"> 
+                                        <input name="username" type="text" class="form-control" id="username">
+                                        <div class="invalid-feedback"> Masukkan username yang valid</div>
+                                    </div>
                                 </div>
-                                <div class="form-outline">
-                                    <label for="password" class="form-label">Password</label> 
-                                    <input type="text" class="form-control" id="password" required>
-                                    <div class="invalid-feedback"> Please provide a valid city.</div>
+                                <div class="row mb-3">
+                                    <label for="password" class="col-md-4 col-lg-3 col-form-label">Password</label>
+                                    <div class="col-md-8 col-lg-9"> 
+                                        <input name="password" type="password" class="form-control" id="password">
+                                        <div class="invalid-feedback"> Masukkan password yang valid</div>
+                                    </div>
                                 </div>
-                                <div class="form-outline">
-                                    <label for="level" class="form-label">Level</label> 
-                                    <select class="form-select" id="level" required>
-                                        <option selected disabled value="">Choose...</option>
-                                        <option>...</option>
-                                    </select>
-                                    <div class="invalid-feedback"> Please select a valid state.</div>
+                                <div class="row mb-3">
+                                    <label for="level" class="col-md-4 col-lg-3 col-form-label">Level</label>
+                                    <div class="col-md-8 col-lg-9">
+                                        <select class="form-select" id="level" required>
+                                            <option selected></option>
+                                            <option value="Administrator">Administrator</option>
+                                            <option value="Petugas">Petugas</option>
+                                        </select>
+                                        <div class="invalid-feedback"> Masukkan level yang valid</div>
+                                    </div>
                                 </div>
-                                <div> 
-                                    <button class="btn btn-primary" type="submit">Submit form</button>
+                                <div class="text-center"> 
+                                    <button type="submit" class="btn btn-sm text-white" style="background-color:#055E68; border-radius:20px"><i class="bi bi-box-arrow-in-down"></i> Simpan</button>
                                 </div>
                             </form>
                         </div>
