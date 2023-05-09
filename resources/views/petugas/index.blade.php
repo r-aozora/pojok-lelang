@@ -49,7 +49,7 @@
                                             <td><a href="{{ url('petugas/'.$item->id) }}">{{ $item->id }}</a></td>
                                             <td><a href="{{ url('petugas/'.$item->id) }}">{{ $item->nama }}</a></td>
                                             <td><a href="{{ url('petugas/'.$item->id) }}">{{ $item->username }}</a></td>
-                                            <td><a href="{{ url('petugas/'.$item->id) }}">{{ $item->level }}</a></td>
+                                            <td>{{ $item->level }}</td>
                                             <td>
                                                 <a href="{{ url('petugas/'.$item->id.'/edit') }}" class="btn btn-sm text-white" style="background-color: #055E68; border-radius: 20px"><i class="bi bi-pencil-square"></i></a>
                                                 <form onsubmit="return confirm('Data Akan Dihapus')" action="{{ url('petugas/'.$item->id) }}" method="post" class="d-inline">

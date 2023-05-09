@@ -9,7 +9,7 @@
                     <li class="breadcrumb-item"><a href="{{ url('/') }}">Home</a></li>
                     <li class="breadcrumb-item">Data Lelang</li>
                     <li class="breadcrumb-item"><a href="{{ url('/masyarakat') }}">Data Masyarakat</a></li>
-                    <li class="breadcrumb-item active">Detail Masyarakat</li>
+                    <li class="breadcrumb-item active">Detail Data</li>
                 </ol>
             </nav>
         </div>
@@ -27,91 +27,37 @@
                 <div class="col-xl-8">
                     <div class="card">
                         <div class="card-body pt-3">
-                            <ul class="nav nav-tabs nav-tabs-bordered">
-                                <li class="nav-item"> <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#profile-overview">Detail</button></li>
-                                <li class="nav-item"> <button class="nav-link" data-bs-toggle="tab" data-bs-target="#profile-edit">Edit</button></li>
-                                <li class="nav-item"> <button class="nav-link" data-bs-toggle="tab" data-bs-target="#profile-hapus">Hapus</button></li>
-                            </ul>
-                        <div class="tab-content pt-2">
-                            <div class="tab-pane fade show active profile-overview" id="profile-overview">
+                            <div class="profile-overview">
                                 <h5 class="card-title">Detail Masyarakat</h5>
-                                <div class="row">
-                                    <div class="col-lg-3 col-md-4 label">ID Masyarakat</div>
+                                <div class="row mb-3">
+                                    <div class="col-lg-3 col-md-4 label ">ID</div>
                                     <div class="col-lg-9 col-md-8">{{ $masyarakat->id }}</div>
                                 </div>
-                                <div class="row">
+                                <div class="row mb-3">
                                     <div class="col-lg-3 col-md-4 label">Nama Lengkap</div>
                                     <div class="col-lg-9 col-md-8">{{ $masyarakat->nama }}</div>
                                 </div>
-                                <div class="row">
+                                <div class="row mb-3">
                                     <div class="col-lg-3 col-md-4 label">Username</div>
                                     <div class="col-lg-9 col-md-8">{{ $masyarakat->username }}</div>
                                 </div>
-                                {{-- <div class="row">
+                                {{-- <div class="row mb-3">
                                     <div class="col-lg-3 col-md-4 label">Password</div>
                                     <div class="col-lg-9 col-md-8">{{ $masyarakat->password }}</div>
                                 </div> --}}
-                                <div class="row">
+                                <div class="row mb-3">
                                     <div class="col-lg-3 col-md-4 label">Level</div>
                                     <div class="col-lg-9 col-md-8">{{ $masyarakat->level }}</div>
                                 </div>
                             </div>
-                            <div class="tab-pane fade profile-edit" id="profile-edit">
-                                <h5 class="card-title">Edit Data</h5>
-                                <form action="{{ url('masyarakat/'.$masyarakat->id) }}" method="get">
-                                    @csrf
-                                    <div class="row mb-3">
-                                        <label for="id" class="col-md-4 col-lg-3 col-form-label">ID Masyarakat</label>
-                                        <div class="col-md-8 col-lg-9"> 
-                                            <input name="id" type="text" class="form-control" id="id" value="{{ $masyarakat->id }}" readonly>
-                                        </div>
-                                    </div>
-                                    <div class="row mb-3">
-                                        <label for="nama" class="col-md-4 col-lg-3 col-form-label">Nama Lengkap</label>
-                                        <div class="col-md-8 col-lg-9">
-                                            <input name="nama" type="text" class="form-control" id="nama" value="{{ $masyarakat->nama }}">
-                                            <div class="invalid-feedback"> Masukkan nama yang valid</div>
-                                        </div>
-                                    </div>
-                                    <div class="row mb-3">
-                                        <label for="username" class="col-md-4 col-lg-3 col-form-label">Username</label>
-                                        <div class="col-md-8 col-lg-9"> 
-                                            <input name="username" type="text" class="form-control" id="username" value="{{ $masyarakat->username }}">
-                                            <div class="invalid-feedback"> Masukkan username yang valid</div>
-                                        </div>
-                                    </div>
-                                    {{-- <div class="row mb-3">
-                                        <label for="password" class="col-md-4 col-lg-3 col-form-label">Password</label>
-                                        <div class="col-md-8 col-lg-9"> 
-                                            <input name="password" type="password" class="form-control" id="password" value="{{ $masyarakat->password }}">
-                                        </div>
-                                    </div> --}}
-                                    <div class="row mb-3">
-                                        <label for="level" class="col-md-4 col-lg-3 col-form-label">Level</label>
-                                        <div class="col-md-8 col-lg-9">
-                                            <select class="form-select" id="level" required>
-                                                <option selected value="Masyarakat">Masyarakat</option>
-                                            </select>
-                                            <div class="invalid-feedback"> Masukkan level yang valid</div>
-                                        </div>
-                                    </div>
-                                    <div class="text-center"> 
-                                        <button type="submit" class="btn btn-sm text-white" style="background-color:#055E68; border-radius:20px"><i class="bi bi-box-arrow-in-down"></i> Simpan</button>
-                                    </div>
-                                </form>
-                            </div>
-                            <div class="tab-pane fade" id="profile-hapus">
-                                <h5 class="card-title">Hapus Data</h5>
-                                <p>Disini Anda akan melakukan hapus data. Apa Anda yakin ingin menghapus data?</p>
-                                <form onsubmit="return confirm('Data Akan Dihapus')" action="{{ url('masyarakat/'.$masyarakat->id) }}" method="post">
+                            <div class="text-center"> 
+                                <a href="{{ url('masyarakat/'.$masyarakat->id.'/edit') }}" class="btn btn-sm text-white" style="background-color:#055E68; border-radius:20px"><i class="bi bi-pencil-square"></i> Edit</a>
+                                <form onsubmit="return confirm('Data Akan Dihapus')" action="{{ url('masyarakat/'.$masyarakat->id) }}" method="post" class="d-inline">
                                     @csrf
                                     @method('DELETE')
-                                    <div class="text-center">
-                                        <button type="submit" class="btn btn-sm text-white" style="background-color:#055E68; border-radius:20px" role="button"><i class="bi bi-trash"></i> Hapus</button>
-                                    </div>
+                                    <button type="submit" class="btn btn-sm text-white" style="background-color:#055E68; border-radius:20px" role="button"><i class="bi bi-trash"></i> Hapus</button>
                                 </form>
                             </div>
-                        </div>
                         </div>
                     </div>
                 </div>
