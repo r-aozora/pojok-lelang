@@ -16,7 +16,7 @@
                 <div class="col-lg-12">
                     <div class="card mb-3">
                         <div class="row g-0 mx-3 my-3">
-                            <div class="col-md-4"> 
+                            <div class="col-md-4">
                                 <img src="/img/brand-logo-new.png" style="height:300px;" class="img-fluid rounded-start mx-auto" alt="Pojok lelang Logo">
                             </div>
                             <div class="col-md-8">
@@ -40,32 +40,36 @@
                                     <div class="col-lg-3 col-sm-6">
                                         <a href="https://wa.me/+6289513886227">
                                             <div class="info-box card">
-                                                <i class="bi bi-whatsapp"></i>
+                                                <i style="color: #128C7E" class="bi bi-whatsapp"></i>
                                                 <h3>WhatsApp</h3>
+                                                <p>Citra</p>
                                             </div>
                                         </a>
                                     </div>
                                     <div class="col-lg-3 col-sm-6">
                                         <a href="">
                                             <div class="info-box card">
-                                                <i class="bi bi-whatsapp"></i>
+                                                <i style="color: #128C7E" class="bi bi-whatsapp"></i>
                                                 <h3>WhatsApp</h3>
+                                                <p>Lintang</p>
                                             </div>
                                         </a>
                                     </div>
                                     <div class="col-lg-3 col-sm-6">
                                         <a href="">
                                             <div class="info-box card">
-                                                <i class="bi bi-whatsapp"></i>
+                                                <i style="color: #128C7E" class="bi bi-whatsapp"></i>
                                                 <h3>WhatsApp</h3>
+                                                <p>Amanda</p>
                                             </div>
                                         </a>
                                     </div>
                                     <div class="col-lg-3 col-sm-6">
                                         <a href="">
                                             <div class="info-box card">
-                                                <i class="bi bi-whatsapp"></i>
+                                                <i style="color: #128C7E" class="bi bi-whatsapp"></i>
                                                 <h3>WhatsApp</h3>
+                                                <p>Fiana</p>
                                             </div>
                                         </a>
                                     </div>
@@ -81,7 +85,7 @@
                                     <div class="col-lg-3 col-sm-6">
                                         <a href="https://github.com/r-aozora/Pojok-Lelang">
                                             <div class="info-box card">
-                                                <i class="bi bi-github mb-0"></i>
+                                                <i style="color: #171515" class="bi bi-github mb-0"></i>
                                                 <h3>GitHub</h3>
                                             </div>
                                         </a>
@@ -89,7 +93,7 @@
                                     <div class="col-lg-3 col-sm-6 ">
                                         <a href="">
                                             <div class="info-box card">
-                                                <i class="bi bi-instagram"></i>
+                                                <i style="color:rgb(250,126,30)" class="bi bi-instagram"></i>
                                                 <h3>Instagram</h3>
                                             </div>
                                         </a>
@@ -97,7 +101,7 @@
                                     <div class="col-lg-3 col-sm-6">
                                         <a href="">
                                             <div class="info-box card">
-                                                <i class="bi bi-facebook"></i>
+                                                <i style="color:#3b5998" class="bi bi-facebook"></i>
                                                 <h3>Facebook</h3>
                                             </div>
                                         </a>

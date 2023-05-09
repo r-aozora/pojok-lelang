@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="position-relative overflow-hidden p-3 p-md-5 text-white bg-light bimage" style="background-image:url('https://media.istockphoto.com/id/1209088835/photo/back-view-of-buyers-raising-hands-to-auctioneer-during-auction.jpg?s=612x612&w=0&k=20&c=OKZMX3No-OcsyCIMB2ibwKVoIx3M-fyor4MvCq2de80='); background-repeat: no-repeat; position:relative;background-size:cover; ">
-        <div class="col-md-5 p-lg-5  my-5 judul" >
+        <div class="col-md-5 p-lg-5 my-5 judul" >
             <h1 class="display-4 fw-normal">Pojok Lelang</h1>
             <p class="lead fw-normal mt-3">An Real-time Auction Site for Everyone.</p>
             <a class="btn text-white" href="#" style="background-color: #055E68 ;border-radius: 10px">Products</a>
@@ -23,7 +23,7 @@
                         <div class="card shadow-sm" style="background-color: #ffffff">
                             <img class="bd-placeholder-img card-img-top" width="100%" height="225" src="https://stimg2.cardekho.com/images/carNewsEditorImages/userimages/20210719_160142/27463/oem-name0.jpg?impolicy=resize&imwidth=420" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" /></img>
                             <div class="card-body">
-                                <p class="card-text">Giordano</p>
+                                <p class="card-text mt-3">Giordano</p>
                                 <div class="d-flex justify-content-between align-items-center">
                                     <div class="btn-group">
                                         <button type="button" class="btn btn-sm  text-white" style="background-color: #055E68">More</button>
@@ -36,7 +36,7 @@
                         <div class="card shadow-sm" style="background-color:#ffffff">
                             <img class="bd-placeholder-img card-img-top" width="100%" height="225" src="https://hips.hearstapps.com/townandcountry/assets/16/14/1954-mercedes-300sl-gullwing-a_1.jpg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" /></img>
                             <div class="card-body">
-                                <p class="card-text ">Zeros</p>
+                                <p class="card-text mt-3 ">Zeros</p>
                                 <div class="d-flex justify-content-between align-items-center">
                                     <div class="btn-group">
                                         <button type="button" class="btn btn-sm text-white" style="background-color: #055E68">More</button>
@@ -49,7 +49,7 @@
                         <div class="card shadow-sm" style="background-color: #ffffff">
                             <img class="bd-placeholder-img card-img-top" width="100%" height="225" src="https://upload.wikimedia.org/wikipedia/commons/7/72/Ramses_I_Mummy.jpg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" /></img>
                             <div class="card-body">
-                                <p class="card-text">Sauce</p>
+                                <p class="card-text mt-3">Sauce</p>
                                 <div class="d-flex justify-content-between align-items-center">
                                     <div class="btn-group">
                                         <button type="button" class="btn btn-sm  text-white"style="background-color: #055E68">More</button>
@@ -60,7 +60,7 @@
                     </div>
                 </div>
             </div>
-        </div>  
+        </div>
     </div>
 
     <div class="px-4 py-5 my-5 text-center">
