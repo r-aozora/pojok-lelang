@@ -4,27 +4,27 @@
 :root {
 	scroll-behavior: smooth;
   }
-  
+
   body {
 	font-family: "Montserrat", sans-serif;
 	background: #f6f9ff;
 	color: #444444;
   }
-  
+
   a {
 	color: #4154f1;
 	text-decoration: none;
   }
-  
+
   a:hover {
 	color: #717ff5;
 	text-decoration: none;
   }
-  
+
   h1, h2, h3, h4, h5, h6 {
 	font-family: "Montserrat", sans-serif;
   }
-  
+
   /*--------------------------------------------------------------
   # Main
   --------------------------------------------------------------*/
@@ -38,7 +38,7 @@
 	  padding: 20px;
 	}
   }
-  
+
   /*--------------------------------------------------------------
   # Page Title
   --------------------------------------------------------------*/
@@ -49,9 +49,9 @@
 	font-size: 24px;
 	margin-bottom: 0;
 	font-weight: 600;
-	color: #012970;
+	color: #055E68;
   }
-  
+
   /*--------------------------------------------------------------
   # Back to top button
   --------------------------------------------------------------*/
@@ -81,7 +81,7 @@
 	visibility: visible;
 	opacity: 1;
   }
-  
+
   /*--------------------------------------------------------------
   # Override some default Bootstrap stylings
   --------------------------------------------------------------*/
@@ -127,7 +127,7 @@
   .dropdown-menu .dropdown-item:hover {
 	background-color: #f6f9ff;
   }
-  
+
   @media (min-width: 768px) {
 	.dropdown-menu-arrow::before {
 	  content: "";
@@ -169,37 +169,37 @@
 	background-color: #cfe2ff;
 	border-color: #cfe2ff;
   }
-  
+
   .bg-secondary-light {
 	background-color: #e2e3e5;
 	border-color: #e2e3e5;
   }
-  
+
   .bg-success-light {
 	background-color: #d1e7dd;
 	border-color: #d1e7dd;
   }
-  
+
   .bg-danger-light {
 	background-color: #f8d7da;
 	border-color: #f8d7da;
   }
-  
+
   .bg-warning-light {
 	background-color: #fff3cd;
 	border-color: #fff3cd;
   }
-  
+
   .bg-info-light {
 	background-color: #cff4fc;
 	border-color: #cff4fc;
   }
-  
+
   .bg-dark-light {
 	background-color: #d3d3d4;
 	border-color: #d3d3d4;
   }
-  
+
   /* Card */
   .card {
 	margin-bottom: 30px;
@@ -207,19 +207,19 @@
 	border-radius: 5px;
 	box-shadow: 0px 0 30px rgba(1, 41, 112, 0.1);
   }
-  
+
   .card-header, .card-footer {
 	border-color: #ebeef4;
 	background-color: #fff;
 	color: #798eb3;
 	padding: 15px;
   }
-  
+
   .card-title {
 	padding: 20px 0 15px 0;
 	font-size: 18px;
 	font-weight: 500;
-	color: #012970;
+	color: #055E68;
 	font-family: "Poppins", sans-serif;
   }
   .card-title span {
@@ -230,18 +230,18 @@
   .card-body {
 	padding: 0 20px 20px 20px;
   }
-  
+
   .card-img-overlay {
 	background-color: rgba(255, 255, 255, 0.6);
   }
-  
+
   /* Alerts */
   .alert-heading {
 	font-weight: 500;
 	font-family: "Poppins", sans-serif;
 	font-size: 20px;
   }
-  
+
   /* Close Button */
   .btn-close {
 	background-size: 25%;
@@ -250,12 +250,12 @@
 	outline: 0;
 	box-shadow: none;
   }
-  
+
   /* Accordion */
   .accordion-item {
 	border: 1px solid #ebeef4;
   }
-  
+
   .accordion-button:focus {
 	outline: 0;
 	box-shadow: none;
@@ -264,7 +264,7 @@
 	color: #012970;
 	background-color: #f6f9ff;
   }
-  
+
   .accordion-flush .accordion-button {
 	padding: 15px 0;
 	background: none;
@@ -279,7 +279,7 @@
 	color: #3e4f6f;
 	font-size: 15px;
   }
-  
+
   /* Breadcrumbs */
   .breadcrumb {
 	font-size: 14px;
@@ -301,7 +301,7 @@
 	color: #51678f;
 	font-weight: 600;
   }
-  
+
   /* Bordered Tabs */
   .nav-tabs-bordered {
 	border-bottom: 2px solid #ebeef4;
@@ -319,7 +319,7 @@
 	color: #4154f1;
 	border-bottom: 2px solid #4154f1;
   }
-  
+
   /*--------------------------------------------------------------
   # Header
   --------------------------------------------------------------*/
@@ -341,7 +341,7 @@
 	color: #012970;
 	font-family: "Nunito", sans-serif;
   }
-  
+
   .header {
 	transition: all 0.5s;
 	z-index: 997;
@@ -409,7 +409,7 @@
   .header .search-form button i {
 	color: #012970;
   }
-  
+
   /*--------------------------------------------------------------
   # Header Nav
   --------------------------------------------------------------*/
@@ -515,7 +515,7 @@
   .header-nav .profile .dropdown-item:hover {
 	background-color: #f6f9ff;
   }
-  
+
   /*--------------------------------------------------------------
   # Sidebar
   --------------------------------------------------------------*/
@@ -547,7 +547,7 @@
   .sidebar::-webkit-scrollbar-thumb {
 	background-color: #aab7cf;
   }
-  
+
   @media (min-width: 1200px) {
 	#main, #footer {
 	  margin-left: 300px;
@@ -566,7 +566,7 @@
 	  left: -300px;
 	}
   }
-  
+
   .sidebar-nav {
 	padding: 0;
 	margin: 0;
@@ -601,7 +601,7 @@
   .sidebar-nav .nav-link i {
 	font-size: 16px;
 	margin-right: 10px;
-	color: #4154f1;
+	color: #055E68;
   }
   .sidebar-nav .nav-link.collapsed {
 	color: #012970;
@@ -615,7 +615,7 @@
 	background: #f6f9ff;
   }
   .sidebar-nav .nav-link:hover i {
-	color: #4154f1;
+	color: #055E68;
   }
   .sidebar-nav .nav-link .bi-chevron-down {
 	margin-right: 0;
@@ -651,7 +651,7 @@
   .sidebar-nav .nav-content a.active i {
 	background-color: #4154f1;
   }
-  
+
   /*--------------------------------------------------------------
   # Dashboard
   --------------------------------------------------------------*/
@@ -686,7 +686,7 @@
   .dashboard .filter .dropdown-item {
 	padding: 8px 15px;
   }
-  
+
   /* Info Cards */
   .dashboard .info-card {
 	padding-bottom: 10px;
@@ -718,7 +718,7 @@
 	color: #ff771d;
 	background: #ffecdf;
   }
-  
+
   /* Activity */
   .dashboard .activity {
 	font-size: 14px;
@@ -759,7 +759,7 @@
   .dashboard .activity .activity-item:last-child .activity-content {
 	padding-bottom: 0;
   }
-  
+
   /* News & Updates */
   .dashboard .news .post-item + .post-item {
 	margin-top: 15px;
@@ -787,7 +787,7 @@
 	color: #777777;
 	margin-left: 95px;
   }
-  
+
   /* Recent Sales */
   .dashboard .recent-sales {
 	font-size: 14px;
@@ -804,7 +804,7 @@
   .dashboard .recent-sales .dataTable-bottom {
 	padding: 10px 0 0 0;
   }
-  
+
   /* Top Selling */
   .dashboard .top-selling {
 	font-size: 14px;
@@ -822,7 +822,7 @@
 	border-radius: 5px;
 	max-width: 60px;
   }
-  
+
   /*--------------------------------------------------------------
   # Icons list page
   --------------------------------------------------------------*/
@@ -855,7 +855,7 @@
 	white-space: nowrap;
 	color: #666;
   }
-  
+
   /*--------------------------------------------------------------
   # Profie Page
   --------------------------------------------------------------*/
@@ -900,7 +900,7 @@
   .profile .profile-menu img {
 	max-width: 120px;
   }
-  
+
   /*--------------------------------------------------------------
   # F.A.Q Page
   --------------------------------------------------------------*/
@@ -912,7 +912,7 @@
   .faq .basic p {
 	color: #6980aa;
   }
-  
+
   /*--------------------------------------------------------------
   # Contact
   --------------------------------------------------------------*/
@@ -1015,7 +1015,7 @@
 	  transform: rotate(360deg);
 	}
   }
-  
+
   /*--------------------------------------------------------------
   # Error 404
   --------------------------------------------------------------*/
@@ -1048,7 +1048,7 @@
 	  max-width: 50%;
 	}
   }
-  
+
   /*--------------------------------------------------------------
   # Footer
   --------------------------------------------------------------*/
