@@ -58,21 +58,11 @@ class BarangController extends Controller
         Session::flash('deskripsi_barang', $request->deskripsi_barang);
 
         $request->validate([
-            'id_barang' => 'required|numeric|unique:barang,id',
+            'id_barang' => 'required|numeric|unique:barang,id_barang',
             'nama_barang' => 'required',
             'harga_awal' => 'required|numeric',
-            'deskripsi_barang' => 'required',
-            'foto' => 'required|mimes:jpeg,jpg,png'
-        ], [
-            'id_barang.required' => 'ID harus diisi',
-            'id_barang.numeric' => 'ID harus dalam angka',
-            'id_barang.unique' => 'ID sudah ada',
-            'nama_barang.required' => 'Nama harus diisi',
-            'harga_awal.required' => 'Harga Awal harus diisi',
-            'harga_awal.numeric' => 'Harga Awal harus dalam angka',
-            'deskripsi_barang.required' => 'Deskripsi barang harus diisi',
-            'foto.required' => 'Foto harus diisi',
-            'foto.mimes' => 'Foto harus berformat PNG, JPG, atau JPEG'
+            // 'deskripsi_barang' => 'required',
+            'foto' => 'required|mimes:jpeg,jpg,png,gif'
         ]);
 
         $foto_file = $request->file('foto');
@@ -88,7 +78,7 @@ class BarangController extends Controller
             'foto' => $foto_nama,
         ];
 
-        barang::create($barang);
+        Barang::create($barang);
         return redirect('barang')->with('success', 'Data Ditambahkan');
     }
 
@@ -100,7 +90,8 @@ class BarangController extends Controller
      */
     public function show($id)
     {
-        $barang = barang::where('id_barang', $id)->first();
+        $barang = Barang::where('id_barang', $id)->first();
+
         return view('barang.detail')->with([
             'barang' => $barang,
             'title' => 'Pojok Lelang | Detail Barang',
@@ -136,38 +127,31 @@ class BarangController extends Controller
             'nama_barang' => 'required',
             'harga_awal' => 'required|numeric',
             'deskripsi_barang' => 'required',
-        ], [
-            'nama_barang.required' => 'Nama Barang harus diisi',
-            'harga_awal.required' => 'Harga Awal harus diisi',
-            'harga_awal.numeric' => 'Harga Awal harus angka',
-            'deskripsi_barang.required' => 'Deskripsi barang harus diisi',
         ]);
 
         $barang = [
-            'nama' => $request->nama,
-            'harga_awal' => $request->harga_awal,
-            'deskripsi_barang' => $request->deskripsi_barang,
+            'nama_barang' => $request->input('nama_barang'),
+            'harga_awal' => $request->input('harga_awal'),
+            'deskripsi_barang' => $request->input('deskripsi_barang'),
         ];
 
         if($request->hasFile('foto')){
             $request->validate([
-                'foto'=>'mimes:jpeg,jpg,png'
-            ], [
-                'foto.mimes'=>'Foto harus .PNG, .JPG, atau .JPEG'
+                'foto'=>'mimes:jpeg,jpg,png,gif'
             ]);
 
             $foto_file = $request->file('foto');
             $foto_ekstensi = $foto_file->extension();
             $foto_nama = date('ymdhis').'.'.$foto_ekstensi;
-            $foto_file->move(public_path('foto'), $foto_nama);
+            $foto_file->move(public_path('img/barang'), $foto_nama);
 
-            $foto_barang = barang::where('id_barang', $id)->first();
+            $foto_barang = Barang::where('id_barang', $id)->first();
             File::delete(public_path('img/barang').'/'.$foto_barang->foto);
 
             $barang['foto'] = $foto_nama;
         }
 
-        barang::where('id_barang', $id)->update($barang);
+        Barang::where('id_barang', $id)->update($barang);
         return redirect('barang')->with('success', 'Data Diperbarui');
     }
 
@@ -179,9 +163,10 @@ class BarangController extends Controller
      */
     public function destroy($id)
     {
-        $barang = barang::where('id_barang', $id)->first();
+        $barang = Barang::where('id_barang', $id)->first();
         File::delete(public_path('img/barang').'/'.$barang->foto);
-        barang::where('id_barang', $id)->delete();
+
+        Barang::where('id_barang', $id)->delete();
         return redirect('barang')->with('success', 'Data Dihapus');
     }
 }

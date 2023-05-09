@@ -64,19 +64,8 @@ class petugasController extends Controller
             'username' => 'required|unique:users,username',
             'password' => 'required|min:8',
             'level' => 'required',
-        ]
-        , [
-            'id.required' => 'ID harus diisi',
-            'id.numeric' => 'ID harus dalam angka',
-            'id.unique' => 'ID sudah ada',
-            'nama.required' => 'Nama harus diisi',
-            'username.required' => 'Username harus diisi',
-            'username.unique' => 'Username sudah ada',
-            'password.required' => 'Password harus diisi',
-            'password.min' => 'Password minimal 8 karakter',
-            'level.required' => 'Level harus diisi',
-        ]
-        );
+        ]);
+
         $petugas = [
             'id' => $request->id,
             'nama' => $request->nama,
@@ -113,7 +102,7 @@ class petugasController extends Controller
     {
         $petugas = User::where('id', $id)->first();
 
-        return view('petugas.detail')->with([
+        return view('petugas.edit')->with([
             'petugas' => $petugas,
             'title' => 'Pojok Lelang | Edit Data'
         ]);
@@ -131,24 +120,17 @@ class petugasController extends Controller
         $request->validate([
             'nama' => 'required',
             'username' => 'required',
-            'password' => 'required',
             'level' => 'required',
-        ], [
-            'nama.required' => 'Nama wajib diisi',
-            'username.required' => 'Username wajib diisi',
-            'password.required' => 'Password wajib diisi',
-            'level.required' => 'level wajib diisi',
         ]);
 
         $petugas = [
-            'nama' => $request->nama,
-            'username' => $request->username,
-            'password' => $request->password,
-            'level' => $request->level,
+            'nama' => $request->input('nama'),
+            'username' => $request->input('username'),
+            'level' => $request->input('level'),
         ];
 
         User::where('id', $id)->update($petugas);
-        return redirect('petugas')->with('success', 'Data Diperbarui');
+        return redirect('/petugas')->with('success', 'Data Diperbarui');
     }
 
     /**
@@ -160,7 +142,7 @@ class petugasController extends Controller
     public function destroy($id)
     {
         User::where('id', $id)->delete();
-        return redirect()->back()->with('success', 'Data Dihapus');
+        return redirect('/petugas')->with('success', 'Data Dihapus');
     }
 }
 ?>

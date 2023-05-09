@@ -68,16 +68,6 @@ class MasyarakatController extends Controller
             'username' => 'required|unique:users,username',
             'password' => 'required|min:8',
             'level' => 'required',
-        ], [
-            'id.required' => 'ID harus diisi',
-            'id.numeric' => 'ID harus dalam angka',
-            'id.unique' => 'ID sudah ada',
-            'nama.required' => 'Nama harus diisi',
-            'username.required' => 'Username harus diisi',
-            'username.unique' => 'Username sudah ada',
-            'password.required' => 'Password harus diisi',
-            'password.min' => 'Password minimal 8 karakter',
-            'level.required' => 'Level harus diisi',
         ]);
 
         $masyarakat = [
@@ -101,6 +91,7 @@ class MasyarakatController extends Controller
     public function show($id)
     {
         $masyarakat = User::where('id', $id)->first();
+
         return view('masyarakat.detail')->with([
             'masyarakat' => $masyarakat,
             'title' => 'Pojok Lelang | Detail Masyarakat',
@@ -117,7 +108,7 @@ class MasyarakatController extends Controller
     {
         $masyarakat = User::where('id', $id)->first();
 
-        return view('masyarakat.detail')->with([
+        return view('masyarakat.edit')->with([
             'masyarakat' => $masyarakat,
             'title' => 'Pojok Lelang | Edit Data'
         ]);
@@ -135,19 +126,12 @@ class MasyarakatController extends Controller
         $request->validate([
             'nama' => 'required',
             'username' => 'required',
-            'password' => 'required',
             'level' => 'required',
-        ], [
-            'nama.required' => 'Nama wajib diisi',
-            'username.required' => 'Username wajib diisi',
-            'password.required' => 'Password wajib diisi',
-            'level.required' => 'level wajib diisi',
         ]);
 
         $masyarakat = [
             'nama' => $request->input('nama'),
             'username' => $request->input('username'),
-            'password' => $request->input('password'),
             'level' => $request->input('level'),
         ];
 
