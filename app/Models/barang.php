@@ -17,15 +17,18 @@ class Barang extends Model
         'nama_barang',
         'tanggal',
         'harga_awal',
-        'deskripsi',
+        'deskripsi_barang',
+        'foto'
     ];
+
+    // protected $nullable = 'deksripsi_barang';
     
-    public function lelang() : HasOne
+    public function lelang()
     {
         return $this->hasOne(Lelang::class);
     }
     
-    public function history() : HasOne
+    public function history()
     {
         return $this->hasOne(History::class);
     }

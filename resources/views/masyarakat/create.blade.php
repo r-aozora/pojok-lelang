@@ -28,7 +28,7 @@
                     <div class="card">
                         <div class="card-body pt-3">
                             <h5 class="card-title">Tambah Data</h5>
-                            <form action="action="{{ url('masyarakat') }}" method="post">
+                            <form action="{{ url('masyarakat') }}" method="post">
                                 @csrf
                                 <div class="row mb-3">
                                     <label for="id" class="col-md-4 col-lg-3 col-form-label">ID Masyarakat</label>
@@ -61,7 +61,7 @@
                                 <div class="row mb-3">
                                     <label for="level" class="col-md-4 col-lg-3 col-form-label">Level</label>
                                     <div class="col-md-8 col-lg-9">
-                                        <select class="form-select" id="level" required>
+                                        <select name="level" class="form-select" id="level" required>
                                             <option selected value="Masyarakat">Masyarakat</option>
                                         </select>
                                         <div class="invalid-feedback"> Masukkan level yang valid</div>
