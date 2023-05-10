@@ -8,6 +8,7 @@ use App\Http\Controllers\MasyarakatController;
 use App\Http\Controllers\BarangController;
 use App\Http\Controllers\SessionController;
 use App\Http\Controllers\SignupadminController;
+use App\Http\Controllers\LaporanController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -42,6 +43,10 @@ Route::post('/register-admin/auth', [SignupadminController::class, 'create'])->m
 
 // Logout
 Route::get('/logout', [SessionController::class, 'logout']);
+
+// Laporan
+Route::get('/laporan', [LaporanController::class, 'index']);
+Route::get('/laporan/print', [LaporanController::class, 'print']);
 
 // Controller
 Route::resource('/petugas', PetugasController::class)->middleware('User');

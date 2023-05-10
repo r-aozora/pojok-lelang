@@ -17,9 +17,9 @@
                 <div class="col-lg-12">
                     <div class="card">
                         <div class="card-body">
-                            <h5 class="card-title">Aktivasi Lelang</h5>
+                            <h5 class="card-title">Data Aktivasi Lelang</h5>
                             <p>Di sini Anda dapat mengelola data lelang. Mulai dari tambah data, lihat data, edit data, sampai hapus data.</p>
-                                <div class=" d-flex flex-wrap justify-content-center mt-3">
+                                <div class="d-flex flex-wrap justify-content-center mt-3">
                                     <div class="col-6 mb-4">
                                         <div class="col-sm-6">
                                             <form action="{{ url('lelang') }}" method="get" class="col-12" role="search" style="border-radius: 20px">
@@ -35,7 +35,7 @@
                                         </a>
                                     @endif
                                     @if (auth()->user()->level === 'Petugas' || auth()->user()->level === 'Administrator')
-                                        <a href="" type="button" class="btn btn-sm text-white" style="background-color: #055E68; border-radius:20px">
+                                        <a href="{{ url('/laporan') }}" type="button" class="btn btn-sm text-white" style="background-color: #055E68; border-radius:20px">
                                             <i class="bi bi-printer"></i> Print Laporan
                                         </a>
                                     @endif
@@ -59,9 +59,9 @@
                                         <tr>
                                             <td><a href="{{ url('lelang/'.$item->id) }}">{{ $item->id_lelang }}</a></td>
                                             <td><a href="{{ url('lelang/'.$item->id) }}">{{ $item->nama_barang }}</a></td>
-                                            <td><a href="{{ url('lelang/'.$item->id) }}">{{ $item->create_at }}</a></td>
-                                            <td><a href="{{ url('lelang/'.$item->id) }}">{{ $item->id_masyarakat }}</a></td>
-                                            <td><a href="{{ url('lelang/'.$item->id) }}">{{ $item->harga_awal }}</a></td>
+                                            <td>{{ $item->created_at }}</td>
+                                            <td>{{ $item->id_masyarakat }}</td>
+                                            <td>{{ $item->harga_akhir }}</td>
                                             <td>
                                                 @if ($item->status === '')
                                                     Lelang Belum Dibuka
