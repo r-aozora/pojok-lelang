@@ -42,7 +42,7 @@
                         </li>
                     </ul>
                     <li class="nav-item">
-                        <a class="nav-link collapsed" href="{{ url('/lelang') }}">
+                        <a class="nav-link collapsed" href="{{ url('/laporan') }}">
                             <i class="bi bi-clipboard-data"></i>
                             <span style="color: #055E68">Print Laporan</span>
                         </a>
@@ -76,7 +76,7 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link collapsed" href="{{ url('/lelang') }}">
+                        <a class="nav-link collapsed" href="{{ url('/laporan') }}">
                             <i class="bi bi-clipboard-data"></i>
                             <span style="color: #055E68">Print Laporan</span>
                         </a>
