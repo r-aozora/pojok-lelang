@@ -43,7 +43,7 @@
                             <table class="table table-bordered">
                                 <thead>
                                     <tr>
-                                        <th scope="col">ID Lelang</th>
+                                        <th scope="col">ID</th>
                                         <th scope="col">Nama Barang</th>
                                         <th scope="col">Tanggal</th>
                                         <th scope="col">Pemenang</th>

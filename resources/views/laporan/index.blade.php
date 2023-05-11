@@ -19,13 +19,12 @@
                             <h5 class="card-title">Data Hasil Lelang Online</h5>
                             <p>Berikut adalah data hasil lelang yang dapat di print.</p>
                             <div class=" d-flex flex-wrap justify-content-center mt-3">
-                                <div class="col-6 mb-4">
+                                <div class="col-6 mb-3">
                                     <div class="col-sm-6">
                                     </div>
                                 </div>
-                            </div>
-                            <div class="text-end col-6">
-                                <a href="{{ url('/laporan') }}" type="button" class="btn btn-sm text-white" style="background-color: #055E68; border-radius:20px">
+                            <div class="text-end col-6 mb-3">
+                                <a href="{{ url('/laporan/print') }}" target="blank_" type="button" class="btn btn-sm text-white" style="background-color: #055E68; border-radius:20px">
                                     <i class="bi bi-printer"></i> Print Laporan
                                 </a>
                             </div>
@@ -43,6 +42,11 @@
                                 <tbody>
                                     @foreach ($lelang as $item)
                                         <tr>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
                                             <td></td>
                                         </tr>
                                     @endforeach

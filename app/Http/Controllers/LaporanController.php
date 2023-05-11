@@ -19,7 +19,10 @@ class LaporanController extends Controller
 
     public function print()
     {
+        $lelang = Lelang::orderBy('id_lelang', 'desc');
+
         return view('laporan.print')->with([
+            'lelang' => $lelang,
             'title' => 'Pojok Lelang | Laporan Lelang',
         ]);
     }
