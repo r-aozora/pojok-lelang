@@ -4,7 +4,6 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\HasOne;
 
 class Barang extends Model
 {
@@ -13,9 +12,9 @@ class Barang extends Model
     protected $table = 'barang';
 
     protected $fillable = [
-        'id_barang',
+        'id',
         'nama_barang',
-        'tanggal',
+        // 'tanggal',
         'harga_awal',
         'deskripsi_barang',
         'foto'
@@ -25,11 +24,11 @@ class Barang extends Model
     
     public function lelang()
     {
-        return $this->hasOne(Lelang::class);
+        return $this->hasOne(Lelang::class, 'id_barang');
     }
     
     public function history()
     {
-        return $this->hasOne(History::class);
+        return $this->hasOne(History::class, 'id_barang');
     }
 }

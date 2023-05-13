@@ -4,8 +4,6 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\BelongsTo;
-use Illuminate\Database\Eloquent\Relations\HasOne;
 
 class Lelang extends Model
 {
@@ -14,31 +12,31 @@ class Lelang extends Model
     protected $table = 'lelang';
 
     protected $fillable = [
-        'id_lelang',
-        'id_barang',
+        'id',
+        // 'id_barang',
         'tanggal_lelang',
         'harga_akhir',
-        'id_user',
-        'id_barang',
+        // 'id_masyarakat',
+        // 'id_petugas',
         'status',
     ];
 
-    public function masyarakat() : BelongsTo
+    public function masyarakat()
     {
-        return $this->belongsTo(Masyarakat::class);
+        return $this->belongsTo(Masyarakat::class, 'id_masyarakat');
     }
 
-    public function petugas() : BelongsTo
+    public function petugas()
     {
-        return $this->belongsTo(Petugas::class);
+        return $this->belongsTo(Petugas::class, 'id_petugas');
     }
 
-    public function barang() : BelongsTo
+    public function barang()
     {
         return $this->belongsTo(Barang::class);
     }
     
-    public function history() : HasOne
+    public function history()
     {
         return $this->hasOne(History::class);
     }
