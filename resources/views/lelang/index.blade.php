@@ -34,11 +34,6 @@
                                             <i class="bi bi-plus"></i> Tambah Data
                                         </a>
                                     @endif
-                                    @if (auth()->user()->level === 'Petugas' || auth()->user()->level === 'Administrator')
-                                        <a href="{{ url('/laporan') }}" type="button" class="btn btn-sm text-white" style="background-color: #055E68; border-radius:20px">
-                                            <i class="bi bi-printer"></i> Print Laporan
-                                        </a>
-                                    @endif
                                 </div>
                             <table class="table table-bordered">
                                 <thead>
