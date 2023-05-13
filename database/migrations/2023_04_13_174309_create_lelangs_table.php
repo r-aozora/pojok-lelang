@@ -14,19 +14,18 @@ class CreateLelangsTable extends Migration
     public function up()
     {
         Schema::create('lelang', function (Blueprint $table) {
-            $table->integer('id_lelang', 11)->unique();
-            $table->integer('id_barang');
-            // $table->date('tanggal_lelang');
+            $table->id();
+            $table->unsignedBigInteger('id_barang');
             $table->char('harga_akhir', 20);
-            $table->integer('id_user');
-            $table->integer('id_petugas');
+            $table->unsignedBigInteger('id_masyarakat');
+            $table->unsignedBigInteger('id_petugas');
             $table->enum('status', ['Dibuka', 'Ditutup']);
 
             $table->timestamps();
             
-            $table->foreign('id_barang')->references('id_barang')->on('barang');
-            $table->foreign('id_user')->references('id_user')->on('masyarakat');
-            $table->foreign('id_petugas')->references('id_petugas')->on('petugas');
+            $table->foreign('id_barang')->references('id')->on('barang');
+            $table->foreign('id_masyarakat')->references('id')->on('masyarakat');
+            $table->foreign('id_petugas')->references('id')->on('petugas');
         });
     }
 

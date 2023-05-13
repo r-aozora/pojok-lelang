@@ -3,7 +3,6 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
@@ -42,13 +41,13 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ]; */
 
-    public function masyarakat() : HasMany
+    public function masyarakat()
     {
-        return $this->hasMany(masyarakat::class);
+        return $this->hasOne(Masyarakat::class, 'id_user');
     }
 
-    public function petugas() : HasMany
+    public function petugas()
     {
-        return $this->hasMany(petugas::class);
+        return $this->hasOne(Petugas::class, 'id_user');
     }
 }
