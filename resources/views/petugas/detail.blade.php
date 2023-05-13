@@ -56,11 +56,13 @@
                             </div>
                             <div class="text-center"> 
                                 <a href="{{ url('petugas/'.$petugas->id.'/edit') }}" class="btn btn-sm text-white" style="background-color:#055E68; border-radius:20px"><i class="bi bi-pencil-square"></i> Edit</a>
-                                <form onsubmit="return confirm('Data Akan Dihapus')" action="{{ url('petugas/'.$petugas->id) }}" method="post" class="d-inline">
-                                    @csrf
-                                    @method('DELETE')
-                                    <button type="submit" class="btn btn-sm text-white" style="background-color:#055E68; border-radius:20px" role="button"><i class="bi bi-trash"></i> Hapus</button>
-                                </form>
+                                @if (Auth::user()->id !== $petugas->id)
+                                    <form onsubmit="return confirm('Data Akan Dihapus')" action="{{ url('petugas/'.$petugas->id) }}" method="post" class="d-inline">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button type="submit" class="btn btn-sm text-white" style="background-color:#055E68; border-radius:20px" role="button"><i class="bi bi-trash"></i> Hapus</button>
+                                    </form>
+                                @endif
                             </div>
                         </div>
                     </div>
