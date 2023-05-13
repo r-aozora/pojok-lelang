@@ -47,11 +47,11 @@
                                         <h5 class="card-title text-center pb-0 fs-4">Buat akun Admin</h5>
                                         <p class="text-center small">Masukkan detail pribadi untuk membuat akun Admin</p>
                                     </div>
-                                    <form action="{{ url('/register/admin/auth') }}" method="post" class="row g-3 needs-validation" novalidate>
+                                    <form action="{{ url('/register-admin/auth') }}" method="post" class="row g-3 needs-validation" novalidate>
                                         @csrf
                                         <div class="form-outline col-12">
                                             <label for="nama" class="form-label">Nama</label> 
-                                            <input type="text" name="name" class="form-control" id="nama" required value="{{ Session::get('nama') }}" style="border-radius:15px">
+                                            <input type="text" name="nama" class="form-control" id="nama" required value="{{ Session::get('nama') }}" style="border-radius:15px">
                                             <div class="invalid-feedback">Silakan masukkan nama Anda.</div>
                                         </div>
                                         <div class="form-outline col-12">
@@ -66,7 +66,7 @@
                                         </div>
                                         <div class="form-outline col-12">
                                             <label for="level" class="form-label">Level</label> 
-                                            <select class="form-select" id="level" required style="border-radius:15px">
+                                            <select name="level" class="form-select" id="level" required style="border-radius:15px">
                                                 <option selected value="Administrator">Administrator</option>
                                             </select>
                                             <div class="invalid-feedback">Silakan pilih level Anda.</div>
