@@ -21,7 +21,7 @@
                 <div class="container">
                     <div class="row justify-content-center">
                         <div class="col-lg-5 col-md-6 d-flex flex-column align-items-center justify-content-center">
-                            <div class="d-flex justify-content-center py-4"> <a href="{{ url('/') }}" class="logo d-flex align-items-center w-auto"> <img src="img/brand-logo-new-2.png" alt="Pojok Lelang Logo"> <span class="d-none d-lg-block">Pojok Lelang</span> </a></div>
+                            <div class="d-flex justify-content-center py-4"> <a href="{{ url('/') }}" class="logo d-flex align-items-center w-auto"> <img src="img/brand-logo-new-2.png" alt="Pojok Lelang Logo"> <span style="color: #055E68" class="d-none d-lg-block">Pojok Lelang</span> </a></div>
                             <div class="card mb-3">
                             <div class="card-body">
                                 <div class="pt-4 pb-2">
@@ -33,10 +33,10 @@
                                     <div class="form-outline col-12 mb-1">
                                         <label for="username" class="form-label">Username</label>
                                         <input type="text" name="username" class="form-control" id="username" required value="{{ Session::get('username') }}" style="border-radius:15px">
-                                        <div class="invalid-feedback">Silakan masukkan username.</div>    
+                                        <div class="invalid-feedback">Silakan masukkan username.</div>
                                     </div>
                                     <div class="form-outline col-12 mb-1">
-                                        <label for="password" class="form-label">Password</label> 
+                                        <label for="password" class="form-label">Password</label>
                                         <input type="password" name="password" class="form-control" id="password" required style="border-radius:15px">
                                         <div class="invalid-feedback">Silakan masukkan password.</div>
                                     </div>
@@ -55,7 +55,7 @@
                 </section>
             </div>
         </main>
-        <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a> 
+        <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
         @include('part.script')
     </body>
 </html>

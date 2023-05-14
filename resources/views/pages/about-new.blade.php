@@ -21,7 +21,7 @@
                             </div>
                             <div class="col-md-8">
                                 <div class="card-body">
-                                    <h4 class="mt-5">Pojok Lelang</h4>
+                                    <h4 style="color: #055E68" class="mt-5">Pojok Lelang</h4>
                                     <h6>A Real-time Auction Site for Everyone.</h6>
                                     <p class="card-text mt-4">Pojok Lelang merupakan website lelang online yang ideal bagi
                                         semua orang untuk menemukan barang-barang
@@ -35,7 +35,7 @@
                     <section class="section contact">
                         <div class="row gy-4">
                             <div class="col-xl-12">
-                                <h4 class="card-title text-center mb-3">Hubungi Kami</h4>
+                                <h4 style="color: #055E68" class="card-title text-center mb-3">Hubungi Kami</h4>
                                 <div class="row">
                                     <div class="col-lg-3 col-sm-6">
                                         <a href="https://wa.me/+6289513886227">
@@ -80,7 +80,7 @@
                     <section class="section contact">
                         <div class="row gy-4">
                             <div class="col-xl-12 ">
-                                <h4 class="card-title text-center mb-3">Ikuti Kami</h4>
+                                <h4 style="color: #055E68" class="card-title text-center mb-3">Ikuti Kami</h4>
                                 <div class="row">
                                     <div class="col-lg-3 col-sm-6">
                                         <a href="https://github.com/r-aozora/Pojok-Lelang">
