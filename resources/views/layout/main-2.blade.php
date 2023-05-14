@@ -2,28 +2,24 @@
 <html lang="en">
     <head>
         <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-
         <meta content="width=device-width, initial-scale=1.0" name="viewport">
+        <title>{{ $title }}</title>
         <meta name="robots" content="noindex, nofollow">
         <meta content="" name="description">
         <meta content="" name="keywords">
-
-        <title>{{ $title }}</title>
-
         @include('part.link')
     </head>
+    {{-- <style>
+        body {
+            font-family: 'Montserrat', sans-serif;
+        }
+    </style> --}}
     <body>
-        @include('layout.navbar-new')
-
-        @include('layout.sidebar-new')
-        
         @include('sweetalert::alert')
 
         @yield('content')
 
-        @include('layout.footer-new')
-
+        <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a> 
         @include('part.script')
     </body>
 </html>

@@ -74,7 +74,8 @@ class petugasController extends Controller
             'level' => $request->level,
         ];
         User::create($petugas);
-        return redirect('petugas')->with('success', 'Data Ditambahkan');
+        toast('Data Ditambahkan','success');
+        return redirect('petugas');
     }
 
     /**
@@ -130,7 +131,8 @@ class petugasController extends Controller
         ];
 
         User::where('id', $id)->update($petugas);
-        return redirect('/petugas')->with('success', 'Data Diperbarui');
+        toast('Data Diperbarui','success');
+        return redirect('/petugas');
     }
 
     /**
@@ -142,7 +144,8 @@ class petugasController extends Controller
     public function destroy($id)
     {
         User::where('id', $id)->delete();
-        return redirect('/petugas')->with('success', 'Data Dihapus');
+        toast('Data Dihapus','success');
+        return redirect('/petugas');
     }
 }
 ?>

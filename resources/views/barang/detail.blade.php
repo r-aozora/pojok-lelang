@@ -33,7 +33,7 @@
                                 <h5 class="card-title">Detail barang</h5>
                                 <div class="row mb-3">
                                     <div class="col-lg-3 col-md-4 label ">ID Barang</div>
-                                    <div class="col-lg-9 col-md-8">{{ $barang->id_barang }}</div>
+                                    <div class="col-lg-9 col-md-8">{{ $barang->id }}</div>
                                 </div>
                                 <div class="row mb-3">
                                     <div class="col-lg-3 col-md-4 label">Nama Barang</div>
@@ -53,8 +53,8 @@
                                 </div>
                             </div>
                             <div class="text-center">
-                                <a href="{{ url('barang/'.$barang->id_barang.'/edit') }}" class="btn btn-sm text-white" style="background-color:#055E68; border-radius:20px"><i class="bi bi-pencil-square"></i> Edit</a>
-                                <form onsubmit="return confirm('Data Akan Dihapus')" action="{{ url('barang/'.$barang->id_barang) }}" method="post" class="d-inline">
+                                <a href="{{ url('barang/'.$barang->id.'/edit') }}" class="btn btn-sm text-white" style="background-color:#055E68; border-radius:20px"><i class="bi bi-pencil-square"></i> Edit</a>
+                                <form onsubmit="return confirm('Data Akan Dihapus')" action="{{ url('barang/'.$barang->id) }}" method="post" class="d-inline">
                                     @csrf
                                     @method('DELETE')
                                     <button type="submit" class="btn btn-sm text-white" style="background-color:#055E68; border-radius:20px" role="button"><i class="bi bi-trash"></i> Hapus</button>

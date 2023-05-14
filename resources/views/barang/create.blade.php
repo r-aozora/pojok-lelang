@@ -29,9 +29,9 @@
                             <form action="{{ url('barang') }}" method="post" enctype="multipart/form-data">
                                 @csrf
                                 <div class="row mb-3">
-                                    <label for="id_barang" class="col-md-4 col-lg-3 col-form-label">ID Barang</label>
+                                    <label for="id" class="col-md-4 col-lg-3 col-form-label">ID Barang</label>
                                     <div class="col-md-8 col-lg-9"> 
-                                        <input name="id_barang" type="number" class="form-control" id="id_barang" value="{{ Session::get('id_barang') }}">
+                                        <input name="id" type="number" class="form-control" id="id" value="{{ Session::get('id') }}">
                                         <div class="invalid-feedback"> Masukkan ID yang valid</div>
                                     </div>
                                 </div>
