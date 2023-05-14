@@ -32,9 +32,11 @@ class SessionController extends Controller
         ];
 
         if(Auth::attempt($infologin)){
-            return redirect('/profile')->with('success', Auth::user()->nama.'Berhasil Log In');
+            toast('Berhasil Log In!','success');
+            return redirect('/profile');
         } else {
-            return redirect('/login')->withErrors('Log In Gagal');
+            toast('Log In Gagal!','warning');
+            return redirect('/login');
         }
     }
 
@@ -71,18 +73,19 @@ class SessionController extends Controller
         ];
 
         if(Auth::attempt($infologin)){
-            // return 'sukses';
-            return redirect('profile')->with('success', Auth::user()->nama.'Berhasil Register');
+            toast('Berhasil Register!','success');
+            return redirect('profile');
         } else {
-            // return 'gagal';
-            return redirect('register')->withErrors('Register Gagal');
+            toast('Register Gagal!','warning');
+            return redirect('register');
         }
     }
 
     function logout()
     {
         Auth::logout();
-        return redirect('/')->with('success', 'Berhasil Log Out');
+        toast('Berhasil Log Out!','success');
+        return redirect('/');
     }
 }
 ?>

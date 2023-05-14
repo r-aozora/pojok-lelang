@@ -7,7 +7,6 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Session;
-use RealRashid\SweetAlert\Facades\Alert;
 
 class MasyarakatController extends Controller
 {
@@ -79,7 +78,8 @@ class MasyarakatController extends Controller
         ];
 
         User::create($masyarakat);
-        return redirect('/masyarakat')->with('success', 'Data Ditambahkan');
+        toast('Data Ditambahkan','success');
+        return redirect('/masyarakat');
     }
 
     /**
@@ -136,7 +136,8 @@ class MasyarakatController extends Controller
         ];
 
         User::where('id', $id)->update($masyarakat);
-        return redirect('masyarakat')->with('success', 'Data Diperbarui');
+        toast('Data Diperbarui','success');
+        return redirect('masyarakat');
     }
 
     /**
@@ -148,8 +149,8 @@ class MasyarakatController extends Controller
     public function destroy($id)
     {
         User::where('id', $id)->delete();
-        
-        return redirect('masyarakat')->with('success', 'Data Dihapus');
+        toast('Data Dihapus','success');
+        return redirect('masyarakat');
     }
 }
 ?>

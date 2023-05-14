@@ -52,7 +52,7 @@
                                 <tbody>
                                     @foreach ($lelang as $item)
                                         <tr>
-                                            <td><a href="{{ url('lelang/'.$item->id) }}">{{ $item->id_lelang }}</a></td>
+                                            <td><a href="{{ url('lelang/'.$item->id) }}">{{ $item->id }}</a></td>
                                             <td><a href="{{ url('lelang/'.$item->id) }}">{{ $item->nama_barang }}</a></td>
                                             <td>{{ $item->created_at }}</td>
                                             <td>{{ $item->id_masyarakat }}</td>
