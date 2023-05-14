@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class GaleryController extends Controller
 {
@@ -13,9 +14,15 @@ class GaleryController extends Controller
      */
     public function index()
     {
-        return view('lelang.masyarakat.galeri')->with([
-            'title' => 'Pojok Lelang | Galeri Lelang',
-        ]);
+        if(Auth::user()->level === 'Administrator' || Auth::user()->level === 'Petugas'){
+            return view('lelang.index')->with([
+                'title' => 'Pojok Lelang | Aktivasi Lelang',
+            ]);
+        } else {
+            return view('lelang.masyarakat.galeri')->with([
+                'title' => 'Pojok Lelang | Galeri Lelang',
+            ]);
+        }
     }
 
     /**

@@ -42,7 +42,7 @@
                         </li>
                     </ul>
                     <li class="nav-item">
-                        <a class="nav-link collapsed" href="{{ url('/lelang') }}">
+                        <a class="nav-link collapsed" href="{{ url('/laporan') }}">
                             <i class="bi bi-clipboard-data"></i>
                             <span style="color: #055E68">Print Laporan</span>
                         </a>
@@ -51,7 +51,7 @@
             @elseif (Auth::user()->level === 'Petugas')
                 <li class="nav-item">
                     <a class="nav-link collapsed" data-bs-target="#tables-nav" data-bs-toggle="collapse" href="#">
-                        <i style="color: #055E68" class="bi bi-database"></i>
+                        <i class="bi bi-database"></i>
                         <span style="color: #055E68">Data Lelang</span>
                         <i class="bi bi-chevron-down ms-auto"></i>
                     </a>
@@ -76,7 +76,7 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link collapsed" href="{{ url('/lelang') }}">
+                        <a class="nav-link collapsed" href="{{ url('/laporan') }}">
                             <i class="bi bi-clipboard-data"></i>
                             <span style="color: #055E68">Print Laporan</span>
                         </a>

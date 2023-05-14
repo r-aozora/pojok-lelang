@@ -52,11 +52,13 @@
                                             <td>{{ $item->level }}</td>
                                             <td>
                                                 <a href="{{ url('petugas/'.$item->id.'/edit') }}" class="btn btn-sm text-white" style="background-color: #055E68; border-radius: 20px"><i class="bi bi-pencil-square"></i></a>
-                                                <form onsubmit="return confirm('Data Akan Dihapus')" action="{{ url('petugas/'.$item->id) }}" method="post" class="d-inline">
-                                                    @csrf
-                                                    @method('DELETE')
-                                                    <button type="submit" class="btn btn-sm text-white" style="background-color: #055E68; border-radius: 20px" role="button"><i class="bi bi-trash"></i></button>
-                                                </form>
+                                                @if (Auth::user()->id !== $item->id)
+                                                    <form onsubmit="return confirm('Data Akan Dihapus')" action="{{ url('petugas/'.$item->id) }}" method="post" class="d-inline">
+                                                        @csrf
+                                                        @method('DELETE')
+                                                        <button type="submit" class="btn btn-sm text-white" style="background-color: #055E68; border-radius: 20px" role="button"><i class="bi bi-trash"></i></button>
+                                                    </form>
+                                                @endif
                                             </td>
                                         </tr>
                                     @endforeach

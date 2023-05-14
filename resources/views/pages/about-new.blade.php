@@ -38,38 +38,38 @@
                                 <h4 style="color: #055E68" class="card-title text-center mb-3">Hubungi Kami</h4>
                                 <div class="row">
                                     <div class="col-lg-3 col-sm-6">
-                                        <a href="https://wa.me/+6289513886227">
+                                        <a href="https://wa.me/+6289513886227" target="blank_">
                                             <div class="info-box card">
                                                 <i style="color: #128C7E" class="bi bi-whatsapp"></i>
                                                 <h3>WhatsApp</h3>
-                                                <p>Citra</p>
+                                                {{-- <p>Citra</p> --}}
                                             </div>
                                         </a>
                                     </div>
                                     <div class="col-lg-3 col-sm-6">
-                                        <a href="">
+                                        <a href="https://wa.me/" target="blank_">
                                             <div class="info-box card">
                                                 <i style="color: #128C7E" class="bi bi-whatsapp"></i>
                                                 <h3>WhatsApp</h3>
-                                                <p>Lintang</p>
+                                                {{-- <p>Lintang</p> --}}
                                             </div>
                                         </a>
                                     </div>
                                     <div class="col-lg-3 col-sm-6">
-                                        <a href="">
+                                        <a href="https://wa.me/" target="blank_">
                                             <div class="info-box card">
                                                 <i style="color: #128C7E" class="bi bi-whatsapp"></i>
                                                 <h3>WhatsApp</h3>
-                                                <p>Amanda</p>
+                                                {{-- <p>Amanda</p> --}}
                                             </div>
                                         </a>
                                     </div>
                                     <div class="col-lg-3 col-sm-6">
-                                        <a href="">
+                                        <a href="https://wa.me/" target="blank_">
                                             <div class="info-box card">
                                                 <i style="color: #128C7E" class="bi bi-whatsapp"></i>
                                                 <h3>WhatsApp</h3>
-                                                <p>Fiana</p>
+                                                {{-- <p>Fiana</p> --}}
                                             </div>
                                         </a>
                                     </div>
@@ -83,7 +83,7 @@
                                 <h4 style="color: #055E68" class="card-title text-center mb-3">Ikuti Kami</h4>
                                 <div class="row">
                                     <div class="col-lg-3 col-sm-6">
-                                        <a href="https://github.com/r-aozora/Pojok-Lelang">
+                                        <a href="https://github.com/r-aozora/Pojok-Lelang" target="blank_">
                                             <div class="info-box card">
                                                 <i style="color: #171515" class="bi bi-github mb-0"></i>
                                                 <h3>GitHub</h3>
@@ -91,7 +91,7 @@
                                         </a>
                                     </div>
                                     <div class="col-lg-3 col-sm-6 ">
-                                        <a href="">
+                                        <a href="" target="blank_">
                                             <div class="info-box card">
                                                 <i style="color:rgb(250,126,30)" class="bi bi-instagram"></i>
                                                 <h3>Instagram</h3>
@@ -99,7 +99,7 @@
                                         </a>
                                     </div>
                                     <div class="col-lg-3 col-sm-6">
-                                        <a href="">
+                                        <a href="" target="blank_">
                                             <div class="info-box card">
                                                 <i style="color:#3b5998" class="bi bi-facebook"></i>
                                                 <h3>Facebook</h3>
@@ -107,7 +107,7 @@
                                         </a>
                                     </div>
                                     <div class="col-lg-3 col-sm-6">
-                                        <a href="">
+                                        <a href="" target="blank_">
                                             <div class="info-box card">
                                                 <i class="bi bi-twitter"></i>
                                                 <h3>Twitter</h3>

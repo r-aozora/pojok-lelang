@@ -14,9 +14,10 @@ class CreateMasyarakatsTable extends Migration
     public function up()
     {
         Schema::create('masyarakat', function (Blueprint $table) {
-            $table->integer('id_user')->primary();
+            $table->id();
             $table->char('telepon', 25);
-            
+
+            $table->unsignedBigInteger('id_user');
             $table->foreign('id_user')->references('id')->on('users');
 
             $table->timestamps();

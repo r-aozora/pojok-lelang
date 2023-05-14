@@ -7,27 +7,14 @@
         <meta name="robots" content="noindex, nofollow">
         <meta content="" name="description">
         <meta content="" name="keywords">
-        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
 
-        <link href="img/brand-logo-new-2.png" rel="icon">
-        <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
-        <link href="https://fonts.gstatic.com" rel="preconnect">
-        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
-        <link href="assets/css/bootstrap.min.css" rel="stylesheet">
-        <link href="assets/css/bootstrap-icons.css" rel="stylesheet">
-        <link href="assets/css/boxicons.min.css" rel="stylesheet">
-        <link href="assets/css/quill.snow.css" rel="stylesheet">
-        <link href="assets/css/quill.bubble.css" rel="stylesheet">
-        <link href="assets/css/remixicon.css" rel="stylesheet">
-        <link href="assets/css/simple-datatables.css" rel="stylesheet">
-        <link href="assets/css/style.css" rel="stylesheet">
+        @include('part.link')
     </head>
-    <style>
+    {{-- <style>
         body {
             font-family: 'Montserrat', sans-serif;
         }
-    </style>
+    </style> --}}
     <body>
         <main>
             <div class="container">
@@ -48,7 +35,7 @@
                                     @csrf
                                     <div class="form-outline col-12 mb-1">
                                         <label for="nama" class="form-label">Nama</label> 
-                                        <input type="text" name="name" class="form-control" id="nama" required value="{{ Session::get('nama') }}" style="border-radius:15px">
+                                        <input type="text" name="nama" class="form-control" id="nama" required value="{{ Session::get('nama') }}" style="border-radius:15px">
                                         <div class="invalid-feedback">Silakan masukkan nama Anda.</div>
                                     </div>
                                     <div class="form-outline col-12 mb-1">
@@ -77,14 +64,6 @@
             </div>
         </main>
         <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>  
-        <script src="assets/js/apexcharts.min.js"></script>
-        <script src="assets/js/bootstrap.bundle.min.js"></script>
-        <script src="assets/js/chart.min.js"></script>
-        <script src="assets/js/echarts.min.js"></script>
-        <script src="assets/js/quill.min.js"></script>
-        <script src="assets/js/simple-datatables.js"></script>
-        <script src="assets/js/tinymce.min.js"></script>
-        <script src="assets/js/validate.js"></script>
-        <script src="assets/js/main.js"></script> 
+        @include('part.script')
     </body>
 </html>

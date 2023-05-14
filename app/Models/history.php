@@ -13,25 +13,25 @@ class History extends Model
     protected $table = 'history';
 
     protected $fillable = [
-        'id_history',
-        'id_lelang',
-        'id_barang',
-        'id_user',
+        'id',
+        // 'id_lelang',
+        // 'id_barang',
+        // 'id_masyarakat',
         'penawaran_harga',
     ];
 
-    public function masyarakat() : BelongsTo
+    public function masyarakat()
     {
-        return $this->belongsTo(Masyarakat::class);
+        return $this->belongsTo(Masyarakat::class, 'id_masyarakat');
     }
 
-    public function barang() : BelongsTo
+    public function barang()
     {
-        return $this->belongsTo(Barang::class);
+        return $this->belongsTo(Barang::class, 'id_barang');
     }
     
-    public function lelang() : BelongsTo
+    public function lelang()
     {
-        return $this->belongsTo(Lelang::class);
+        return $this->belongsTo(Lelang::class, 'id_lelang');
     }
 }

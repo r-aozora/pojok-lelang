@@ -26,21 +26,13 @@ class SignupadminController extends Controller
             'nama'=>'required',
             'username'=>'required|unique:users',
             'password'=>'required|min:8',
-            'level'=>'required',
-        ], [
-            'nama.required'=>'Nama Harus Diisi',
-            'username.required'=>'Username Harus Diisi',
-            'username.unique'=>'Silakan Masukkan Username Yang Lain',
-            'password.required'=>'Password Harus Diisi',
-            'password.min'=>'Password Harus 8 Karakter',
-            'level.required'=>'Level Harus Diisi',
         ]);
 
         $data = [
             'nama'=>$request->nama,
             'username'=>$request->username,
             'password'=>Hash::make($request->password),
-            'level'=>$request->level,
+            'level'=>'Administrator',
         ];
         User::create($data);
 
@@ -48,15 +40,10 @@ class SignupadminController extends Controller
             'nama'=>$request->nama,
             'username'=>$request->username,
             'password'=>$request->password,
-            'level'=>$request->level,
         ];
 
         if(Auth::attempt($infologin)){
-            if(auth()->user()->level === 'Administrator'){
-                return redirect('admin/dashboard')->with('success', Auth::user()->nama.'Berhasil Log In');
-            } elseif(auth()->user()->level === 'Petugas'){
-                return redirect('petugas/dashboard')->with('success', Auth::user()->nama.'Berhasil Log In');
-            }
+            return redirect('profile')->with('success', Auth::user()->nama.'Berhasil Log In');
         } else {
             return redirect('login')->withErrors('Register Gagal');
         }

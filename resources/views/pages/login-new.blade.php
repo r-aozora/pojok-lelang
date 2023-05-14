@@ -9,11 +9,11 @@
         <meta content="" name="keywords">
         @include('part.link')
     </head>
-    <style>
+    {{-- <style>
         body {
             font-family: 'Montserrat', sans-serif;
         }
-    </style>
+    </style> --}}
     <body>
         <main>
             <div class="container">

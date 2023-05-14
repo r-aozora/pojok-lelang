@@ -14,16 +14,18 @@
         @include('part.link')
     </head>
 
-    <style>
+    {{-- <style>
         body {
             font-family: 'Montserrat', sans-serif;
         }
-    </style>
+    </style> --}}
 
     <body>
         @include('layout.navbar-new')
 
         @include('layout.sidebar-new')
+
+        @include('part.alert')
 
         @yield('content')
 

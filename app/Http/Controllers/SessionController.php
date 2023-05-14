@@ -24,9 +24,6 @@ class SessionController extends Controller
         $request->validate([
             'username'=>'required',
             'password'=>'required'
-        ], [
-            'username.required'=>'Username Harus Diisi',
-            'password.required'=>'Password Harus Diisi',
         ]);
 
         $infologin = [
@@ -56,19 +53,14 @@ class SessionController extends Controller
         $request->validate([
             'nama'=>'required',
             'username'=>'required|unique:users',
-            'password'=>'required|min:8'
-        ], [
-            'nama.required'=>'Nama Harus Diisi',
-            'username.required'=>'Username Harus Diisi',
-            'username.unique'=>'Silakan Masukkan Username Yang Lain',
-            'password.required'=>'Password Harus Diisi',
-            'password.min'=>'Password Harus 8 Karakter',
+            'password'=>'required|min:8',
         ]);
 
         $data = [
             'nama'=>$request->nama,
             'username'=>$request->username,
             'password'=>Hash::make($request->password),
+            'level'=>'Masyarakat',
         ];
         User::create($data);
 

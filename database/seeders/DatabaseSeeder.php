@@ -42,12 +42,21 @@ class DatabaseSeeder extends Seeder
         ]);
 
         DB::table('users')->insert([
-            'id' =>'4',
-            'nama' =>'Fiana Al Mahdiani',
-            'username'=>'fiana',
-            'password'=>Hash::make('12345678'),
-            'level'=>'Masyarakat',
-            'created_at'=>date('Y-m-d H:i:s')
+            'id' => '4',
+            'nama' => 'Fiana Al Mahdyani',
+            'username' => 'fiana',
+            'password' => Hash::make('12345678'),
+            'level' => 'Masyarakat',
+            'created_at' => date('Y-m-d H:i:s')
+        ]);
+
+        DB::table('barang')->insert([
+            'id' => '1',
+            'nama_barang' => 'Rubik GAN 3x3 Magnetic',
+            'harga_awal' => '500000',
+            'deskripsi_barang' => 'Rubik GAN 3x3 Magnetic',
+            'foto' => '',
+            'created_at' => date('Y-m-d H:i:s'),
         ]);
     }
 }
