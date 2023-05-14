@@ -91,9 +91,11 @@ class MasyarakatController extends Controller
     public function show($id)
     {
         $masyarakat = User::where('id', $id)->first();
+        $telepon = $masyarakat->masyarakat->telepon;
 
         return view('masyarakat.detail')->with([
             'masyarakat' => $masyarakat,
+            'telepon' => $telepon,
             'title' => 'Pojok Lelang | Detail Masyarakat',
         ]);
     }

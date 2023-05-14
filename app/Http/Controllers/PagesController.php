@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class PagesController extends Controller
 {
@@ -15,7 +16,11 @@ class PagesController extends Controller
 
     public function profile()
     {
+        // $masyarakat = Auth::user()->id;
+        // $telepon = $masyarakat->masyarakat->telepon;
+        
         return view('pages.profile-new')->with([
+            // 'telepon' => $telepon,
             'title'=>'Pojok Lelang | Your Profile'
         ]);
     }
