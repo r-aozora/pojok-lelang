@@ -36,10 +36,10 @@
                             <table class="table table-bordered">
                                 <thead>
                                     <tr>
-                                        <th scope="col">ID Barang</th>
+                                        <th scope="col">ID</th>
                                         <th scope="col">Nama Barang</th>
                                         <th scope="col">Tanggal</th>
-                                        <th scope="col">Harga Awal</th>
+                                        <th scope="col">Harga</th>
                                         <th scope="col">Lainnya</th>
                                     </tr>
                                 </thead>
@@ -49,7 +49,7 @@
                                             <td><a href="{{ url('barang/'.$item->id) }}">{{ $item->id }}</a></td>
                                             <td><a href="{{ url('barang/'.$item->id) }}">{{ $item->nama_barang }}</a></td>
                                             <td>{{ $item->created_at }}</a></td>
-                                            <td>{{ $item->harga_awal }}</a></td>
+                                            <td>Rp. {{ $item->harga_awal }}</a></td>
                                             <td>
                                                 <a href="{{ url('barang/'.$item->id.'/edit') }}" class="btn btn-sm text-white" style="background-color: #055E68; border-radius: 20px"><i class="bi bi-pencil-square"></i></a>
                                                 <form onsubmit="return confirm('Data Akan Dihapus')" action="{{ url('barang/'.$item->id) }}" method="post" class="d-inline">

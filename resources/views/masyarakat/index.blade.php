@@ -57,7 +57,7 @@
                                             <td><a href="{{ url('masyarakat/'.$item->id) }}">{{ $item->id }}</a></td>
                                             <td><a href="{{ url('masyarakat/'.$item->id) }}">{{ $item->nama }}</a></td>
                                             <td><a href="{{ url('masyarakat/'.$item->id) }}">{{ $item->username }}</a></td>
-                                            <td></td>
+                                            <td>{{ $item->telepon }}</td>
                                             @if (Auth::user()->level === 'Administrator')
                                                 <td>
                                                     <a href="{{ url('masyarakat/'.$item->id.'/edit') }}" class="btn btn-sm text-white" style="background-color: #055E68; border-radius: 20px"><i class="bi bi-pencil-square"></i></a>

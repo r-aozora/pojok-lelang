@@ -41,10 +41,10 @@
                                     <div class="col-lg-3 col-md-4 label">Username</div>
                                     <div class="col-lg-9 col-md-8">{{ $masyarakat->username }}</div>
                                 </div>
-                                {{-- <div class="row mb-3">
-                                    <div class="col-lg-3 col-md-4 label">Password</div>
-                                    <div class="col-lg-9 col-md-8">{{ $masyarakat->password }}</div>
-                                </div> --}}
+                                <div class="row mb-3">
+                                    <div class="col-lg-3 col-md-4 label">Telepon</div>
+                                    <div class="col-lg-9 col-md-8">{{ $telepon }}</div>
+                                </div>
                                 <div class="row mb-3">
                                     <div class="col-lg-3 col-md-4 label">Level</div>
                                     <div class="col-lg-9 col-md-8">{{ $masyarakat->level }}</div>
