@@ -18,7 +18,8 @@ class Tamu
     public function handle(Request $request, Closure $next)
     {
         if(Auth::check()){
-            return redirect('/error-login')->with('success', 'Anda Sudah Log In');
+            toast('Anda Sudah Log In.', 'success');
+            return redirect()->back();
         }
         return $next($request);
     }
