@@ -72,7 +72,9 @@
                                                 @if ($telepon === '')
                                                     <div class="col-lg-9 col-md-8">Belum ditambahkan</div>
                                                 @else
-                                                    <div class="col-lg-9 col-md-8">{{ $telepon }}</div>
+                                                    
+                                                        <div class="col-lg-9 col-md-8">{{ $telepon }}</div>
+                                                    
                                                 @endif
                                         </div>
                                     @endif
