@@ -44,11 +44,11 @@
                                     <li class="nav-item"> 
                                         <button class="nav-link" data-bs-toggle="tab" data-bs-target="#profile-history">Histori Lelang</button>
                                     </li>
-                                    {{-- @if ($telepon === '') --}}
+                                    @if ($telepon === '')
                                         <li class="nav-item"> 
                                             <button class="nav-link" data-bs-toggle="tab" data-bs-target="#profile-telepon">Telepon</button>
                                         </li>
-                                    {{-- @endif --}}
+                                    @endif
                                 @endif
                             </ul>
                             <div class="tab-content pt-2">
@@ -69,11 +69,11 @@
                                     @if (Auth::user()->level === 'Masyarakat')
                                         <div class="row">
                                             <div class="col-lg-3 col-md-4 label">Telepon</div>
-                                            {{-- @if ($telepon === '') --}}
-                                                <div class="col-lg-9 col-md-8">Belum ditambahkan</div>
-                                            {{-- @else
-                                                <div class="col-lg-9 col-md-8">{{ $telepon }}</div>
-                                            @endif --}}
+                                                @if ($telepon === '')
+                                                    <div class="col-lg-9 col-md-8">Belum ditambahkan</div>
+                                                @else
+                                                    <div class="col-lg-9 col-md-8">{{ $telepon }}</div>
+                                                @endif
                                         </div>
                                     @endif
                                     <div class="row">
@@ -137,11 +137,12 @@
                                                         @endif
                                                                 <a href="{{ url('/lelang') }}">
                                                                     <div class="info-box card">
-                                                                        <i class="bi bi-clipboard-data"></i>
                                                                         @if (Auth::user()->level === 'Administrator')
+                                                                            <i class="bi bi-clipboard-data"></i>
                                                                             <h3>Laporan lelang</h3>
                                                                             <p>Lihat & print laporan lelang.</p>
                                                                         @elseif (Auth::user()->level === 'Petugas')
+                                                                            <i class="bi bi-bar-chart"></i>
                                                                             <h3>Aktivasi Lelang</h3>
                                                                             <p>Kelola data & aktivasi lelang.</p>
                                                                         @endif

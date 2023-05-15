@@ -34,7 +34,7 @@
                                     <label for="id" class="col-md-4 col-lg-3 col-form-label">ID Masyarakat</label>
                                     <div class="col-md-8 col-lg-9"> 
                                         <input name="id" type="number" class="form-control" id="id">
-                                        <div class="invalid-feedback"> Masukkan ID yang valid</div>
+                                        {{-- <div class="invalid-feedback"> Masukkan ID yang valid</div> --}}
                                     </div>
                                 </div>
                                 <div class="row mb-3">

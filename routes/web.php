@@ -28,7 +28,6 @@ Route::get('/', [PagesController::class, 'landing']);
 Route::get('/profile', [PagesController::class, 'profile'])->middleware('User');
 Route::get('/about', [PagesController::class, 'about']);
 Route::get('/error' , [PagesController::class, 'error']);
-Route::get('/error-login' , [PagesController::class, 'error_login']);
 
 // Login
 Route::get('/login', [SessionController::class, 'index'])->middleware('Tamu');
@@ -46,11 +45,11 @@ Route::post('/register-admin/auth', [SignupadminController::class, 'create'])->m
 Route::get('/logout', [SessionController::class, 'logout']);
 
 // Laporan
-Route::get('/laporan', [LaporanController::class, 'index']);
-Route::get('/laporan/print', [LaporanController::class, 'print']);
+Route::get('/laporan', [LaporanController::class, 'index'])->middleware('User');
+Route::get('/laporan/print', [LaporanController::class, 'print'])->middleware('User');
 
 // Telepon
-Route::post('/telepon', [TeleponController::class, 'telepon']);
+Route::post('/telepon', [TeleponController::class, 'telepon'])->middleware('User');
 
 // Controller
 Route::resource('/petugas', PetugasController::class)->middleware('User');
