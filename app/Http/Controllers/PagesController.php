@@ -19,10 +19,9 @@ class PagesController extends Controller
 
     public function profile()
     {
-        $getTelepon = Masyarakat::select('telepon')->where('id_user', Auth::user()->id)->get();
-
-        foreach ($getTelepon as $get)
-            $telepon = $get->telepon;
+        $telepon = User::join('masyarakat', 'users.id', '=', 'masyarakat.id_user')
+            ->select('masyarakat.telepon')
+            ->get();
 
         return view('pages.profile-new')->with([
             'telepon' => $telepon,
