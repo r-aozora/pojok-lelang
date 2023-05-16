@@ -44,23 +44,11 @@
                                     <li class="nav-item">
                                         <button class="nav-link" data-bs-toggle="tab" data-bs-target="#profile-history">Histori Lelang</button>
                                     </li>
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-                                    <li class="nav-item">
-                                        <button class="nav-link" data-bs-toggle="tab" data-bs-target="#profile-telepon">Telepon</button>
-                                    </li>
-=======
->>>>>>> origin/gabisa
                                     @if ($telepon === '')
                                         <li class="nav-item"> 
                                             <button class="nav-link" data-bs-toggle="tab" data-bs-target="#profile-telepon">Telepon</button>
                                         </li>
                                     @endif
-<<<<<<< HEAD
-=======
->>>>>>> fe05938aff688338d977491e53d66f56808c3103
->>>>>>> origin/gabisa
                                 @endif
                             </ul>
                             <div class="tab-content pt-2">
@@ -84,13 +72,7 @@
                                                 @if ($telepon === '')
                                                     <div class="col-lg-9 col-md-8">Belum ditambahkan</div>
                                                 @else
-<<<<<<< HEAD
-                                                    
-                                                        <div class="col-lg-9 col-md-8">{{ $telepon }}</div>
-                                                    
-=======
                                                     <div class="col-lg-9 col-md-8">{{ $telepon }}</div>
->>>>>>> origin/gabisa
                                                 @endif
                                         </div>
                                     @endif
@@ -193,35 +175,15 @@
                                     <p>Anda belum memasukkan nomor telepon. Masukkan nomor telepon untuk melakukan validasi.</p>
                                     <form action="{{ url('/telepon') }}" method="post">
                                         @csrf
-                                        
-                                                <input name="id_user" type="hidden" class="form-control" id="id_user" style="border-radius: 15px" value="{{ Auth::user()->id }}">
-                                            
+                                        <input name="id_user" type="hidden" class="form-control" id="id_user" style="border-radius: 15px" value="{{ Auth::user()->id }}">
                                         <div class="row form-outline mb-3">
                                             <label for="telepon" class="col-md-4 col-lg-3 col-form-label">No. Telepon</label>
-<<<<<<< HEAD
-                                            <div class="col-md-8 col-lg-9"> 
-                                                <input name="telepon" type="text" class="form-control" id="telepon" style="border-radius: 15px" value="{{ Session::get('telepon') }}">
-                                            </div>
-                                        </div>
-                                        <div class="text-center"> 
-                                            <button type="submit" class="btn btn-sm text-white" style="background-color: #055E68; border-radius: 15px">Submit</button>
-=======
-<<<<<<< HEAD
                                             <div class="col-md-8 col-lg-9">
                                                 <input name="telepon" type="number" class="form-control" id="telepon" style="border-radius: 15px">
                                             </div>
                                         </div>
                                         <div class="text-center">
                                             <button type="submit" class="btn text-white" style="background-color: #055E68; border-radius: 15px">Submit</button>
-=======
-                                            <div class="col-md-8 col-lg-9"> 
-                                                <input name="telepon" type="text" class="form-control" id="telepon" style="border-radius: 15px" value="{{ Session::get('telepon') }}">
-                                            </div>
-                                        </div>
-                                        <div class="text-center"> 
-                                            <button type="submit" class="btn btn-sm text-white" style="background-color: #055E68; border-radius: 15px">Submit</button>
->>>>>>> fe05938aff688338d977491e53d66f56808c3103
->>>>>>> origin/gabisa
                                         </div>
                                     </form>
                                 </div>
