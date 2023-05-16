@@ -1,7 +1,7 @@
 @extends('layout.main')
 
 @section('content')
-<main id="main" class="main">
+<main id="main" class="main main-landing">
     <div class="position-relative overflow-hidden p-3 p-md-5 text-white bg-light bimage" style="background-image:url({{ asset('img/lading2.jpg') }}); background-repeat: no-repeat; position:relative;background-size:cover; ">
         <div class="col-md-5 p-lg-5 my-5 judul" >
             <h1 class="display-5 fw-bold">Pojok Lelang</h1>
