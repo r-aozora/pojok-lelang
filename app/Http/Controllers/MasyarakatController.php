@@ -2,12 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Masyarakat;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Session;
-use RealRashid\SweetAlert\Facades\Alert;
 
 class MasyarakatController extends Controller
 {
@@ -26,12 +26,14 @@ class MasyarakatController extends Controller
                 ->orWhere('username', 'like', "%$katakunci%")
                 ->paginate(10);
         } else {
-            $data = DB::table('users')->rightJoin('masyarakat', 'users.id', '=', 'masyarakat.telepon')->get();
-            $masyarakat = User::where('level', 'Masyarakat')->orderBy('id', 'desc')->paginate(10);
+            $masyarakat = User::where('level', 'Masyarakat')
+                            ->leftJoin('masyarakat', 'users.id', '=', 'masyarakat.id_user')
+                            ->select('users.id', 'users.nama', 'users.username', 'masyarakat.telepon')
+                            ->orderBy('id', 'desc')
+                            ->paginate(10);
         }
 
         return view('masyarakat.index')->with([
-            'data' => $data,
             'masyarakat' => $masyarakat,
             'title' => 'Pojok Lelang | Data Masyarakat',
         ]);
@@ -63,7 +65,7 @@ class MasyarakatController extends Controller
         Session::flash('level', $request->level);
 
         $request->validate([
-            'id' => 'required|numeric|unique:users,id',
+            // 'id' => 'required|numeric|unique:users,id',
             'nama' => 'required',
             'username' => 'required|unique:users,username',
             'password' => 'required|min:8',
@@ -79,7 +81,8 @@ class MasyarakatController extends Controller
         ];
 
         User::create($masyarakat);
-        return redirect('/masyarakat')->with('success', 'Data Ditambahkan');
+        toast('Data Ditambahkan','success');
+        return redirect('/masyarakat');
     }
 
     /**
@@ -92,8 +95,14 @@ class MasyarakatController extends Controller
     {
         $masyarakat = User::where('id', $id)->first();
 
+        $getTelepon = Masyarakat::select('telepon')->where('id_user', $id)->get();
+
+        foreach ($getTelepon as $get)
+        $telepon = $get->telepon;
+
         return view('masyarakat.detail')->with([
             'masyarakat' => $masyarakat,
+            'telepon' => $telepon,
             'title' => 'Pojok Lelang | Detail Masyarakat',
         ]);
     }
@@ -136,7 +145,8 @@ class MasyarakatController extends Controller
         ];
 
         User::where('id', $id)->update($masyarakat);
-        return redirect('masyarakat')->with('success', 'Data Diperbarui');
+        toast('Data Diperbarui','success');
+        return redirect('masyarakat');
     }
 
     /**
@@ -148,8 +158,8 @@ class MasyarakatController extends Controller
     public function destroy($id)
     {
         User::where('id', $id)->delete();
-        
-        return redirect('masyarakat')->with('success', 'Data Dihapus');
+        toast('Data Dihapus','success');
+        return redirect('masyarakat');
     }
 }
 ?>

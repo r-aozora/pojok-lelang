@@ -24,9 +24,6 @@ class SessionController extends Controller
         $request->validate([
             'username'=>'required',
             'password'=>'required'
-        ], [
-            'username.required'=>'Username Harus Diisi',
-            'password.required'=>'Password Harus Diisi',
         ]);
 
         $infologin = [
@@ -35,9 +32,11 @@ class SessionController extends Controller
         ];
 
         if(Auth::attempt($infologin)){
-            return redirect('/profile')->with('success', Auth::user()->nama.'Berhasil Log In');
+            toast('Berhasil Log In!','success');
+            return redirect('/profile');
         } else {
-            return redirect('/login')->withErrors('Log In Gagal');
+            toast('Log In Gagal!','warning');
+            return redirect('/login');
         }
     }
 
@@ -56,19 +55,14 @@ class SessionController extends Controller
         $request->validate([
             'nama'=>'required',
             'username'=>'required|unique:users',
-            'password'=>'required|min:8'
-        ], [
-            'nama.required'=>'Nama Harus Diisi',
-            'username.required'=>'Username Harus Diisi',
-            'username.unique'=>'Silakan Masukkan Username Yang Lain',
-            'password.required'=>'Password Harus Diisi',
-            'password.min'=>'Password Harus 8 Karakter',
+            'password'=>'required|min:8',
         ]);
 
         $data = [
             'nama'=>$request->nama,
             'username'=>$request->username,
             'password'=>Hash::make($request->password),
+            'level'=>'Masyarakat',
         ];
         User::create($data);
 
@@ -79,18 +73,19 @@ class SessionController extends Controller
         ];
 
         if(Auth::attempt($infologin)){
-            // return 'sukses';
-            return redirect('profile')->with('success', Auth::user()->nama.'Berhasil Register');
+            toast('Berhasil Register!','success');
+            return redirect('profile');
         } else {
-            // return 'gagal';
-            return redirect('register')->withErrors('Register Gagal');
+            toast('Register Gagal!','warning');
+            return redirect('register');
         }
     }
 
     function logout()
     {
         Auth::logout();
-        return redirect('/')->with('success', 'Berhasil Log Out');
+        toast('Berhasil Log Out!','success');
+        return redirect('/');
     }
 }
 ?>

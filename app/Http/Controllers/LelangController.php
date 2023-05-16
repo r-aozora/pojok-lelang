@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Barang;
 use App\Models\lelang;
 use Illuminate\Http\Request;
 
@@ -17,12 +18,12 @@ class LelangController extends Controller
         $katakunci = $request->katakunci;
 
         if (strlen($katakunci)) {
-            $lelang = lelang::where('id_lelang', 'like', "%$katakunci%")
+            $lelang = lelang::where('id', 'like', "%$katakunci%")
                 ->orWhere('created_at', 'like', "%$katakunci%")
                 ->orWhere('status', 'like', "%$katakunci%")
                 ->paginate(10);
         } else {
-            $lelang = lelang::orderBy('id_lelang', 'desc')->paginate(10);
+            $lelang = lelang::orderBy('id', 'desc')->paginate(10);
         }
 
         return view('lelang.index')->with([
@@ -38,7 +39,14 @@ class LelangController extends Controller
      */
     public function create()
     {
-        //
+        $lelang = Barang::join('lelang', 'barang.id', '=', 'lelang.id_barang')
+            ->select('barang.id', 'barang.nama_barang', 'barang.harga_awal', 'barang.foto')
+            ->get();
+
+        return view('lelang.create')->with([
+            'lelang' => $lelang,
+            'title' => 'Pojok Lelang | Tambah Lelang'
+        ]);
     }
 
     /**

@@ -20,8 +20,8 @@ class User
         if(Auth::check()){
             return $next($request);
         }
-        return redirect('/error-login')
-        //->withErrors('Anda Belum Log In')
+        toast('Anda Belum Log In!', 'warning');
+        return redirect('/login');
         ;
     }
 }

@@ -18,13 +18,13 @@ class BarangController extends Controller
     {
         $katakunci = $request->katakunci;
         if (strlen($katakunci)) {
-            $barang = barang::where('id_barang', 'like', "%$katakunci%")
+            $barang = barang::where('id', 'like', "%$katakunci%")
                 ->orWhere('nama_barang', 'like', "%$katakunci%")
-                ->orWhere('create_at', 'like', "%$katakunci%")
+                ->orWhere('created_at', 'like', "%$katakunci%")
                 ->orWhere('harga_awal', 'like', "%$katakunci%")
                 ->paginate(10);
         } else {
-            $barang = barang::orderBy('id_barang', 'desc')->paginate(10);
+            $barang = barang::orderBy('id', 'desc')->paginate(10);
         }
         return view('barang.index')->with([
             'barang' => $barang,
@@ -52,16 +52,14 @@ class BarangController extends Controller
      */
     public function store(Request $request)
     {
-        Session::flash('id_barang', $request->id_barang);
+        Session::flash('id', $request->id);
         Session::flash('nama_barang', $request->nama_barang);
         Session::flash('harga_awal', $request->harga_awal);
-        Session::flash('deskripsi_barang', $request->deskripsi_barang);
 
         $request->validate([
-            'id_barang' => 'required|numeric|unique:barang,id_barang',
+            'id' => 'required|numeric|unique:barang,id',
             'nama_barang' => 'required',
             'harga_awal' => 'required|numeric',
-            // 'deskripsi_barang' => 'required',
             'foto' => 'required|mimes:jpeg,jpg,png,gif'
         ]);
 
@@ -71,7 +69,7 @@ class BarangController extends Controller
         $foto_file->move(public_path('img/barang'), $foto_nama);
 
         $barang = [
-            'id_barang' => $request->id_barang,
+            'id' => $request->id,
             'nama_barang' => $request->nama_barang,
             'harga_awal' => $request->harga_awal,
             'deskripsi_barang' => $request->deskripsi_barang,
@@ -79,7 +77,8 @@ class BarangController extends Controller
         ];
 
         Barang::create($barang);
-        return redirect('barang')->with('success', 'Data Ditambahkan');
+        toast('Data Ditambahkan','success');
+        return redirect('barang');
     }
 
     /**
@@ -90,7 +89,7 @@ class BarangController extends Controller
      */
     public function show($id)
     {
-        $barang = Barang::where('id_barang', $id)->first();
+        $barang = Barang::where('id', $id)->first();
 
         return view('barang.detail')->with([
             'barang' => $barang,
@@ -106,7 +105,7 @@ class BarangController extends Controller
      */
     public function edit($id)
     {
-        $barang = barang::where('id_barang', $id)->first();
+        $barang = barang::where('id', $id)->first();
 
         return view('barang.edit')->with([
             'barang' => $barang,
@@ -145,14 +144,15 @@ class BarangController extends Controller
             $foto_nama = date('ymdhis').'.'.$foto_ekstensi;
             $foto_file->move(public_path('img/barang'), $foto_nama);
 
-            $foto_barang = Barang::where('id_barang', $id)->first();
+            $foto_barang = Barang::where('id', $id)->first();
             File::delete(public_path('img/barang').'/'.$foto_barang->foto);
 
             $barang['foto'] = $foto_nama;
         }
 
-        Barang::where('id_barang', $id)->update($barang);
-        return redirect('barang')->with('success', 'Data Diperbarui');
+        Barang::where('id', $id)->update($barang);
+        toast('Data Diperbarui','success');
+        return redirect('barang');
     }
 
     /**
@@ -163,10 +163,11 @@ class BarangController extends Controller
      */
     public function destroy($id)
     {
-        $barang = Barang::where('id_barang', $id)->first();
+        $barang = Barang::where('id', $id)->first();
         File::delete(public_path('img/barang').'/'.$barang->foto);
 
-        Barang::where('id_barang', $id)->delete();
-        return redirect('barang')->with('success', 'Data Dihapus');
+        Barang::where('id', $id)->delete();
+        toast('Data Ditambahkan','success');
+        return redirect('barang');
     }
 }

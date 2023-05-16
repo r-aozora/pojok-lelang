@@ -4,8 +4,6 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\BelongsTo;
-use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Masyarakat extends Model
 {
@@ -13,19 +11,19 @@ class Masyarakat extends Model
 
     protected $table = 'masyarakat';
 
-    protected $fillable = ['id_user', 'telepon'];
+    protected $fillable = ['telepon', 'id_user'];
 
-    public function user() : BelongsTo
+    public function user()
     {
         return $this->belongsTo(User::class);
     }
 
-    public function lelang() : HasMany
+    public function lelang()
     {
         return $this->hasMany(Lelang::class);
     }
     
-    public function history() : HasMany
+    public function history()
     {
         return $this->hasMany(History::class);
     }
