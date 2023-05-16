@@ -21,43 +21,46 @@
             <div class="container">
                 <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
                     <div class="col">
-                        <div class="card shadow-sm" style="background-color: #ffffff">
-                            <img class="bd-placeholder-img card-img-top" width="100%" height="225" src="https://stimg2.cardekho.com/images/carNewsEditorImages/userimages/20210719_160142/27463/oem-name0.jpg?impolicy=resize&imwidth=420" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" /></img>
+                        <div class="card">
+                            <img src="https://static.independent.co.uk/s3fs-public/thumbnails/image/2018/04/07/15/egyptian-mummy.jpg" height="250px" class="card-img-top" alt="...">
                             <div class="card-body">
-                                <p class="card-text mt-3">Giordano</p>
-                                <div class="d-flex justify-content-between align-items-center">
-                                    <div class="btn-group">
-                                        <button type="button" class="btn btn-sm  text-white" style="background-color: #055E68">More</button>
-                                    </div>
+                               <h5 class="card-title">Card with an image on top</h5>
+                               <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                               <div class="d-flex justify-content-between align-items-center">
+                                <div class="btn-group">
+                                    <button type="button" class="btn btn-sm  text-white"style="background-color: #055E68">More</button>
                                 </div>
                             </div>
-                        </div>
+                            </div>
+                         </div>
                     </div>
                     <div class="col">
-                        <div class="card shadow-sm" style="background-color:#ffffff">
-                            <img class="bd-placeholder-img card-img-top" width="100%" height="225" src="https://hips.hearstapps.com/townandcountry/assets/16/14/1954-mercedes-300sl-gullwing-a_1.jpg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" /></img>
+                        <div class="card">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/0/00/1916_Ford_Model_T_touring_car.JPG" height="250px" class="card-img-top" alt="...">
                             <div class="card-body">
-                                <p class="card-text mt-3 ">Zeros</p>
-                                <div class="d-flex justify-content-between align-items-center">
-                                    <div class="btn-group">
-                                        <button type="button" class="btn btn-sm text-white" style="background-color: #055E68">More</button>
-                                    </div>
+                               <h5 class="card-title">Card with an image on top</h5>
+                               <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                               <div class="d-flex justify-content-between align-items-center">
+                                <div class="btn-group">
+                                    <button type="button" class="btn btn-sm  text-white"style="background-color: #055E68">More</button>
                                 </div>
                             </div>
-                        </div>
+                            </div>
+                         </div>
                     </div>
                     <div class="col">
-                        <div class="card shadow-sm" style="background-color: #ffffff">
-                            <img class="bd-placeholder-img card-img-top" width="100%" height="225" src="https://upload.wikimedia.org/wikipedia/commons/7/72/Ramses_I_Mummy.jpg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" /></img>
+                        <div class="card">
+                            <img src="https://www.sciencenews.org/wp-content/uploads/2016/02/022316_bb_est-dress_free.jpg" height="250px" class="card-img-top" alt="...">
                             <div class="card-body">
-                                <p class="card-text mt-3">Sauce</p>
-                                <div class="d-flex justify-content-between align-items-center">
-                                    <div class="btn-group">
-                                        <button type="button" class="btn btn-sm  text-white"style="background-color: #055E68">More</button>
-                                    </div>
+                               <h5 class="card-title">Card with an image on top</h5>
+                               <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                               <div class="d-flex justify-content-between align-items-center">
+                                <div class="btn-group">
+                                    <button type="button" class="btn btn-sm  text-white"style="background-color: #055E68">More</button>
                                 </div>
                             </div>
-                        </div>
+                            </div>
+                         </div>
                     </div>
                 </div>
             </div>
@@ -67,11 +70,12 @@
     <div class="px-4 py-5 my-5 text-center">
         <h2 class="mb-5 text">About Us</h2>
         <div class="col-lg-6 mx-auto">
-            <p class="lead mb-4">An Real-time Auction Site for Everyone.</p>
+            <p class="lead mb-4">Pojok Lelang merupakan website lelang online yang ideal bagi semua orang untuk menemukan barang-barang impian mereka dengan mudah, aman, dan efisien.</p>
             <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
-                <li class="ms-3" style="list-style:none"><a class="text-muted" style="font-size: 30px" href="https://github.com/r-aozora"><i class="bi bi-github"></i></a></li>
-                <li class="ms-3" style="list-style:none"><a class="text-muted" style="font-size: 30px" href="https://github.com/codezeros18"><i class="bi bi-github"></i></a></li>
-                <li class="ms-3" style="list-style:none"><a class="text-muted" style="font-size: 30px" href="https://github.com/cykmila"><i class="bi bi-github"></i></i></a></li>
+                <li class="ms-3" style="list-style:none"><a class="text-muted" style="font-size: 30px" href="https://github.com/r-aozora"><i style="color: #171515" class="bi bi-github mb-0"></i></a></li>
+                <li class="ms-3" style="list-style:none"><a class="text-muted" style="font-size: 30px" href="https://github.com/codezeros18"><i style="color:rgb(250,126,30)" class="bi bi-instagram"></i></a></li>
+                <li class="ms-3" style="list-style:none"><a class="text-muted" style="font-size: 30px" href="https://github.com/cykmila"><i style="color:#3b5998" class="bi bi-facebook"></i></a></li>
+                <li class="ms-3" style="list-style:none"><a class="text-muted" style="font-size: 30px" href="https://github.com/cykmila"><i style="color: #1DA1F2" class="bi bi-twitter"></i></a></li>
             </div>
         </div>
     </div>
