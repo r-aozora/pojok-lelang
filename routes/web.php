@@ -27,7 +27,6 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [PagesController::class, 'landing']);
 Route::get('/profile', [PagesController::class, 'profile'])->middleware('User');
 Route::get('/about', [PagesController::class, 'about']);
-Route::get('/error' , [PagesController::class, 'error']);
 
 // Login
 Route::get('/login', [SessionController::class, 'index'])->middleware('Tamu');

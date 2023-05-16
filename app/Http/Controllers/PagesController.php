@@ -36,11 +36,4 @@ class PagesController extends Controller
             'title' => 'Pojok lelang | About'
         ]);
     }
-
-    public function error()
-    {
-        return view('pages.error-page', [
-            'title' => 'Error'
-        ]);
-    }
 }
