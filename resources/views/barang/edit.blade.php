@@ -30,12 +30,12 @@
                     <div class="card">
                         <div class="card-body pt-3">
                             <h5 class="card-title">Edit Data</h5>
-                            <form action="{{ url('barang/'.$barang->id_barang) }}" method="post" enctype="multipart/form-data">
+                            <form action="{{ url('barang/'.$barang->id) }}" method="post" enctype="multipart/form-data">
                                 @csrf
                                 @method('put')
                                 <div class="row mb-3">
                                     <div class="col-lg-3 col-md-4 label ">ID barang</div>
-                                    <div class="col-lg-9 col-md-8">{{ $barang->id_barang }}</div>
+                                    <div class="col-lg-9 col-md-8">{{ $barang->id }}</div>
                                 </div>
                                 <div class="row mb-3">
                                     <label for="nama_barang" class="col-md-4 col-lg-3 col-form-label">Nama barang</label>

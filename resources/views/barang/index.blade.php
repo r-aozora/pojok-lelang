@@ -36,23 +36,23 @@
                             <table class="table table-bordered">
                                 <thead>
                                     <tr>
-                                        <th scope="col">ID Barang</th>
+                                        <th scope="col">ID</th>
                                         <th scope="col">Nama Barang</th>
                                         <th scope="col">Tanggal</th>
-                                        <th scope="col">Harga Awal</th>
+                                        <th scope="col">Harga</th>
                                         <th scope="col">Lainnya</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     @foreach ($barang as $item)
                                         <tr>
-                                            <td><a href="{{ url('barang/'.$item->id_barang) }}">{{ $item->id_barang }}</a></td>
-                                            <td><a href="{{ url('barang/'.$item->id_barang) }}">{{ $item->nama_barang }}</a></td>
+                                            <td><a href="{{ url('barang/'.$item->id) }}">{{ $item->id }}</a></td>
+                                            <td><a href="{{ url('barang/'.$item->id) }}">{{ $item->nama_barang }}</a></td>
                                             <td>{{ $item->created_at }}</a></td>
-                                            <td>{{ $item->harga_awal }}</a></td>
+                                            <td>Rp. {{ $item->harga_awal }}</a></td>
                                             <td>
-                                                <a href="{{ url('barang/'.$item->id_barang.'/edit') }}" class="btn btn-sm text-white" style="background-color: #055E68; border-radius: 20px"><i class="bi bi-pencil-square"></i></a>
-                                                <form onsubmit="return confirm('Data Akan Dihapus')" action="{{ url('barang/'.$item->id_barang) }}" method="post" class="d-inline">
+                                                <a href="{{ url('barang/'.$item->id.'/edit') }}" class="btn btn-sm text-white" style="background-color: #055E68; border-radius: 20px"><i class="bi bi-pencil-square"></i></a>
+                                                <form onsubmit="return confirm('Data Akan Dihapus')" action="{{ url('barang/'.$item->id) }}" method="post" class="d-inline">
                                                     @csrf
                                                     @method('DELETE')
                                                     <button type="submit" class="btn btn-sm text-white" style="background-color: #055E68; border-radius: 20px" role="button"><i class="bi bi-trash"></i></button>

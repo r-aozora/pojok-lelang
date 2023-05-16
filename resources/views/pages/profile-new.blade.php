@@ -44,9 +44,17 @@
                                     <li class="nav-item">
                                         <button class="nav-link" data-bs-toggle="tab" data-bs-target="#profile-history">Histori Lelang</button>
                                     </li>
+<<<<<<< HEAD
                                     <li class="nav-item">
                                         <button class="nav-link" data-bs-toggle="tab" data-bs-target="#profile-telepon">Telepon</button>
                                     </li>
+=======
+                                    @if ($telepon === '')
+                                        <li class="nav-item"> 
+                                            <button class="nav-link" data-bs-toggle="tab" data-bs-target="#profile-telepon">Telepon</button>
+                                        </li>
+                                    @endif
+>>>>>>> fe05938aff688338d977491e53d66f56808c3103
                                 @endif
                             </ul>
                             <div class="tab-content pt-2">
@@ -64,14 +72,14 @@
                                         <div class="col-lg-3 col-md-4 label">Username</div>
                                         <div class="col-lg-9 col-md-8">{{ Auth::user()->username }}</div>
                                     </div>
-                                    {{-- <div class="row">
-                                        <div class="col-lg-3 col-md-4 label">Password</div>
-                                        <div class="col-lg-9 col-md-8">{{ Auth::user()->password }}</div>
-                                    </div> --}}
                                     @if (Auth::user()->level === 'Masyarakat')
                                         <div class="row">
                                             <div class="col-lg-3 col-md-4 label">Telepon</div>
-                                            <div class="col-lg-9 col-md-8">0123456789</div>
+                                                @if ($telepon === '')
+                                                    <div class="col-lg-9 col-md-8">Belum ditambahkan</div>
+                                                @else
+                                                    <div class="col-lg-9 col-md-8">{{ $telepon }}</div>
+                                                @endif
                                         </div>
                                     @endif
                                     <div class="row">
@@ -135,11 +143,12 @@
                                                         @endif
                                                                 <a href="{{ url('/lelang') }}">
                                                                     <div class="info-box card">
-                                                                        <i class="bi bi-clipboard-data"></i>
                                                                         @if (Auth::user()->level === 'Administrator')
+                                                                            <i class="bi bi-clipboard-data"></i>
                                                                             <h3>Laporan lelang</h3>
                                                                             <p>Lihat & print laporan lelang.</p>
                                                                         @elseif (Auth::user()->level === 'Petugas')
+                                                                            <i class="bi bi-bar-chart"></i>
                                                                             <h3>Aktivasi Lelang</h3>
                                                                             <p>Kelola data & aktivasi lelang.</p>
                                                                         @endif
@@ -170,15 +179,28 @@
                                 <div class="tab-pane fade profile-menu" id="profile-telepon">
                                     <h5 class="card-title">Info Telepon</h5>
                                     <p>Anda belum memasukkan nomor telepon. Masukkan nomor telepon untuk melakukan validasi.</p>
-                                    <form>
+                                    <form action="{{ url('/telepon') }}" method="post">
+                                        @csrf
+                                        
+                                                <input name="id_user" type="hidden" class="form-control" id="id_user" style="border-radius: 15px" value="{{ Auth::user()->id }}">
+                                            
                                         <div class="row form-outline mb-3">
                                             <label for="telepon" class="col-md-4 col-lg-3 col-form-label">No. Telepon</label>
+<<<<<<< HEAD
                                             <div class="col-md-8 col-lg-9">
                                                 <input name="telepon" type="number" class="form-control" id="telepon" style="border-radius: 15px">
                                             </div>
                                         </div>
                                         <div class="text-center">
                                             <button type="submit" class="btn text-white" style="background-color: #055E68; border-radius: 15px">Submit</button>
+=======
+                                            <div class="col-md-8 col-lg-9"> 
+                                                <input name="telepon" type="text" class="form-control" id="telepon" style="border-radius: 15px" value="{{ Session::get('telepon') }}">
+                                            </div>
+                                        </div>
+                                        <div class="text-center"> 
+                                            <button type="submit" class="btn btn-sm text-white" style="background-color: #055E68; border-radius: 15px">Submit</button>
+>>>>>>> fe05938aff688338d977491e53d66f56808c3103
                                         </div>
                                     </form>
                                 </div>

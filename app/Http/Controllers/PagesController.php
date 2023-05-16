@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Masyarakat;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class PagesController extends Controller
 {
@@ -15,7 +18,13 @@ class PagesController extends Controller
 
     public function profile()
     {
+        $getTelepon = Masyarakat::select('telepon')->where('id_user', Auth::user()->id)->get();
+
+        foreach ($getTelepon as $get)
+        $telepon = $get->telepon;
+        
         return view('pages.profile-new')->with([
+            'telepon' => $telepon,
             'title'=>'Pojok Lelang | Your Profile'
         ]);
     }
@@ -30,13 +39,6 @@ class PagesController extends Controller
     public function error()
     {
         return view('pages.error-page', [
-            'title' => 'Error'
-        ]);
-    }
-
-    public function error_login()
-    {
-        return view('pages.error-login', [
             'title' => 'Error'
         ]);
     }

@@ -43,9 +43,11 @@ class SignupadminController extends Controller
         ];
 
         if(Auth::attempt($infologin)){
-            return redirect('profile')->with('success', Auth::user()->nama.'Berhasil Log In');
+            toast('Berhasil Register!','warning');
+            return redirect('profile');
         } else {
-            return redirect('login')->withErrors('Register Gagal');
+            toast('Register Gagal!','warning');
+            return redirect('login');
         }
     }
 }
