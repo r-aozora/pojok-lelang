@@ -32,28 +32,40 @@
                     <div class="card">
                         <div class="card-body pt-3">
                             <ul class="nav nav-tabs nav-tabs-bordered">
-                                <li class="nav-item"> 
+                                <li class="nav-item">
                                     <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#profile-overview">Overview</button>
                                 </li>
                                 @if (Auth::user()->level === 'Administrator' || Auth::user()->level === 'Petugas')
-                                    <li class="nav-item"> 
+                                    <li class="nav-item">
                                         <button class="nav-link" data-bs-toggle="tab" data-bs-target="#profile-menu">Menu</button>
                                     </li>
                                 @endif
                                 @if (Auth::user()->level === 'Masyarakat')
-                                    <li class="nav-item"> 
+                                    <li class="nav-item">
                                         <button class="nav-link" data-bs-toggle="tab" data-bs-target="#profile-history">Histori Lelang</button>
                                     </li>
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+                                    <li class="nav-item">
+                                        <button class="nav-link" data-bs-toggle="tab" data-bs-target="#profile-telepon">Telepon</button>
+                                    </li>
+=======
+>>>>>>> origin/gabisa
                                     @if ($telepon === '')
                                         <li class="nav-item"> 
                                             <button class="nav-link" data-bs-toggle="tab" data-bs-target="#profile-telepon">Telepon</button>
                                         </li>
                                     @endif
+<<<<<<< HEAD
+=======
+>>>>>>> fe05938aff688338d977491e53d66f56808c3103
+>>>>>>> origin/gabisa
                                 @endif
                             </ul>
                             <div class="tab-content pt-2">
                                 <div class="tab-pane fade show active profile-overview" id="profile-overview">
-                                    <h5 class="card-title">Profile Details</h5>
+                                    <h5 style="color: #055E68" class="card-title">Profile Details</h5>
                                     <div class="row">
                                         <div class="col-lg-3 col-md-4 label ">ID</div>
                                         <div class="col-lg-9 col-md-8">{{ Auth::user()->id }}</div>
@@ -72,9 +84,13 @@
                                                 @if ($telepon === '')
                                                     <div class="col-lg-9 col-md-8">Belum ditambahkan</div>
                                                 @else
+<<<<<<< HEAD
                                                     
                                                         <div class="col-lg-9 col-md-8">{{ $telepon }}</div>
                                                     
+=======
+                                                    <div class="col-lg-9 col-md-8">{{ $telepon }}</div>
+>>>>>>> origin/gabisa
                                                 @endif
                                         </div>
                                     @endif
@@ -92,7 +108,7 @@
                                                 <div class="row">
                                                     @if (Auth::user()->level === 'Administrator' || Auth::user()->level === 'Petugas')
                                                         @if (Auth::user()->level === 'Administrator')
-                                                            <div class="col-lg-3">    
+                                                            <div class="col-lg-3">
                                                         @elseif (Auth::user()->level === 'Petugas')
                                                             <div class="col-lg-4">
                                                         @endif
@@ -120,7 +136,7 @@
                                                             </div>
                                                         @endif
                                                         @if (Auth::user()->level === 'Administrator')
-                                                            <div class="col-lg-3">    
+                                                            <div class="col-lg-3">
                                                         @elseif (Auth::user()->level === 'Petugas')
                                                             <div class="col-lg-4">
                                                         @endif
@@ -133,7 +149,7 @@
                                                                 </a>
                                                             </div>
                                                         @if (Auth::user()->level === 'Administrator')
-                                                            <div class="col-lg-3">    
+                                                            <div class="col-lg-3">
                                                         @elseif (Auth::user()->level === 'Petugas')
                                                             <div class="col-lg-4">
                                                         @endif
@@ -182,12 +198,30 @@
                                             
                                         <div class="row form-outline mb-3">
                                             <label for="telepon" class="col-md-4 col-lg-3 col-form-label">No. Telepon</label>
+<<<<<<< HEAD
                                             <div class="col-md-8 col-lg-9"> 
                                                 <input name="telepon" type="text" class="form-control" id="telepon" style="border-radius: 15px" value="{{ Session::get('telepon') }}">
                                             </div>
                                         </div>
                                         <div class="text-center"> 
                                             <button type="submit" class="btn btn-sm text-white" style="background-color: #055E68; border-radius: 15px">Submit</button>
+=======
+<<<<<<< HEAD
+                                            <div class="col-md-8 col-lg-9">
+                                                <input name="telepon" type="number" class="form-control" id="telepon" style="border-radius: 15px">
+                                            </div>
+                                        </div>
+                                        <div class="text-center">
+                                            <button type="submit" class="btn text-white" style="background-color: #055E68; border-radius: 15px">Submit</button>
+=======
+                                            <div class="col-md-8 col-lg-9"> 
+                                                <input name="telepon" type="text" class="form-control" id="telepon" style="border-radius: 15px" value="{{ Session::get('telepon') }}">
+                                            </div>
+                                        </div>
+                                        <div class="text-center"> 
+                                            <button type="submit" class="btn btn-sm text-white" style="background-color: #055E68; border-radius: 15px">Submit</button>
+>>>>>>> fe05938aff688338d977491e53d66f56808c3103
+>>>>>>> origin/gabisa
                                         </div>
                                     </form>
                                 </div>
