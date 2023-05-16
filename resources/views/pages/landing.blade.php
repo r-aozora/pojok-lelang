@@ -1,12 +1,13 @@
 @extends('layout.main')
 
 @section('content')
-    <div class="position-relative overflow-hidden p-3 p-md-5 text-white bg-light bimage" style="background-image:url('https://media.istockphoto.com/id/1209088835/photo/back-view-of-buyers-raising-hands-to-auctioneer-during-auction.jpg?s=612x612&w=0&k=20&c=OKZMX3No-OcsyCIMB2ibwKVoIx3M-fyor4MvCq2de80='); background-repeat: no-repeat; position:relative;background-size:cover; ">
+<main id="main" class="main">
+    <div class="position-relative overflow-hidden p-3 p-md-5 text-white bg-light bimage" style="background-image:url({{ asset('img/lading2.jpg') }}); background-repeat: no-repeat; position:relative;background-size:cover; ">
         <div class="col-md-5 p-lg-5 my-5 judul" >
-            <h1 class="display-4 fw-normal">Pojok Lelang</h1>
+            <h1 class="display-5 fw-bold">Pojok Lelang</h1>
             <p class="lead fw-normal mt-3">An Real-time Auction Site for Everyone.</p>
-            <a class="btn text-white" href="#" style="background-color: #055E68 ;border-radius: 10px">Products</a>
-            <a class="btn text-white" href="#" style="background-color: #055E68 ;border-radius: 10px">Mulai Lelang</a>
+            <a class="btn text-white" href="{{ url('/galery') }}" style="background-color: #055E68 ;border-radius: 20px">Products</a>
+            <a class="btn text-white" href="{{ url('/galery') }}" style="background-color: #055E68 ;border-radius: 20px">Mulai Lelang</a>
         </div>
         </div>
             <div class="product-device shadow-sm d-none d-md-block"></div>
@@ -74,4 +75,5 @@
             </div>
         </div>
     </div>
+</main>
 @endsection
