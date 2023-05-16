@@ -13,12 +13,11 @@ class Lelang extends Model
 
     protected $fillable = [
         'id',
-        // 'id_barang',
-        'tanggal_lelang',
-        'harga_akhir',
+        'id_barang',
+        // 'harga_akhir',
         // 'id_masyarakat',
-        // 'id_petugas',
-        'status',
+        'id_petugas',
+        // 'status',
     ];
 
     public function masyarakat()
@@ -35,7 +34,7 @@ class Lelang extends Model
     {
         return $this->belongsTo(Barang::class);
     }
-    
+
     public function history()
     {
         return $this->hasOne(History::class);

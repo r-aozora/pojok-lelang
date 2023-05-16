@@ -69,10 +69,11 @@
                                     @if (Auth::user()->level === 'Masyarakat')
                                         <div class="row">
                                             <div class="col-lg-3 col-md-4 label">Telepon</div>
-                                                @if ($telepon === '')
+                                                @if ($telepon === null)
                                                     <div class="col-lg-9 col-md-8">Belum ditambahkan</div>
                                                 @else
                                                     <div class="col-lg-9 col-md-8">{{ $telepon }}</div>
+                                                    {{-- @dump($telepon) --}}
                                                 @endif
                                         </div>
                                     @endif

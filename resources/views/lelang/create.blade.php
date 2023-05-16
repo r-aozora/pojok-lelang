@@ -6,9 +6,9 @@
             <h1>Profile</h1>
             <nav>
                 <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-                    <li class="breadcrumb-item">Users</li>
-                    <li class="breadcrumb-item active">Profile</li>
+                    <li class="breadcrumb-item"><a href="{{ url('/') }}">Home</a></li>
+                    <li class="breadcrumb-item">Lelang</li>
+                    <li class="breadcrumb-item active">Aktivasi Lelang</li>
                 </ol>
             </nav>
         </div>
@@ -25,18 +25,23 @@
                     <div class="card">
                         <div class="card-body pt-3">
                             <h5 class="card-title">Tambah Lelang</h5>
-                            <form action="{{ url('/lelang') }}" method="post" enctype="multipart/form-data">
+                            <form action="{{ url('/lelang') }}" method="post">
                                 @csrf
                                 <div class="row mb-3">
-                                    <label for="barang" class="col-md-4 col-lg-3 col-form-label">Barang</label>
+                                    <label for="id_barang" class="col-md-4 col-lg-3 col-form-label">Barang</label>
                                     <div class="col-md-8 col-lg-9">
-                                        <select name="barang" class="form-select" id="barang" required>
-                                            @foreach ($lelang as $item)
-                                                <option value="{{ $item->nama_barang }}">{{ $item->nama_barang }}</option>
+                                        <select name="id_barang" class="form-select" id="id_barang" required>
+                                            <option disabled selected>Pilih Barang</option>
+                                            @foreach ($barang as $item)
+                                                <option value="{{ $item->id }}">{{ $item->nama_barang }}</option>
                                             @endforeach
                                         </select>
                                         <div class="invalid-feedback"> Masukkan barang yang valid</div>
                                     </div>
+                                </div>
+                                <input type="hidden" name="id_petugas" id="id_petugas" class="form-control" value="{{ Auth::user()->id }}">
+                                <div class="text-center"> 
+                                    <button type="submit" class="btn btn-sm text-white" style="background-color:#055E68; border-radius:20px"><i class="bi bi-box-arrow-in-down"></i> Simpan</button>
                                 </div>
                             </form>
                         </div>

@@ -39,12 +39,14 @@ class LelangController extends Controller
      */
     public function create()
     {
-        $lelang = Barang::join('lelang', 'barang.id', '=', 'lelang.id_barang')
-            ->select('barang.id', 'barang.nama_barang', 'barang.harga_awal', 'barang.foto')
-            ->get();
+        // $lelang = lelang::join('barang', 'barang.id', '=', 'lelang.id_barang')
+        //     ->select('barang.id', 'barang.nama_barang', 'barang.harga_awal', 'barang.foto')
+        //     ->get();
+
+        $barang = Barang::all();
 
         return view('lelang.create')->with([
-            'lelang' => $lelang,
+            'barang' => $barang,
             'title' => 'Pojok Lelang | Tambah Lelang'
         ]);
     }
@@ -57,7 +59,33 @@ class LelangController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // $barang = Barang::all();
+        // // $barang = lelang::join('barang', 'barang.id', '=', 'lelang.id_barang')
+        // //     ->select('barang.harga_awal')
+        // //     ->get();
+
+        $request->validate([
+            'id_barang' => 'required',
+            'id_petugas',
+            'harga_akhir' => 'exists:barang,harga_awal',
+        ]);
+
+        // $lelang = [
+        //     'id_barang' => $request->id_barang,
+        //     'id_petugas' => $request->id_petugas,
+        //     'harga_akhir' => $barang->harga_akhir,
+        // ];
+
+        $lelang = new lelang();
+        $lelang->id_barang = $request->input('id_barang');
+        $lelang->id_petugas = $request->input('id_petugas');
+        $lelang->harga_akhir = $request->input('harga_akhir');
+        $lelang->id_masyarakat = null;
+        $lelang->save();
+
+        // lelang::create($lelang);
+        toast('Lelang Ditambahkan', 'success');
+        return redirect('/lelang');
     }
 
     /**

@@ -65,7 +65,7 @@ class BarangController extends Controller
 
         $foto_file = $request->file('foto');
         $foto_ekstensi = $foto_file->extension();
-        $foto_nama = date('ymdhis').'.'.$foto_ekstensi;
+        $foto_nama = date('ymdhis') . '.' . $foto_ekstensi;
         $foto_file->move(public_path('img/barang'), $foto_nama);
 
         $barang = [
@@ -77,7 +77,7 @@ class BarangController extends Controller
         ];
 
         Barang::create($barang);
-        toast('Data Ditambahkan','success');
+        toast('Data Ditambahkan', 'success');
         return redirect('barang');
     }
 
@@ -134,24 +134,24 @@ class BarangController extends Controller
             'deskripsi_barang' => $request->input('deskripsi_barang'),
         ];
 
-        if($request->hasFile('foto')){
+        if ($request->hasFile('foto')) {
             $request->validate([
-                'foto'=>'mimes:jpeg,jpg,png,gif'
+                'foto' => 'mimes:jpeg,jpg,png,gif'
             ]);
 
             $foto_file = $request->file('foto');
             $foto_ekstensi = $foto_file->extension();
-            $foto_nama = date('ymdhis').'.'.$foto_ekstensi;
+            $foto_nama = date('ymdhis') . '.' . $foto_ekstensi;
             $foto_file->move(public_path('img/barang'), $foto_nama);
 
             $foto_barang = Barang::where('id', $id)->first();
-            File::delete(public_path('img/barang').'/'.$foto_barang->foto);
+            File::delete(public_path('img/barang') . '/' . $foto_barang->foto);
 
             $barang['foto'] = $foto_nama;
         }
 
         Barang::where('id', $id)->update($barang);
-        toast('Data Diperbarui','success');
+        toast('Data Diperbarui', 'success');
         return redirect('barang');
     }
 
@@ -164,10 +164,10 @@ class BarangController extends Controller
     public function destroy($id)
     {
         $barang = Barang::where('id', $id)->first();
-        File::delete(public_path('img/barang').'/'.$barang->foto);
+        File::delete(public_path('img/barang') . '/' . $barang->foto);
 
         Barang::where('id', $id)->delete();
-        toast('Data Ditambahkan','success');
+        toast('Data Dihapus', 'success');
         return redirect('barang');
     }
 }
