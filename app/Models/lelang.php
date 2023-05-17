@@ -16,8 +16,15 @@ class Lelang extends Model
         'id_barang',
         // 'harga_akhir',
         // 'id_masyarakat',
-        'id_petugas',
+        // 'id_petugas',
         // 'status',
+    ];
+
+    protected $attributes = [
+        'id_masyarakat' => null,
+        'id_petugas' => null,
+        'harga_akhir' => 0,
+        'status' => '0',
     ];
 
     public function masyarakat()
