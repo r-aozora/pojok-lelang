@@ -62,7 +62,9 @@
                                             </td>
                                             <td>
                                                 @if ($item->harga_akhir === 0)
-                                                    -
+                                                    {{ $item->harga_awal }}
+                                                @else
+                                                    {{ $item->harga_akhir }}
                                                 @endif
                                             </td>
                                             <td>

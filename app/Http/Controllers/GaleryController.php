@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Lelang;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 
 class GaleryController extends Controller
 {
@@ -14,15 +14,15 @@ class GaleryController extends Controller
      */
     public function index()
     {
-        if(Auth::user()->level === 'Administrator' || Auth::user()->level === 'Petugas'){
-            return view('lelang.index')->with([
-                'title' => 'Pojok Lelang | Aktivasi Lelang',
-            ]);
-        } else {
-            return view('lelang.masyarakat.galeri')->with([
-                'title' => 'Pojok Lelang | Galeri Lelang',
-            ]);
-        }
+        $lelang = Lelang::where('status', 'Dibuka')
+            ->join('barang', 'barang.id', '=', 'lelang.id_barang')
+            ->select('lelang.id', 'lelang.created_at', 'lelang.harga_akhir', 'barang.id', 'barang.nama_barang', 'barang.harga_awal', 'barang.foto')
+            ->get();
+
+        return view('lelang.masyarakat.galeri')->with([
+            'lelang' => $lelang,
+            'title' => 'Pojok Lelang | Galeri Lelang',
+        ]);
     }
 
     /**
