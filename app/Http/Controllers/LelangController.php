@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Barang;
 use App\Models\lelang;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class LelangController extends Controller
 {
@@ -23,7 +24,10 @@ class LelangController extends Controller
                 ->orWhere('status', 'like', "%$katakunci%")
                 ->paginate(10);
         } else {
-            $lelang = lelang::orderBy('id', 'desc')->paginate(10);
+            $lelang = lelang::join('barang', 'barang.id', '=', 'lelang.id_barang')
+                ->select('barang.nama_barang', 'lelang.id', 'lelang.created_at', 'lelang.id_masyarakat', 'lelang.harga_akhir', 'lelang.status')
+                ->orderBy('id', 'desc')
+                ->paginate(10);
         }
 
         return view('lelang.index')->with([
@@ -39,10 +43,6 @@ class LelangController extends Controller
      */
     public function create()
     {
-        // $lelang = lelang::join('barang', 'barang.id', '=', 'lelang.id_barang')
-        //     ->select('barang.id', 'barang.nama_barang', 'barang.harga_awal', 'barang.foto')
-        //     ->get();
-
         $barang = Barang::all();
 
         return view('lelang.create')->with([
@@ -59,31 +59,18 @@ class LelangController extends Controller
      */
     public function store(Request $request)
     {
-        // $barang = Barang::all();
-        // // $barang = lelang::join('barang', 'barang.id', '=', 'lelang.id_barang')
-        // //     ->select('barang.harga_awal')
-        // //     ->get();
-
         $request->validate([
             'id_barang' => 'required',
-            'id_petugas',
-            'harga_akhir' => 'exists:barang,harga_awal',
+            // 'id_petugas',
         ]);
 
-        // $lelang = [
-        //     'id_barang' => $request->id_barang,
-        //     'id_petugas' => $request->id_petugas,
-        //     'harga_akhir' => $barang->harga_akhir,
-        // ];
+        $lelang = [
+            'id_barang' => $request->id_barang,
+            'id_petugas' => Auth::user()->id,
+            // $request->id_petugas,
+        ];
 
-        $lelang = new lelang();
-        $lelang->id_barang = $request->input('id_barang');
-        $lelang->id_petugas = $request->input('id_petugas');
-        $lelang->harga_akhir = $request->input('harga_akhir');
-        $lelang->id_masyarakat = null;
-        $lelang->save();
-
-        // lelang::create($lelang);
+        lelang::create($lelang);
         toast('Lelang Ditambahkan', 'success');
         return redirect('/lelang');
     }
@@ -107,7 +94,12 @@ class LelangController extends Controller
      */
     public function edit($id)
     {
-        //
+        $lelang = lelang::where('id', $id)->first();
+
+        return view('lelang.edit')->with([
+            'lelang' => $lelang,
+            'title' => 'Pojok Lelang | Tambah Lelang'
+        ]);
     }
 
     /**
@@ -119,8 +111,17 @@ class LelangController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
-    }
+        $request->validate([
+            'status' => 'required',
+        ]);
+
+        $lelang = [
+            'status' => $request->status,
+        ];
+
+        lelang::where('id', $id)->update($lelang);
+        toast('Lelang Dibuka', 'success');
+        return redirect('/lelang');    }
 
     /**
      * Remove the specified resource from storage.
@@ -130,6 +131,8 @@ class LelangController extends Controller
      */
     public function destroy($id)
     {
-        //
+        lelang::where('id', $id)->delete();
+        toast('Data Dihapus','success');
+        return redirect('/lelang');
     }
 }

@@ -52,14 +52,22 @@
                                 <tbody>
                                     @foreach ($lelang as $item)
                                         <tr>
-                                            <td><a href="{{ url('lelang/'.$item->id) }}">{{ $item->id }}</a></td>
-                                            <td><a href="{{ url('lelang/'.$item->id) }}">{{ $item->nama_barang }}</a></td>
+                                            <td>{{ $item->id }}</a></td>
+                                            <td>{{ $item->nama_barang }}</a></td>
                                             <td>{{ $item->created_at }}</td>
-                                            <td>{{ $item->id_masyarakat }}</td>
-                                            <td>{{ $item->harga_akhir }}</td>
                                             <td>
-                                                @if ($item->status === '')
-                                                    Lelang Belum Dibuka
+                                                @if ($item->id_masyarakat === '0')
+                                                    -
+                                                @endif
+                                            </td>
+                                            <td>
+                                                @if ($item->harga_akhir === 0)
+                                                    -
+                                                @endif
+                                            </td>
+                                            <td>
+                                                @if ($item->status === '0')
+                                                    Belum Dibuka
                                                 @elseif ($item->status === 'Dibuka')
                                                     Lelang Dibuka
                                                 @elseif ($item->status === 'Ditutup')
