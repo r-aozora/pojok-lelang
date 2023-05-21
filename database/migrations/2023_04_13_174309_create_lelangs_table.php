@@ -16,8 +16,8 @@ class CreateLelangsTable extends Migration
         Schema::create('lelang', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('id_barang');
-            $table->char('harga_tawar');
-            $table->char('harga_akhir')->default(null);
+            $table->char('harga_tawar')->nullable()->default(null);
+            $table->char('harga_akhir')->nullable()->default(null);
             $table->unsignedBigInteger('id_masyarakat')->nullable()->default(null);
             $table->unsignedBigInteger('id_petugas')->nullable()->default(null);
             $table->enum('status', ['0', 'Dibuka', 'Ditutup'])->default('0');
@@ -25,8 +25,8 @@ class CreateLelangsTable extends Migration
             $table->timestamps();
             
             $table->foreign('id_barang')->references('id')->on('barang');
-            $table->foreign('id_masyarakat')->references('id')->on('masyarakat');
-            $table->foreign('id_petugas')->references('id')->on('petugas');
+            $table->foreign('id_masyarakat')->references('id')->on('users');
+            $table->foreign('id_petugas')->references('id')->on('users');
         });
     }
 

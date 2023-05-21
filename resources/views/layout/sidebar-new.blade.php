@@ -84,9 +84,9 @@
                 </li>
             @elseif (Auth::user()->level === 'Masyarakat')
                 <li class="nav-item">
-                    <a class="nav-link collapsed" href="{{ url('/galery') }}">
+                    <a class="nav-link collapsed" href="{{ url('/gallery') }}">
                         <i class="bi bi-cart"></i>
-                        <span style="color: #055E68">Galeri Lelang</span>
+                        <span style="color: #055E68">Gallery Lelang</span>
                     </a>
                 </li>
                 <li class="nav-item">
@@ -99,9 +99,9 @@
             <li class="nav-heading">Others</li>
         @else
             <li class="nav-item">
-                <a class="nav-link collapsed" href="{{ url('/galery') }}">
+                <a class="nav-link collapsed" href="{{ url('/gallery') }}">
                     <i class="bi bi-cart"></i>
-                    <span style="color: #055E68">Galeri Lelang</span>
+                    <span style="color: #055E68">Gallery Lelang</span>
                 </a>
             </li>
         @endif

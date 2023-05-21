@@ -25,7 +25,7 @@ class LelangController extends Controller
                 ->paginate(10);
         } else {
             $lelang = lelang::join('barang', 'barang.id', '=', 'lelang.id_barang')
-                ->select('barang.nama_barang', 'lelang.id', 'lelang.created_at', 'lelang.id_masyarakat', 'lelang.harga_akhir', 'lelang.status')
+                ->select('barang.nama_barang', 'barang.harga_awal', 'lelang.id', 'lelang.created_at', 'lelang.id_masyarakat', 'lelang.harga_akhir', 'lelang.status')
                 ->orderBy('id', 'desc')
                 ->paginate(10);
         }
@@ -61,12 +61,12 @@ class LelangController extends Controller
     {
         $request->validate([
             'id_barang' => 'required',
-            // 'id_petugas',
+            'id_petugas',
         ]);
 
         $lelang = [
             'id_barang' => $request->id_barang,
-            'id_petugas' => Auth::user()->id,
+            'id_petugas' => $request->id_petugas,
             // $request->id_petugas,
         ];
 

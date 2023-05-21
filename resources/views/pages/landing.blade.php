@@ -6,8 +6,7 @@
         <div class="col-md-5 p-lg-5 my-5 judul" >
             <h1 class="display-5 fw-bold">Pojok Lelang</h1>
             <p class="lead fw-normal mt-3">An Real-time Auction Site for Everyone.</p>
-            <a class="btn text-white" href="{{ url('/galery') }}" style="background-color: #055E68 ;border-radius: 20px">Products</a>
-            <a class="btn text-white" href="{{ url('/galery') }}" style="background-color: #055E68 ;border-radius: 20px">Mulai Lelang</a>
+            <a class="btn text-white" href="{{ url('/gallery') }}" style="background-color: #055E68 ;border-radius: 20px">Mulai Lelang</a>
         </div>
         </div>
             <div class="product-device shadow-sm d-none d-md-block"></div>
@@ -16,8 +15,8 @@
     </div>
 
     <div>
-        <h2 class="position-relative overflow-hidden text-center mt-5" >Products</h2>
-        <div class="album py-5 ">
+        <h2 class="position-relative overflow-hidden text-center mt-5">Produk Unggulan</h2>
+        <div class="album py-5">
             <div class="container">
                 <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
                     <div class="col">
@@ -67,13 +66,13 @@
         </div>
     </div>
 
-    <div class="px-4 py-5 my-5 text-center">
-        <h2 class="mb-5 text">About Us</h2>
+    <div class="px-3 py-1 my-1 text-center">
+        <h2 class="mb-5 text">Tentang Kami</h2>
         <div class="col-lg-6 mx-auto">
             <p class="lead mb-4">Pojok Lelang merupakan website lelang online yang ideal bagi semua orang untuk menemukan barang-barang impian mereka dengan mudah, aman, dan efisien.</p>
             <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
                 <li class="ms-3" style="list-style:none"><a class="text-muted" style="font-size: 30px" href="https://github.com/r-aozora"><i style="color: #171515" class="bi bi-github mb-0"></i></a></li>
-                <li class="ms-3" style="list-style:none"><a class="text-muted" style="font-size: 30px" href="https://github.com/codezeros18"><i style="color:rgb(250,126,30)" class="bi bi-instagram"></i></a></li>
+                <li class="ms-3" style="list-style:none"><a class="text-muted" style="font-size: 30px" href="https://github.com/codezeros18"><i style="color: #C13584" class="bi bi-instagram"></i></a></li>
                 <li class="ms-3" style="list-style:none"><a class="text-muted" style="font-size: 30px" href="https://github.com/cykmila"><i style="color:#3b5998" class="bi bi-facebook"></i></a></li>
                 <li class="ms-3" style="list-style:none"><a class="text-muted" style="font-size: 30px" href="https://github.com/cykmila"><i style="color: #1DA1F2" class="bi bi-twitter"></i></a></li>
             </div>

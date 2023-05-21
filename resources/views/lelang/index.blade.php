@@ -56,24 +56,32 @@
                                             <td>{{ $item->nama_barang }}</a></td>
                                             <td>{{ $item->created_at }}</td>
                                             <td>
-                                                @if ($item->id_masyarakat === '0')
-                                                    -
+                                                @if ($item->id_masyarakat === null)
+                                                    Belum ada Pemenang
+                                                @else
+                                                    {{ $item->id_masyarakat }}
                                                 @endif
                                             </td>
                                             <td>
-                                                @if ($item->harga_akhir === 0)
-                                                    {{ $item->harga_awal }}
+                                                @if ($item->harga_akhir === null)
+                                                    Rp {{ $item->harga_awal }}
                                                 @else
-                                                    {{ $item->harga_akhir }}
+                                                    Rp {{ $item->harga_akhir }}
                                                 @endif
                                             </td>
                                             <td>
                                                 @if ($item->status === '0')
-                                                    Belum Dibuka
+                                                    <button class="btn btn-sm btn-secondary">
+                                                        Belum Dibuka
+                                                    </button>
                                                 @elseif ($item->status === 'Dibuka')
-                                                    Lelang Dibuka
+                                                    <button class="btn btn-sm text-white" style="background-color: #055E68">
+                                                        Lelang Dibuka
+                                                    </button>
                                                 @elseif ($item->status === 'Ditutup')
-                                                    Lelang Ditutup
+                                                    <button class="btn btn-sm btn-secondary">
+                                                        Lelang Ditutup
+                                                    </button>
                                                 @endif
                                             </td>
                                             <td>

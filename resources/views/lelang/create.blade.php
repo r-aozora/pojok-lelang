@@ -27,6 +27,7 @@
                             <h5 class="card-title">Tambah Lelang</h5>
                             <form action="{{ url('/lelang') }}" method="post">
                                 @csrf
+                                <input type="hidden" name="id_petugas" id="id_petugas" class="form-control" value="{{ Auth::user()->id }}">
                                 <div class="row mb-3">
                                     <label for="id_barang" class="col-md-4 col-lg-3 col-form-label">Barang</label>
                                     <div class="col-md-8 col-lg-9">
@@ -39,7 +40,6 @@
                                         <div class="invalid-feedback"> Masukkan barang yang valid</div>
                                     </div>
                                 </div>
-                                <input type="hidden" name="id_petugas" id="id_petugas" class="form-control" value="{{ Auth::user()->id }}">
                                 <div class="text-center"> 
                                     <button type="submit" class="btn btn-sm text-white" style="background-color:#055E68; border-radius:20px"><i class="bi bi-box-arrow-in-down"></i> Simpan</button>
                                 </div>

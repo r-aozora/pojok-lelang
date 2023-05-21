@@ -56,5 +56,13 @@ class DatabaseSeeder extends Seeder
             'foto' => '',
             'created_at' => date('Y-m-d H:i:s'),
         ]);
+        DB::table('barang')->insert([
+            'id' => '2',
+            'nama_barang' => 'Lego Minifigure Series 10 Mr. Gold',
+            'harga_awal' => '500000',
+            'deskripsi_barang' => 'Lego Minifigure Series 10 Mr. Gold',
+            'foto' => '',
+            'created_at' => date('Y-m-d H:i:s'),
+        ]);
     }
 }
