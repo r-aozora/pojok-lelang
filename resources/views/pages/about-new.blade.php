@@ -93,7 +93,7 @@
                                     <div class="col-lg-3 col-sm-6 ">
                                         <a href="" target="blank_">
                                             <div class="info-box card">
-                                                <i style="color:rgb(250,126,30)" class="bi bi-instagram"></i>
+                                                <i style="color: #C13584" class="bi bi-instagram"></i>
                                                 <h3>Instagram</h3>
                                             </div>
                                         </a>

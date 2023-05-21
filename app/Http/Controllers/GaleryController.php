@@ -16,7 +16,7 @@ class GaleryController extends Controller
     {
         $lelang = Lelang::where('status', 'Dibuka')
             ->join('barang', 'barang.id', '=', 'lelang.id_barang')
-            ->select('lelang.id', 'lelang.created_at', 'lelang.harga_akhir', 'barang.id', 'barang.nama_barang', 'barang.harga_awal', 'barang.foto')
+            ->select('lelang.id', 'lelang.created_at', 'lelang.harga_akhir', 'barang.nama_barang', 'barang.harga_awal', 'barang.foto')
             ->get();
 
         return view('gallery.index')->with([
@@ -65,7 +65,15 @@ class GaleryController extends Controller
      */
     public function edit($id)
     {
-        //
+        $lelang = Lelang::where('lelang.id', $id)
+            ->join('barang', 'barang.id', '=', 'lelang.id_barang')
+            ->select('lelang.id', 'lelang.created_at', 'lelang.harga_tawar', 'lelang.id_barang', 'lelang.id_masyarakat', 'barang.nama_barang', 'barang.harga_awal', 'barang.deskripsi_barang', 'barang.foto')
+            ->first();
+
+        return view('gallery.edit')->with([
+            'lelang' => $lelang,
+            'title' => 'Pojok Lelang | Detail Lelang'
+        ]);
     }
 
     /**
@@ -77,7 +85,19 @@ class GaleryController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $request->validate([
+            'harga_tawar' => 'required',
+            'id_masyarakat'
+        ]);
+
+        $lelang = [
+            'harga_tawar' => $request->harga_tawar,
+            'id_masyarakat' => $request->id_masyarakat,
+        ];
+
+        lelang::where('id', $id)->update($lelang);
+        toast('Berhasil Melakukan Penawaran', 'success');
+        return view('gallery.edit');
     }
 
     /**

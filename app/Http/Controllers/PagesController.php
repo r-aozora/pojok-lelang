@@ -2,11 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Masyarakat;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\DB;
 
 class PagesController extends Controller
 {
@@ -19,9 +17,10 @@ class PagesController extends Controller
 
     public function profile()
     {
-        $telepon = User::join('masyarakat', 'users.id', '=', 'masyarakat.id_user')
+        $telepon = User::where('users.id', Auth::user()->id)
+            ->join('masyarakat', 'users.id', '=', 'masyarakat.id_user')
             ->select('masyarakat.telepon')
-            ->get();
+            ->first();
 
         return view('pages.profile-new')->with([
             'telepon' => $telepon,
