@@ -14,13 +14,9 @@ class Barang extends Model
     protected $fillable = [
         'id',
         'nama_barang',
-        // 'tanggal',
         'harga_awal',
-        'deskripsi_barang',
         'foto'
     ];
-
-    // protected $nullable = 'deksripsi_barang';
     
     public function lelang()
     {

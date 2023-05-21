@@ -23,7 +23,8 @@ class Lelang extends Model
     protected $attributes = [
         'id_masyarakat' => null,
         'id_petugas' => null,
-        'harga_akhir' => 0,
+        'harga_tawar' => null,
+        'harga_akhir' => null,
         'status' => '0',
     ];
 

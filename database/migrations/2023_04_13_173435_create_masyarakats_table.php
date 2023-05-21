@@ -15,7 +15,7 @@ class CreateMasyarakatsTable extends Migration
     {
         Schema::create('masyarakat', function (Blueprint $table) {
             $table->id();
-            $table->char('telepon', 25);
+            $table->char('telepon');
 
             $table->unsignedBigInteger('id_user');
             $table->foreign('id_user')->references('id')->on('users');

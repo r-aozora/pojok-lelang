@@ -19,7 +19,7 @@ class GaleryController extends Controller
             ->select('lelang.id', 'lelang.created_at', 'lelang.harga_akhir', 'barang.id', 'barang.nama_barang', 'barang.harga_awal', 'barang.foto')
             ->get();
 
-        return view('lelang.masyarakat.galeri')->with([
+        return view('gallery.index')->with([
             'lelang' => $lelang,
             'title' => 'Pojok Lelang | Galeri Lelang',
         ]);
