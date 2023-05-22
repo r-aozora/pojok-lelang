@@ -17,14 +17,4 @@ class Masyarakat extends Model
     {
         return $this->belongsTo(User::class);
     }
-
-    public function lelang()
-    {
-        return $this->hasMany(Lelang::class);
-    }
-    
-    public function history()
-    {
-        return $this->hasMany(History::class);
-    }
 }

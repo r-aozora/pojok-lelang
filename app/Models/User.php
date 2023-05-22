@@ -45,4 +45,14 @@ class User extends Authenticatable
     {
         return $this->hasOne(Masyarakat::class, 'id_user');
     }
+
+    public function lelang()
+    {
+        return $this->hasMany(Lelang::class, 'id_masyarakat');
+    }
+    
+    public function history()
+    {
+        return $this->hasMany(History::class, 'id_masyarakat');
+    }
 }

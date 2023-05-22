@@ -64,5 +64,13 @@ class DatabaseSeeder extends Seeder
             'foto' => '',
             'created_at' => date('Y-m-d H:i:s'),
         ]);
+        DB::table('barang')->insert([
+            'id' => '3',
+            'nama_barang' => 'Manga One Piece Vol 1-10',
+            'harga_awal' => '1000000',
+            'deskripsi_barang' => 'Manga One Piece Vol 1-10',
+            'foto' => '',
+            'created_at' => date('Y-m-d H:i:s'),
+        ]);
     }
 }

@@ -27,10 +27,10 @@ class MasyarakatController extends Controller
                 ->paginate(10);
         } else {
             $masyarakat = User::where('level', 'Masyarakat')
-                            ->leftJoin('masyarakat', 'users.id', '=', 'masyarakat.id_user')
-                            ->select('users.id', 'users.nama', 'users.username', 'masyarakat.telepon')
-                            ->orderBy('id', 'desc')
-                            ->paginate(10);
+                ->leftJoin('masyarakat', 'users.id', '=', 'masyarakat.id_user')
+                ->select('users.id', 'users.nama', 'users.username', 'masyarakat.telepon')
+                ->orderBy('id', 'desc')
+                ->paginate(10);
         }
 
         return view('masyarakat.index')->with([

@@ -56,10 +56,10 @@
                                     <div class="row">
                                         <div class="col-lg-3 col-md-4 label">Harga Saat Ini</div>
                                         <div class="col-lg-9 col-md-8">
-                                            @if ($lelang->harga_tawar === null)
+                                            @if ($lelang->penawaran_harga === null)
                                                 Rp {{ $lelang->harga_awal }}
                                             @else
-                                                Rp {{ $lelang->harga_tawar }}
+                                                Rp {{ $lelang->penawaran_harga }}
                                             @endif
                                         </div>
                                     </div>
@@ -71,19 +71,20 @@
                                 <div class="tab-pane fade profile-menu" id="profile-bid">
                                     <h5 class="card-title">Form Penawaran</h5>
                                     <p>Masukkan harga Anda untuk memenangkan lelang</p>
-                                    <form action="{{ url('gallery/'.$lelang->id) }}" method="post">
+                                    <form action="{{ url('/gallery') }}" method="post">
                                         @csrf
-                                        @method('put')
+                                        <input name="id_lelang" type="hidden" class="form-control" id="id_lelang" value="{{ $lelang->id }}">
+                                        <input name="id_barang" type="hidden" class="form-control" id="id_barang" value="{{ $lelang->id_barang }}">
                                         <input name="id_masyarakat" type="hidden" class="form-control" id="id_masyarakat" value="{{ Auth::user()->id }}">
                                         <div class="row mb-3">
-                                            <label for="harga_tawar" class="col-md-4 col-lg-3 col-form-label">Harga Anda</label>
+                                            <label for="penawaran_harga" class="col-md-4 col-lg-3 col-form-label">Harga Anda</label>
                                             <div class="col-md-8 col-lg-9"> 
-                                                <input name="harga_tawar" type="text" class="form-control" id="harga_tawar">
+                                                <input name="penawaran_harga" type="text" class="form-control" id="penawaran_harga">
                                                 <div class="invalid-feedback"> Masukkan harga yang valid</div>
                                             </div>
                                         </div>
                                         <div class="text-center">
-                                            <a href="" type="submit" class="btn btn-sm text-white" style="background-color: #055E68; border-radius: 15px">Tawar</a>
+                                            <button type="submit" class="btn btn-sm text-white" style="background-color: #055E68; border-radius: 15px">Tawar</button>
                                         </div>
                                     </form>
                                 </div>

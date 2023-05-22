@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\History;
 use App\Models\Lelang;
 use Illuminate\Http\Request;
 
@@ -16,7 +17,19 @@ class GaleryController extends Controller
     {
         $lelang = Lelang::where('status', 'Dibuka')
             ->join('barang', 'barang.id', '=', 'lelang.id_barang')
-            ->select('lelang.id', 'lelang.created_at', 'lelang.harga_akhir', 'barang.nama_barang', 'barang.harga_awal', 'barang.foto')
+            ->leftJoin('history', 'history.id_lelang', '=', 'lelang.id')
+            ->select('lelang.id', 'lelang.created_at', 'barang.nama_barang', 'barang.harga_awal', 'barang.foto', 'history.penawaran_harga')
+            ->where(function ($query) {
+                $query->whereNull('history.id_lelang')
+                    ->orWhere('history.penawaran_harga', function ($subquery) {
+                        $subquery->select('penawaran_harga')
+                            ->from('history')
+                            ->whereColumn('id_lelang', 'lelang.id')
+                            ->orderByDesc('penawaran_harga')
+                            ->limit(1);
+                    });
+            })
+            ->orderBy('lelang.updated_at', 'desc')
             ->get();
 
         return view('gallery.index')->with([
@@ -43,7 +56,23 @@ class GaleryController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'id_lelang' => 'required',
+            'id_barang' => 'required',
+            'id_masyarakat' => 'required',
+            'penawaran_harga' => 'required',
+        ]);
+    
+        $history = [
+            'id_lelang' => $request->id_lelang,
+            'id_barang' => $request->id_barang,
+            'id_masyarakat' => $request->id_masyarakat,
+            'penawaran_harga' => $request->penawaran_harga,
+        ];
+
+        History::create($history);
+        toast('Berhasil Melakukan Penawaran', 'success');
+        return redirect('gallery/'.$request->id_lelang);
     }
 
     /**
@@ -54,7 +83,16 @@ class GaleryController extends Controller
      */
     public function show($id)
     {
-        //
+        $lelang = Lelang::where('lelang.id', $id)
+            ->join('barang', 'barang.id', '=', 'lelang.id_barang')
+            ->leftJoin('history', 'history.id_lelang', '=', 'lelang.id')
+            ->select('lelang.id', 'lelang.created_at', 'lelang.id_barang', 'lelang.id_masyarakat', 'barang.id', 'barang.nama_barang', 'barang.harga_awal', 'barang.deskripsi_barang', 'barang.foto', 'history.penawaran_harga')
+            ->first();
+
+        return view('gallery.detail')->with([
+            'lelang' => $lelang,
+            'title' => 'Pojok Lelang | Detail Lelang'
+        ]);
     }
 
     /**
@@ -65,15 +103,7 @@ class GaleryController extends Controller
      */
     public function edit($id)
     {
-        $lelang = Lelang::where('lelang.id', $id)
-            ->join('barang', 'barang.id', '=', 'lelang.id_barang')
-            ->select('lelang.id', 'lelang.created_at', 'lelang.harga_tawar', 'lelang.id_barang', 'lelang.id_masyarakat', 'barang.nama_barang', 'barang.harga_awal', 'barang.deskripsi_barang', 'barang.foto')
-            ->first();
-
-        return view('gallery.edit')->with([
-            'lelang' => $lelang,
-            'title' => 'Pojok Lelang | Detail Lelang'
-        ]);
+        //
     }
 
     /**
@@ -85,19 +115,7 @@ class GaleryController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $request->validate([
-            'harga_tawar' => 'required',
-            'id_masyarakat'
-        ]);
-
-        $lelang = [
-            'harga_tawar' => $request->harga_tawar,
-            'id_masyarakat' => $request->id_masyarakat,
-        ];
-
-        lelang::where('id', $id)->update($lelang);
-        toast('Berhasil Melakukan Penawaran', 'success');
-        return view('gallery.edit');
+        //
     }
 
     /**
