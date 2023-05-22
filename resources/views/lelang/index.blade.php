@@ -41,7 +41,7 @@
                                         <th scope="col">ID</th>
                                         <th scope="col">Nama Barang</th>
                                         <th scope="col">Tanggal</th>
-                                        <th scope="col">Pemenang</th>
+                                        <th scope="col">ID Pemenang</th>
                                         <th scope="col">Harga Tertinggi</th>
                                         <th scope="col">Status</th>
                                         @if (Auth::user()->level === 'Petugas')
@@ -64,7 +64,11 @@
                                             </td>
                                             <td>
                                                 @if ($item->harga_akhir === null)
-                                                    Rp {{ $item->harga_awal }}
+                                                    @if ($item->penawaran_harga === null)
+                                                        Rp {{ $item->harga_awal }}
+                                                    @else
+                                                        Rp {{ $item->penawaran_harga }}
+                                                    @endif
                                                 @else
                                                     Rp {{ $item->harga_akhir }}
                                                 @endif
