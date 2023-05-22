@@ -4,7 +4,6 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class History extends Model
 {
@@ -14,24 +13,24 @@ class History extends Model
 
     protected $fillable = [
         'id',
-        // 'id_lelang',
-        // 'id_barang',
-        // 'id_masyarakat',
+        'id_lelang',
+        'id_barang',
+        'id_masyarakat',
         'penawaran_harga',
     ];
 
-    public function masyarakat()
+    public function users()
     {
-        return $this->belongsTo(Masyarakat::class, 'id_masyarakat');
+        return $this->belongsTo(User::class);
     }
 
     public function barang()
     {
-        return $this->belongsTo(Barang::class, 'id_barang');
+        return $this->belongsTo(Barang::class);
     }
     
     public function lelang()
     {
-        return $this->belongsTo(Lelang::class, 'id_lelang');
+        return $this->belongsTo(Lelang::class);
     }
 }

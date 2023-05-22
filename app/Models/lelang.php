@@ -14,28 +14,23 @@ class Lelang extends Model
     protected $fillable = [
         'id',
         'id_barang',
-        // 'harga_akhir',
-        // 'id_masyarakat',
         'id_petugas',
-        // 'status',
     ];
 
     protected $attributes = [
         'id_masyarakat' => null,
-        // 'id_petugas' => null,
-        'harga_tawar' => null,
         'harga_akhir' => null,
         'status' => '0',
     ];
 
-    public function masyarakat()
+    public function users()
     {
-        return $this->belongsTo(Masyarakat::class, 'id_masyarakat');
+        return $this->belongsTo(User::class);
     }
 
     public function petugas()
     {
-        return $this->belongsTo(Petugas::class, 'id_petugas');
+        return $this->belongsTo(User::class);
     }
 
     public function barang()
@@ -45,6 +40,6 @@ class Lelang extends Model
 
     public function history()
     {
-        return $this->hasOne(History::class);
+        return $this->hasOne(History::class, 'id_lelang');
     }
 }
