@@ -165,9 +165,30 @@
                                                 <th scope="col">Nama Barang</th>
                                                 <th scope="col">Harga Awal</th>
                                                 <th scope="col">Harga Tertinggi</th>
-                                                <th scope="col">Aksi</th>
+                                                <th scope="col">Status Lelang</th>
+                                                {{-- <th scope="col">Aksi</th> --}}
                                             </tr>
                                         </thead>
+                                        <tbody>
+                                            @foreach ($history as $item)
+                                                <tr>
+                                                    <td>{{ $loop->iteration }}</td>
+                                                    <td>{{ $item->nama_barang }}</td>
+                                                    <td>Rp {{ $item->harga_awal }}</td>
+                                                    <td>Rp {{ $item->penawaran_harga }}</td>
+                                                    <td>
+                                                        @if ($item->penawaran_harga === $item->harga_akhir)
+                                                            Selamat Anda memenangkan lelang
+                                                        @endif
+                                                    </td>
+                                                    {{-- <td>
+                                                        @if ($item->status === 'Dibuka')
+                                                            
+                                                        @endif
+                                                    </td> --}}
+                                                </tr>
+                                            @endforeach
+                                        </tbody>
                                     </table>
                                 </div>
                                 <div class="tab-pane fade profile-menu" id="profile-telepon">
