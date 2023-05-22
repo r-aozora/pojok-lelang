@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Barang;
+use App\Models\History;
 use App\Models\lelang;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -25,7 +26,11 @@ class LelangController extends Controller
                 ->paginate(10);
         } else {
             $lelang = lelang::join('barang', 'barang.id', '=', 'lelang.id_barang')
-                ->select('barang.nama_barang', 'barang.harga_awal', 'lelang.id', 'lelang.created_at', 'lelang.id_masyarakat', 'lelang.harga_akhir', 'lelang.status')
+                ->leftJoin('history', function ($join) {
+                    $join->on('lelang.id', '=', 'history.id_lelang')
+                        ->whereRaw('history.penawaran_harga = (SELECT MAX(penawaran_harga) FROM history WHERE id_lelang = lelang.id)');
+                })
+                ->select('barang.nama_barang', 'barang.harga_awal', 'lelang.id', 'lelang.created_at', 'lelang.id_masyarakat', 'lelang.harga_akhir', 'lelang.status', 'history.penawaran_harga')
                 ->orderBy('id', 'desc')
                 ->paginate(10);
         }
@@ -96,6 +101,14 @@ class LelangController extends Controller
     {
         $lelang = lelang::where('id', $id)->first();
 
+        $harga_akhir = History::where('id_lelang', $id)
+            ->max('penawaran_harga');
+
+        $lelang->harga_akhir = $harga_akhir;
+        $lelang->id_masyarakat = History::where('id_lelang', $id)
+            ->where('penawaran_harga', $harga_akhir)
+            ->value('id_masyarakat');
+
         return view('lelang.edit')->with([
             'lelang' => $lelang,
             'title' => 'Pojok Lelang | Tambah Lelang'
@@ -111,17 +124,36 @@ class LelangController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $request->validate([
-            'status' => 'required',
-        ]);
-
-        $lelang = [
-            'status' => $request->status,
-        ];
+        if (lelang::where('status', 'Dibuka')->exists()) {
+            $request->validate([
+                'id_masyarakat',
+                'harga_akhir',
+                'status' => 'required',
+            ]);
+    
+            $lelang = [
+                'id_masyarakat' => $request->id_masyarakat,
+                'harga_akhir' => $request->harga_akhir,
+                'status' => $request->status,
+            ];
+        } elseif (lelang::where('status', '0')->orWhere('status', 'Ditutup')->exists()){
+            $request->validate([
+                'status' => 'required',
+            ]);
+    
+            $lelang = [
+                'status' => $request->status,
+            ];
+        } 
 
         lelang::where('id', $id)->update($lelang);
-        toast('Lelang Dibuka', 'success');
-        return redirect('/lelang');    }
+        if (lelang::where('status', 'Dibuka')->exists()) {
+            toast('Lelang Berhasil Ditutup', 'success');
+        } elseif (lelang::where('status', '0')->orWhere('status', 'Ditutup')->exists()){
+            toast('Lelang Dibuka', 'success');
+        }
+        return redirect('/lelang');
+    }
 
     /**
      * Remove the specified resource from storage.

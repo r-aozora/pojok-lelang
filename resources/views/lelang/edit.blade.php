@@ -24,25 +24,47 @@
                 <div class="col-xl-8">
                     <div class="card">
                         <div class="card-body pt-3">
-                            <h5 class="card-title">Buka Lelang</h5>
-                            <form action="{{ url('lelang/'.$lelang->id) }}" method="post">
-                                @csrf
-                                @method('PUT')
-                                <div class="row mb-3">
-                                    <label for="status" class="col-md-4 col-lg-3 col-form-label">Buka Lelang</label>
-                                    <div class="col-md-8 col-lg-9">
-                                        <select name="status" class="form-select" id="status" required>
-                                            <option disabled selected>Status</option>
-                                            <option value="Dibuka">Buka Lelang</option>
-                                            <option value="Ditutup">Tutup Lelang</option>
-                                        </select>
-                                        <div class="invalid-feedback"> Masukkan status yang valid</div>
+                            @if ($lelang->status === '0' || $lelang->status === 'Ditutup')
+                                <h5 class="card-title">Buka Lelang</h5>
+                                <form action="{{ url('lelang/'.$lelang->id) }}" method="post">
+                                    @csrf
+                                    @method('PUT')
+                                    <div class="row mb-3">
+                                        <label for="status" class="col-md-4 col-lg-3 col-form-label">Buka Lelang</label>
+                                        <div class="col-md-8 col-lg-9">
+                                            <select name="status" class="form-select" id="status" required>
+                                                <option disabled selected>Status</option>
+                                                <option value="Dibuka">Buka Lelang</option>
+                                            </select>
+                                            <div class="invalid-feedback"> Masukkan status yang valid</div>
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="text-center"> 
-                                    <button type="submit" class="btn btn-sm text-white" style="background-color:#055E68; border-radius:20px"><i class="bi bi-box-arrow-in-down"></i> Simpan</button>
-                                </div>
-                            </form>
+                                    <div class="text-center"> 
+                                        <button type="submit" class="btn btn-sm text-white" style="background-color:#055E68; border-radius:20px"><i class="bi bi-box-arrow-in-down"></i> Simpan</button>
+                                    </div>
+                                </form>
+                            @elseif ($lelang->status === 'Dibuka')
+                                <h5 class="card-title">Tutup Lelang</h5>
+                                <form action="{{ url('lelang/'.$lelang->id) }}" method="post">
+                                    @csrf
+                                    @method('PUT')
+                                    <input type="hidden" name="id_masyarakat" id="id_masyarakat" class="form-control" value="{{ $lelang->id_masyarakat }}">
+                                    <input type="hidden" name="harga_akhir" id="harga_akhir" class="form-control" value="{{ $lelang->harga_akhir }}">
+                                    <div class="row mb-3">
+                                        <label for="status" class="col-md-4 col-lg-3 col-form-label">Buka Lelang</label>
+                                        <div class="col-md-8 col-lg-9">
+                                            <select name="status" class="form-select" id="status" required>
+                                                <option disabled selected>Status</option>
+                                                <option value="Ditutup">Tutup Lelang</option>
+                                            </select>
+                                            <div class="invalid-feedback"> Masukkan status yang valid</div>
+                                        </div>
+                                    </div>
+                                    <div class="text-center"> 
+                                        <button type="submit" class="btn btn-sm text-white" style="background-color:#055E68; border-radius:20px"><i class="bi bi-box-arrow-in-down"></i> Simpan</button>
+                                    </div>
+                                </form>
+                            @endif
                         </div>
                     </div>
                 </div>
