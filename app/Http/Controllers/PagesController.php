@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\History;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -22,8 +23,15 @@ class PagesController extends Controller
             ->select('masyarakat.telepon')
             ->first();
 
+        $history = History::join('barang', 'barang.id', '=', 'history.id_barang')
+            ->leftJoin('lelang', 'lelang.id', '=', 'history.id_lelang')
+            ->select('history.id', 'history.penawaran_harga', 'barang.nama_barang', 'barang.harga_awal', 'lelang.harga_akhir', 'lelang.status')
+            ->where('history.id_masyarakat', Auth::user()->id)
+            ->get();
+
         return view('pages.profile-new')->with([
             'telepon' => $telepon,
+            'history' => $history,
             'title' => 'Pojok Lelang | Your Profile'
         ]);
     }
