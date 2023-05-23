@@ -31,6 +31,16 @@ class LelangController extends Controller
                         ->whereRaw('history.penawaran_harga = (SELECT MAX(penawaran_harga) FROM history WHERE id_lelang = lelang.id)');
                 })
                 ->select('barang.nama_barang', 'barang.harga_awal', 'lelang.id', 'lelang.created_at', 'lelang.id_masyarakat', 'lelang.harga_akhir', 'lelang.status', 'history.penawaran_harga')
+                ->where(function ($query) {
+                    $query->whereNull('history.id_lelang')
+                        ->orWhere('history.penawaran_harga', function ($subquery) {
+                            $subquery->select('penawaran_harga')
+                                ->from('history')
+                                ->whereColumn('id_lelang', 'lelang.id')
+                                ->orderByDesc('penawaran_harga')
+                                ->limit(1);
+                        });
+                })
                 ->orderBy('id', 'desc')
                 ->paginate(10);
         }
@@ -130,26 +140,26 @@ class LelangController extends Controller
                 'harga_akhir',
                 'status' => 'required',
             ]);
-    
+
             $lelang = [
                 'id_masyarakat' => $request->id_masyarakat,
                 'harga_akhir' => $request->harga_akhir,
                 'status' => $request->status,
             ];
-        } elseif (lelang::where('status', '0')->orWhere('status', 'Ditutup')->exists()){
+        } elseif (lelang::where('status', '0')->orWhere('status', 'Ditutup')->exists()) {
             $request->validate([
                 'status' => 'required',
             ]);
-    
+
             $lelang = [
                 'status' => $request->status,
             ];
-        } 
+        }
 
         lelang::where('id', $id)->update($lelang);
         if (lelang::where('status', 'Dibuka')->exists()) {
             toast('Lelang Berhasil Ditutup', 'success');
-        } elseif (lelang::where('status', '0')->orWhere('status', 'Ditutup')->exists()){
+        } elseif (lelang::where('status', '0')->orWhere('status', 'Ditutup')->exists()) {
             toast('Lelang Dibuka', 'success');
         }
         return redirect('/lelang');
@@ -164,7 +174,7 @@ class LelangController extends Controller
     public function destroy($id)
     {
         lelang::where('id', $id)->delete();
-        toast('Data Dihapus','success');
+        toast('Data Dihapus', 'success');
         return redirect('/lelang');
     }
 }

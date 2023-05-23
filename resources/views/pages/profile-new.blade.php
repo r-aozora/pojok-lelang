@@ -178,14 +178,25 @@
                                                     <td>Rp {{ $item->penawaran_harga }}</td>
                                                     <td>
                                                         @if ($item->penawaran_harga === $item->harga_akhir)
-                                                            Selamat Anda memenangkan lelang
+                                                            {{-- Selamat Anda memenangkan lelang --}}
+                                                            <button type="button" class="btn btn-sm text-white" style="background-color: #055E68; border-radius: 15px" data-bs-toggle="modal" data-bs-target="#modalCheckout">Checkout</button>
+                                                            <div class="modal fade" id="modalCheckout" tabindex="-1">
+                                                                <div class="modal-dialog modal-dialog-centered">
+                                                                    <div class="modal-content">
+                                                                        <div class="modal-header">
+                                                                            <h5 class="modal-title">Checkout</h5>
+                                                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                                        </div>
+                                                                        <div class="list-group modal-body">
+                                                                            <p>Pilih kontak Admin untuk checkout</p>
+                                                                            <a href="https://wa.me/+6289513886227" target="blank_" type="button" class="list-group-item list-group-item-action"><i class="bi bi-whatsapp" style="color: #128C7E"></i> Whatsapp</a> 
+                                                                            <a href="https://wa.me/+6281284818862" target="blank_" type="button" class="list-group-item list-group-item-action"><i class="bi bi-whatsapp" style="color: #128C7E"></i> Whatsapp</a> 
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
                                                         @endif
                                                     </td>
-                                                    {{-- <td>
-                                                        @if ($item->status === 'Dibuka')
-                                                            
-                                                        @endif
-                                                    </td> --}}
                                                 </tr>
                                             @endforeach
                                         </tbody>

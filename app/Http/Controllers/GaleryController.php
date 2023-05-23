@@ -17,7 +17,11 @@ class GaleryController extends Controller
     {
         $lelang = Lelang::where('status', 'Dibuka')
             ->join('barang', 'barang.id', '=', 'lelang.id_barang')
-            ->leftJoin('history', 'history.id_lelang', '=', 'lelang.id')
+            // ->leftJoin('history', 'history.id_lelang', '=', 'lelang.id')
+            ->leftJoin('history', function ($join) {
+                $join->on('lelang.id', '=', 'history.id_lelang')
+                    ->whereRaw('history.penawaran_harga = (SELECT MAX(penawaran_harga) FROM history WHERE id_lelang = lelang.id)');
+            })
             ->select('lelang.id', 'lelang.created_at', 'barang.nama_barang', 'barang.harga_awal', 'barang.foto', 'history.penawaran_harga')
             ->where(function ($query) {
                 $query->whereNull('history.id_lelang')
@@ -62,7 +66,7 @@ class GaleryController extends Controller
             'id_masyarakat' => 'required',
             'penawaran_harga' => 'required',
         ]);
-    
+
         $history = [
             'id_lelang' => $request->id_lelang,
             'id_barang' => $request->id_barang,
@@ -72,7 +76,7 @@ class GaleryController extends Controller
 
         History::create($history);
         toast('Berhasil Melakukan Penawaran', 'success');
-        return redirect('gallery/'.$request->id_lelang);
+        return redirect('gallery/' . $request->id_lelang);
     }
 
     /**
@@ -85,8 +89,22 @@ class GaleryController extends Controller
     {
         $lelang = Lelang::where('lelang.id', $id)
             ->join('barang', 'barang.id', '=', 'lelang.id_barang')
-            ->leftJoin('history', 'history.id_lelang', '=', 'lelang.id')
+            // ->leftJoin('history', 'history.id_lelang', '=', 'lelang.id')
+            ->leftJoin('history', function ($join) {
+                $join->on('lelang.id', '=', 'history.id_lelang')
+                    ->whereRaw('history.penawaran_harga = (SELECT MAX(penawaran_harga) FROM history WHERE id_lelang = lelang.id)');
+            })
             ->select('lelang.id', 'lelang.created_at', 'lelang.id_barang', 'lelang.id_masyarakat', 'barang.id', 'barang.nama_barang', 'barang.harga_awal', 'barang.deskripsi_barang', 'barang.foto', 'history.penawaran_harga')
+            ->where(function ($query) {
+                $query->whereNull('history.id_lelang')
+                    ->orWhere('history.penawaran_harga', function ($subquery) {
+                        $subquery->select('penawaran_harga')
+                            ->from('history')
+                            ->whereColumn('id_lelang', 'lelang.id')
+                            ->orderByDesc('penawaran_harga')
+                            ->limit(1);
+                    });
+            })
             ->first();
 
         return view('gallery.detail')->with([

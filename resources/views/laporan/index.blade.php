@@ -34,7 +34,7 @@
                                         <th scope="col">ID Lelang</th>
                                         <th scope="col">Nama Barang</th>
                                         <th scope="col">Tanggal</th>
-                                        <th scope="col">Pemenang</th>
+                                        <th scope="col">ID Pemenang</th>
                                         <th scope="col">Harga Akhir</th>
                                         <th scope="col">Status Lelang</th>
                                     </tr>
@@ -42,12 +42,18 @@
                                 <tbody>
                                     @foreach ($lelang as $item)
                                         <tr>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
+                                            <td>{{ $item->id }}</td>
+                                            <td>{{ $item->nama_barang }}</td>
+                                            <td>{{ $item->created_at }}</td>
+                                            <td>{{ $item->id_masyarakat }}</td>
+                                            <td>Rp {{ $item->penawaran_harga }}</td>
+                                            <td>
+                                                @if ($item->status === 'Ditutup')
+                                                    <button class="btn btn-sm text-white" style="background-color: #055E68">Lelang Selesai</button>
+                                                {{-- @else
+                                                    <button class="btn btn-sm btn-secondary">{{ $item->status }}</button> --}}
+                                                @endif
+                                            </td>
                                         </tr>
                                     @endforeach
                                 </tbody>
