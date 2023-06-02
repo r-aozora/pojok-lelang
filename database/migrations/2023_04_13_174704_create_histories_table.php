@@ -18,7 +18,7 @@ class CreateHistoriesTable extends Migration
             $table->unsignedBigInteger('id_lelang');
             $table->unsignedBigInteger('id_barang');
             $table->unsignedBigInteger('id_masyarakat');
-            $table->char('penawaran_harga')->default(null);
+            $table->unsignedBigInteger('penawaran_harga')->default(null);
             $table->timestamps();
             
             $table->foreign('id_lelang')->references('id')->on('lelang');
