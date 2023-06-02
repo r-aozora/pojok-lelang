@@ -26,11 +26,12 @@ class LelangController extends Controller
                 ->paginate(10);
         } else {
             $lelang = lelang::join('barang', 'barang.id', '=', 'lelang.id_barang')
+                ->leftJoin('users', 'users.id', '=', 'lelang.id_masyarakat')
                 ->leftJoin('history', function ($join) {
                     $join->on('lelang.id', '=', 'history.id_lelang')
                         ->whereRaw('history.penawaran_harga = (SELECT MAX(penawaran_harga) FROM history WHERE id_lelang = lelang.id)');
                 })
-                ->select('barang.nama_barang', 'barang.harga_awal', 'lelang.id', 'lelang.created_at', 'lelang.id_masyarakat', 'lelang.harga_akhir', 'lelang.status', 'history.penawaran_harga')
+                ->select('barang.nama_barang', 'barang.harga_awal', 'lelang.id', 'lelang.created_at', 'users.nama', 'lelang.harga_akhir', 'lelang.status', 'history.penawaran_harga')
                 ->where(function ($query) {
                     $query->whereNull('history.id_lelang')
                         ->orWhere('history.penawaran_harga', function ($subquery) {

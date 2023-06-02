@@ -41,7 +41,7 @@
                                             <th scope="col">ID</th>
                                             <th scope="col">Nama Barang</th>
                                             <th scope="col">Tanggal</th>
-                                            <th scope="col">ID Pemenang</th>
+                                            <th scope="col">Pemenang</th>
                                             <th scope="col">Harga Tertinggi</th>
                                             <th scope="col">Status</th>
                                             @if (Auth::user()->level === 'Petugas')
@@ -56,10 +56,10 @@
                                                 <td>{{ $item->nama_barang }}</a></td>
                                                 <td>{{ $item->created_at }}</td>
                                                 <td>
-                                                    @if ($item->id_masyarakat === null)
+                                                    @if ($item->nama === null)
                                                         Belum ada Pemenang
                                                     @else
-                                                        {{ $item->id_masyarakat }}
+                                                        {{ $item->nama }}
                                                     @endif
                                                 </td>
                                                 <td>
@@ -115,7 +115,7 @@
                                 <tr>
                                     <th scope="col">#</th>
                                     <th scope="col">Nama Barang</th>
-                                    <th scope="col">ID Peserta Lelang Tertinggi</th>
+                                    <th scope="col">Peserta Lelang Tertinggi</th>
                                     <th scope="col">Harga</th>
                                 </tr>
                             </thead>
@@ -125,10 +125,10 @@
                                         <td>{{ $loop->iteration }}</td>
                                         <td>{{ $item->nama_barang }}</td>
                                         <td>
-                                            @if ($item->id_masyarakat === null)
+                                            @if ($item->nama === null)
                                                 -
                                             @else
-                                                {{ $item->id_masyarakat }}
+                                                {{ $item->nama }}
                                             @endif
                                         </td>
                                         <td>

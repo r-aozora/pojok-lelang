@@ -18,22 +18,38 @@ class DatabaseSeeder extends Seeder
         // \App\Models\User::factory(10)->create();
         DB::table('users')->insert([
             'id'=>'1',
-            'nama'=>'Muhamad Citra Hidayat',
-            'username'=>'citrahdy',
-            'password'=>Hash::make('87654321'),
+            'nama'=>'Admin Pojok Lelang',
+            'username'=>'pojoklelangadmin',
+            'password'=>Hash::make('password'),
             'level'=>'Administrator',
             'created_at'=>date('Y-m-d H:i:s')
         ]);
         DB::table('users')->insert([
             'id'=>'2',
-            'nama'=>'Lintang Balakosa Ardhana',
-            'username'=>'lintang',
-            'password'=>Hash::make('87654321'),
+            'nama'=>'Petugas Pojok Lelang',
+            'username'=>'pojoklelangpetugas',
+            'password'=>Hash::make('password'),
             'level'=>'Petugas',
             'created_at'=>date('Y-m-d H:i:s')
         ]);
         DB::table('users')->insert([
             'id'=>'3',
+            'nama'=>'Muhamad Citra Hidayat',
+            'username'=>'citrahdy',
+            'password'=>Hash::make('12345678'),
+            'level'=>'Masyarakat',
+            'created_at'=>date('Y-m-d H:i:s')
+        ]);
+        DB::table('users')->insert([
+            'id'=>'4',
+            'nama'=>'Lintang Balakosa Ardhana',
+            'username'=>'lintang',
+            'password'=>Hash::make('12345678'),
+            'level'=>'Masyarakat',
+            'created_at'=>date('Y-m-d H:i:s')
+        ]);
+        DB::table('users')->insert([
+            'id'=>'5',
             'nama'=>'Amanda Cahya Kamila',
             'username'=>'cykmila',
             'password'=>Hash::make('12345678'),
@@ -41,7 +57,7 @@ class DatabaseSeeder extends Seeder
             'created_at'=>date('Y-m-d H:i:s')
         ]);
         DB::table('users')->insert([
-            'id' => '4',
+            'id' => '6',
             'nama' => 'Fiana Al Mahdyani',
             'username' => 'fianaaa',
             'password' => Hash::make('12345678'),
@@ -58,7 +74,7 @@ class DatabaseSeeder extends Seeder
         ]);
         DB::table('barang')->insert([
             'id' => '2',
-            'nama_barang' => 'Lego Minifigure Series 10 Mr. Gold',
+            'nama_barang' => 'Lego Minifigure Mr. Gold',
             'harga_awal' => '500000',
             'deskripsi_barang' => 'Lego Minifigure Series 10 Mr. Gold',
             'foto' => '',
