@@ -323,8 +323,8 @@
   }
   .nav-tabs-bordered .nav-link.active {
 	background-color: #fff;
-	color: #4154f1;
-	border-bottom: 2px solid #4154f1;
+	color: #055E68;
+	border-bottom: 2px solid #055E68;
   }
 
   /*--------------------------------------------------------------
@@ -432,7 +432,7 @@
 	color: #012970;
   }
   .header-nav .nav-profile {
-	color: #012970;
+	color: #055E68;
   }
   .header-nav .nav-profile img {
 	max-height: 36px;
@@ -929,11 +929,11 @@
   .contact .info-box i {
 	font-size: 38px;
 	line-height: 0;
-	color: #4154f1;
+	color: #055E68;
   }
   .contact .info-box h3 {
 	font-size: 20px;
-	color: #012970;
+	color: #055E68;
 	font-weight: 700;
 	margin: 20px 0 10px 0;
   }
