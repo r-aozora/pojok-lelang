@@ -1,40 +1,70 @@
+![Logo](public/img/brand-logo-new.png)
+
 # Pojok Lelang
 
-## About
+Pojok Lelang merupakan website lelang online yang memungkinkan para penggemar menawar barang untuk dikoleksi.
 
-Pojok Lelang - Sistem Lelang Online Berbasis Web menggunakan Laravel
+## Screenshots
 
-## Mulai Kerja
+![App Screenshot](public/img/Landing%20Page.jpg)
 
-Tutorial ada [di sini](https://youtu.be/BJu1Qcul7ig)
+## Features
 
-### Clone
-- `git clone https://github.com/r-aozora/Pojok-Lelang.git`
-- `cd Pojok-Lelang`
-- `composer install`
-- `cp .env.example .env`
-- `php artisan key:generate`
+- Log In
+- Log Out
+- Register
+- Pendataan Barang
+- Buka dan Tutup Lelang
+- Penawaran
+- Generate Laporan
 
-### Checkout
-- `git checkout -b nama_branch`
+## Run Locally
 
-### Push
-- `git add .`
-- `git commit -m 'nama_commit'`
-- `git push -u origin nama_branch`
+Clone the project
 
-### Pull
-- `git checkout main`
-- `git fetch`
-- `git status`
-- `git pull`
+```bash
+  git clone https://github.com/r-aozora/Pojok-Lelang.git
+```
 
-## Credit
+Go to the project directory
 
-Tim 6
-- [Citra](https://github.com/r-aozora)
-- [Lintang](https://github.com/codezeros18)
-- [Amanda](https://github.com/cykmila)
-- Fiana
+```bash
+  cd Pojok-Lelang
+```
 
-2023
+Install dependencies
+
+```bash
+  composer install
+```
+
+Copy .env.example file
+
+```bash
+  cp .env.example .env
+```
+
+Create database and connect in .env file
+
+```bash
+  DB_DATABASE=pojok_lelang
+```
+
+Run migration
+
+```bash
+  php artisan migrate --seed
+```
+
+Start the server
+
+```bash
+  php artisan key:generate
+  php artisan serve
+```
+
+## Authors
+
+- [@r-aozora](https://github.com/r-aozora)
+- [@codezeros18](https://github.com/codezeros18)
+- [@cykmila](https://github.com/cykmila)
