@@ -1,4 +1,4 @@
-![Logo](public/img/brand-logo-new.png)
+![Logo](public/img/brand-logo-new-3.JPG)
 
 # Pojok Lelang
 
