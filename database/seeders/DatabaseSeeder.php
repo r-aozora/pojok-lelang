@@ -69,7 +69,7 @@ class DatabaseSeeder extends Seeder
             'nama_barang' => 'Rubik GAN 3x3 Magnetic',
             'harga_awal' => '500000',
             'deskripsi_barang' => 'Rubik GAN 3x3 Magnetic',
-            'foto' => '',
+            'foto' => null,
             'created_at' => date('Y-m-d H:i:s'),
         ]);
         DB::table('barang')->insert([
@@ -77,7 +77,7 @@ class DatabaseSeeder extends Seeder
             'nama_barang' => 'Lego Minifigure Mr. Gold',
             'harga_awal' => '500000',
             'deskripsi_barang' => 'Lego Minifigure Series 10 Mr. Gold',
-            'foto' => '',
+            'foto' => null,
             'created_at' => date('Y-m-d H:i:s'),
         ]);
         DB::table('barang')->insert([
@@ -85,7 +85,34 @@ class DatabaseSeeder extends Seeder
             'nama_barang' => 'Manga One Piece Vol 1-10',
             'harga_awal' => '1000000',
             'deskripsi_barang' => 'Manga One Piece Vol 1-10',
-            'foto' => '',
+            'foto' => null,
+            'created_at' => date('Y-m-d H:i:s'),
+        ]);
+        DB::table('lelang')->insert([
+            'id' => '1',
+            'id_barang' => '1',
+            'harga_akhir' => null,
+            'id_masyarakat' => null,
+            'id_petugas' => '2',
+            'status' => 'Dibuka',
+            'created_at' => date('Y-m-d H:i:s'),
+        ]);
+        DB::table('lelang')->insert([
+            'id' => '2',
+            'id_barang' => '2',
+            'harga_akhir' => null,
+            'id_masyarakat' => null,
+            'id_petugas' => '2',
+            'status' => 'Dibuka',
+            'created_at' => date('Y-m-d H:i:s'),
+        ]);
+        DB::table('lelang')->insert([
+            'id' => '3',
+            'id_barang' => '3',
+            'harga_akhir' => null,
+            'id_masyarakat' => null,
+            'id_petugas' => '2',
+            'status' => 'Dibuka',
             'created_at' => date('Y-m-d H:i:s'),
         ]);
     }
