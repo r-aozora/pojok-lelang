@@ -69,7 +69,7 @@ class DatabaseSeeder extends Seeder
             'nama_barang' => 'Rubik GAN 3x3 Magnetic',
             'harga_awal' => '500000',
             'deskripsi_barang' => 'Rubik GAN 3x3 Magnetic',
-            'foto' => null,
+            'foto' => '230602052802.jpg',
             'created_at' => date('Y-m-d H:i:s'),
         ]);
         DB::table('barang')->insert([
@@ -77,7 +77,7 @@ class DatabaseSeeder extends Seeder
             'nama_barang' => 'Lego Minifigure Mr. Gold',
             'harga_awal' => '500000',
             'deskripsi_barang' => 'Lego Minifigure Series 10 Mr. Gold',
-            'foto' => null,
+            'foto' => '230602052825.jpg',
             'created_at' => date('Y-m-d H:i:s'),
         ]);
         DB::table('barang')->insert([
@@ -85,7 +85,7 @@ class DatabaseSeeder extends Seeder
             'nama_barang' => 'Manga One Piece Vol 1-10',
             'harga_awal' => '1000000',
             'deskripsi_barang' => 'Manga One Piece Vol 1-10',
-            'foto' => null,
+            'foto' => '230602052843.jpg',
             'created_at' => date('Y-m-d H:i:s'),
         ]);
         DB::table('lelang')->insert([
