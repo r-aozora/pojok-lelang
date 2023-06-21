@@ -23,7 +23,7 @@
                                         <th scope="col">ID Lelang</th>
                                         <th scope="col">Nama Barang</th>
                                         <th scope="col">Tanggal</th>
-                                        <th scope="col">ID Pemenang</th>
+                                        <th scope="col">Pemenang</th>
                                         <th scope="col">Harga Akhir</th>
                                         <th scope="col">Status</th>
                                     </tr>
@@ -34,7 +34,7 @@
                                             <td>{{ $item->id }}</td>
                                             <td>{{ $item->nama_barang }}</td>
                                             <td>{{ $item->created_at }}</td>
-                                            <td>{{ $item->id_masyarakat }}</td>
+                                            <td>{{ $item->nama }}</td>
                                             <td>Rp {{ $item->penawaran_harga }}</td>
                                             <td>
                                                 @if ($item->status === 'Ditutup')

@@ -12,7 +12,8 @@ class LaporanController extends Controller
         $lelang = Lelang::where('status', 'Ditutup')
             ->join('history', 'history.id_lelang', '=', 'lelang.id')
             ->leftJoin('barang', 'barang.id', '=', 'lelang.id_barang')
-            ->select('lelang.id', 'barang.nama_barang', 'lelang.created_at', 'history.id_masyarakat', 'history.penawaran_harga', 'lelang.status')
+            ->leftJoin('users', 'users.id', '=', 'lelang.id_masyarakat')
+            ->select('lelang.id', 'barang.nama_barang', 'lelang.created_at', 'users.nama', 'history.penawaran_harga', 'lelang.status')
             ->where(function ($query) {
                 $query->whereNull('history.id_lelang')
                     ->orWhere('history.penawaran_harga', function ($subquery) {
@@ -37,7 +38,8 @@ class LaporanController extends Controller
         $lelang = Lelang::where('status', 'Ditutup')
             ->join('history', 'history.id_lelang', '=', 'lelang.id')
             ->leftJoin('barang', 'barang.id', '=', 'lelang.id_barang')
-            ->select('lelang.id', 'barang.nama_barang', 'lelang.created_at', 'history.id_masyarakat', 'history.penawaran_harga', 'lelang.status')
+            ->leftJoin('users', 'users.id', '=', 'lelang.id_masyarakat')
+            ->select('lelang.id', 'barang.nama_barang', 'lelang.created_at', 'users.nama', 'history.penawaran_harga', 'lelang.status')
             ->where(function ($query) {
                 $query->whereNull('history.id_lelang')
                     ->orWhere('history.penawaran_harga', function ($subquery) {
