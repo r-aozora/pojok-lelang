@@ -94,7 +94,7 @@ class GaleryController extends Controller
                 $join->on('lelang.id', '=', 'history.id_lelang')
                     ->whereRaw('history.penawaran_harga = (SELECT MAX(penawaran_harga) FROM history WHERE id_lelang = lelang.id)');
             })
-            ->select('lelang.id', 'lelang.created_at', 'lelang.id_barang', 'lelang.id_masyarakat', 'barang.id', 'barang.nama_barang', 'barang.harga_awal', 'barang.deskripsi_barang', 'barang.foto', 'history.penawaran_harga')
+            ->select('lelang.id', 'lelang.created_at', 'lelang.id_barang', 'lelang.id_masyarakat', 'lelang.status', 'barang.id', 'barang.nama_barang', 'barang.harga_awal', 'barang.deskripsi_barang', 'barang.foto', 'history.penawaran_harga')
             ->where(function ($query) {
                 $query->whereNull('history.id_lelang')
                     ->orWhere('history.penawaran_harga', function ($subquery) {
