@@ -12,7 +12,7 @@ class PagesController extends Controller
 {
     public function landing()
     {
-        if(Lelang::where('lelang.status', 'Dibuka')->orWhere('lelang.status', 'Ditutup')->exists()){
+        if(\App\Models\Lelang::where('lelang.status', 'Dibuka')->orWhere('lelang.status', 'Ditutup')->exists()){
             $product1 = Lelang::where('lelang.id', '1')
                 ->join('barang', 'barang.id', '=', 'lelang.id_barang')
                 // ->leftJoin('history', 'history.id_lelang', '=', 'lelang.id')
