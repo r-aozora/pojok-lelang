@@ -1,0 +1,44 @@
+version: '3'
+
+
+services:
+ web:
+   build:
+     context: .
+   command: sh -c "composer update && php artisan key:generate && php artisan migrate && php artisan serve --host=0.0.0.0 --port=8000"
+   #image: pojok-lelang:v1.0.0
+   environment:
+     DB_HOST: db
+     DB_PORT: 3306
+     DB_DATABASE: pojok_lelang
+     DB_USERNAME: disha
+     DB_PASSWORD: 123456
+
+
+   ports:
+     - 8000:8000
+   restart: unless-stopped
+   volumes:
+     - ./:/var/www/html/
+   # depends_on:
+   #   - db
+
+
+ db:
+   image: mysql:latest
+   environment:
+     MYSQL_PORT: 3306
+     MYSQL_DATABASE: pojok_lelang
+     # MYSQL_USERNAME: disha
+     # MYSQL_PASSWORD: 123456
+     MYSQL_ROOT_PASSWORD: root
+   ports:
+     - "3306:3306"
+   restart: unless-stopped
+   volumes:
+     - pojok-data:/var/lib/mysql
+   command: --default_authentication_plugin=mysql_native_password
+
+
+volumes:
+ pojok-data:
